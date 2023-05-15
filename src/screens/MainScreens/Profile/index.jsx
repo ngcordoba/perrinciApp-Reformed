@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 import React from 'react'
-import ImgBackground from '../../../constants/Background/Background'
+import ImgBackground from '../../../components/Background/Background'
 
 
 const Profile = () => {

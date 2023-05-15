@@ -9,14 +9,12 @@ import { AntDesign } from '@expo/vector-icons';
 import HomeScreen from "../../screens/PetUser/HomeScreen";
 import TakeAWalk from "../../screens/PetUser/TakeAWalk";
 import SelectDogWalker from "../../screens/PetUser/SelectDogWalker"
+import PetProfile from "../../screens/PetUser/UserProfile"
 
 
 // main screens
 import Support from '../../screens/MainScreens/Support';
 import Mas from '../../screens/MainScreens/Mas';
-import Profile from '../../screens/MainScreens/Profile'
-import MyProfile from '../../pages/User/Profile/MyProfile'
-
 
 const Tab = createBottomTabNavigator();
 const HomeStackNavigator = createNativeStackNavigator();
@@ -44,7 +42,7 @@ function MyStack() {
             />
             <HomeStackNavigator.Screen
                 name="Mi Perfil"
-                component={Profile}
+                component={PetProfile}
                 options={{
                     headerBackTitleVisible: false,
 
@@ -88,7 +86,7 @@ function MyTabs() {
 
             <Tab.Screen
                 name="Mi Perfil"
-                component={MyProfile}
+                component={PetProfile}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="person" size='20' color={color} />

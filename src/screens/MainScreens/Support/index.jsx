@@ -1,7 +1,7 @@
 import { Text, SafeAreaView, View } from 'react-native';
 import React from 'react';
-import ImgBackground from '../../../constants/Background/Background';
-import Button from "../../../components/Buttons";
+import ImgBackground from '../../../components/ImgBackground/Background';
+import Button from "../../../components/Button";
 import styles from './style';
 
 

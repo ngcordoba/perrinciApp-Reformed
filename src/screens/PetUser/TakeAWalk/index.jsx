@@ -1,8 +1,8 @@
 import { Text, SafeAreaView, StatusBar, View } from 'react-native';
 import React from 'react';
 import styles from './style';
-import ImgBackground from '../../../constants/Background/Background';
-import Button from '../../../components/Buttons';
+import ImgBackground from '../../../components/ImgBackground/Background';
+import Button from '../../../components/Button';
 import { useNavigation } from '@react-navigation/native'
 
 const TakeAWalk = () => {

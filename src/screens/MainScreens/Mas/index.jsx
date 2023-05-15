@@ -1,6 +1,6 @@
 import { Text, SafeAreaView, StatusBar } from 'react-native'
 import React from 'react'
-import ImgBackground, { BackgroundImage } from '../../../constants/Background/Background'
+import ImgBackground, { BackgroundImage } from '../../../components/ImgBackground/Background'
 
 
 const SettingsScreen = () => {
