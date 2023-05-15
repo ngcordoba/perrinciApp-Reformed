@@ -1,0 +1,130 @@
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Ionicons } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons';
+
+//screens petUser
+import HomeScreen from "../../screens/PetUser/HomeScreen";
+import TakeAWalk from "../../screens/PetUser/TakeAWalk";
+import SelectDogWalker from "../../screens/PetUser/SelectDogWalker"
+
+
+// main screens
+import Support from '../../screens/MainScreens/Support';
+import Mas from '../../screens/MainScreens/Mas';
+import Profile from '../../screens/MainScreens/Profile'
+import MyProfile from '../../pages/User/Profile/MyProfile'
+
+
+const Tab = createBottomTabNavigator();
+const HomeStackNavigator = createNativeStackNavigator();
+
+function MyStack() {
+    return (
+        <HomeStackNavigator.Navigator
+            initialRouteName="Support"
+        >
+            <HomeStackNavigator.Screen
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+            <HomeStackNavigator.Screen
+                name="Más"
+                component={Mas}
+                options={{
+                    headerBackTitleVisible: false,
+
+                }}
+            />
+            <HomeStackNavigator.Screen
+                name="Mi Perfil"
+                component={Profile}
+                options={{
+                    headerBackTitleVisible: false,
+
+                }}
+            />
+
+            <HomeStackNavigator.Screen
+                name="Solicitar paseo"
+                component={TakeAWalk}
+            />
+
+            <HomeStackNavigator.Screen
+                name="Seleccionar paseador"
+                component={SelectDogWalker}
+            />
+
+        </HomeStackNavigator.Navigator>
+    )
+}
+
+function MyTabs() {
+    return (
+        <Tab.Navigator
+            initialRouteName="Home"
+            screenOptions={{
+                tabBarActiveTintColor: "#0984E3",
+                tabBarInactiveTintColor: "black"
+            }}
+        >
+            <Tab.Screen
+                name="Inicio"
+                component={MyStack}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="home" size='20' color={color} />
+                    ),
+                    headerShown: false,
+                }}
+
+            />
+
+            <Tab.Screen
+                name="Mi Perfil"
+                component={MyProfile}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="person" size='20' color={color} />
+                    ),
+                }} />
+
+            <Tab.Screen
+                name="Soporte"
+                component={Support}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <AntDesign name="customerservice" size='20' color={color} />
+                    ),
+                }} />
+
+            <Tab.Screen
+                name="Más"
+                component={Mas}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="apps" size='20' color={color} />
+
+                    ),
+                }} />
+
+
+
+
+        </Tab.Navigator>
+    );
+}
+
+export default function Navigation() {
+    return (
+        <NavigationContainer>
+            <MyTabs />
+        </NavigationContainer>
+    );
+}
