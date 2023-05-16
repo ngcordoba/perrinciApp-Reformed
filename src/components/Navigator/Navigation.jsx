@@ -41,21 +41,22 @@ function MyStack() {
                 }}
             />
             <HomeStackNavigator.Screen
-                name="Mi Perfil"
+                name="MiPerfil"
                 component={PetProfile}
                 options={{
                     headerBackTitleVisible: false,
+
 
                 }}
             />
 
             <HomeStackNavigator.Screen
-                name="Solicitar paseo"
+                name="SolicitarPaseo"
                 component={TakeAWalk}
             />
 
             <HomeStackNavigator.Screen
-                name="Seleccionar paseador"
+                name="SeleccionarPaseador"
                 component={SelectDogWalker}
             />
 
@@ -85,12 +86,13 @@ function MyTabs() {
             />
 
             <Tab.Screen
-                name="Mi Perfil"
+                name="MiPerfil"
                 component={PetProfile}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="person" size='20' color={color} />
                     ),
+                    title: "Mi Perfil"
                 }} />
 
             <Tab.Screen

@@ -19,7 +19,7 @@ const HomeScreen = () => {
       </View>
 
       <Button
-        onPress={() => navigation.navigate("Solicitar paseo")}
+        onPress={() => navigation.navigate("SolicitarPaseo")}
         text={"Quiero un paseo"}>
       </Button>
 
