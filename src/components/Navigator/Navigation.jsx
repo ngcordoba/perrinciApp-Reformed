@@ -9,12 +9,13 @@ import { AntDesign } from '@expo/vector-icons';
 import HomeScreen from "../../screens/PetUser/HomeScreen";
 import TakeAWalk from "../../screens/PetUser/TakeAWalk";
 import SelectDogWalker from "../../screens/PetUser/SelectDogWalker"
-import PetProfile from "../../screens/PetUser/UserProfile"
+import userProfile from "../../screens/PetUser/UserProfile"
+import PetProfile from "../../screens/PetUser/PetProfile";
 
 
 // main screens
 import Support from '../../screens/MainScreens/Support';
-import Mas from '../../screens/MainScreens/Mas';
+import More from '../../screens/MainScreens/Mas';
 
 const Tab = createBottomTabNavigator();
 const HomeStackNavigator = createNativeStackNavigator();
@@ -34,15 +35,15 @@ function MyStack() {
             />
             <HomeStackNavigator.Screen
                 name="Más"
-                component={Mas}
+                component={More}
                 options={{
                     headerBackTitleVisible: false,
-
                 }}
+
             />
             <HomeStackNavigator.Screen
                 name="MiPerfil"
-                component={PetProfile}
+                component={userProfile}
                 options={{
                     headerBackTitleVisible: false,
 
@@ -53,11 +54,30 @@ function MyStack() {
             <HomeStackNavigator.Screen
                 name="SolicitarPaseo"
                 component={TakeAWalk}
+                options={{
+                    title: "Solicitar paseo",
+                    headerBackTitleVisible: false,
+                }}
             />
 
             <HomeStackNavigator.Screen
                 name="SeleccionarPaseador"
                 component={SelectDogWalker}
+                options={{
+                    title: null,
+                    headerBackTitleVisible: false,
+                }}
+
+            />
+
+            <HomeStackNavigator.Screen
+                name="PetProfile"
+                component={PetProfile}
+                options={{
+                    title: null,
+                    headerBackTitleVisible: false,
+                }}
+
             />
 
         </HomeStackNavigator.Navigator>
@@ -87,12 +107,23 @@ function MyTabs() {
 
             <Tab.Screen
                 name="MiPerfil"
-                component={PetProfile}
+                component={userProfile}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="person" size='20' color={color} />
                     ),
                     title: "Mi Perfil"
+                }} />
+
+            <Tab.Screen
+                name="Más"
+                component={More}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <Ionicons name="receipt-outline" size='20' color={color} />
+
+                    ),
+                    title: "Actividad"
                 }} />
 
             <Tab.Screen
@@ -102,17 +133,10 @@ function MyTabs() {
                     tabBarIcon: ({ color }) => (
                         <AntDesign name="customerservice" size='20' color={color} />
                     ),
+                    title: "Soporte"
                 }} />
 
-            <Tab.Screen
-                name="Más"
-                component={Mas}
-                options={{
-                    tabBarIcon: ({ color }) => (
-                        <Ionicons name="apps" size='20' color={color} />
 
-                    ),
-                }} />
 
 
 

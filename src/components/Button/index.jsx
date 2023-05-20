@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     buttonText: {
         color: colors.text.white,
         fontSize: fontSizes.buttonText
+
     }
 
 

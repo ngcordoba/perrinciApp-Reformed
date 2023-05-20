@@ -27,7 +27,7 @@ const TakeAWalk = () => {
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => navigation.navigate("SeleccionarPaseador")}
-            text={"Ver listado"}>
+            text={"Ver listado de paseadores"}>
           </Button>
         </View>
 

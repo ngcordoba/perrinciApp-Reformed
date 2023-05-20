@@ -5,9 +5,9 @@ export const fontWeights = {
 };
 
 export const fontSizes = {
-  title: 30,
+  title: "25%",
   subtitle: 25,
-  text: 20,
-  buttonText: 18,
+  text: "20%",
+  buttonText: "18%",
   body: 18,
 };

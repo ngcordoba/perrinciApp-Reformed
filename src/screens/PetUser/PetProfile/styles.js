@@ -7,6 +7,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
+    namePet: {
+        color: colors.brand.primary,
+        justifyContent: "flex-start"
+    },
+
     textHeader: {
         color: colors.brand.primary,
         fontSize: fontSizes.text,
@@ -16,8 +21,8 @@ const styles = StyleSheet.create({
     photoContainer: {
         alignItems: 'center',
         backgroundColor: "white",
-        height: '20%',
-        width: '40%',
+        height: '22%',
+        width: '35%',
         borderRadius: 20,
         shadowOffset: { width: 0.5, height: 0.5, },
         shadowColor: 'black',
@@ -27,17 +32,28 @@ const styles = StyleSheet.create({
 
     },
 
-    inputContainer: {
+    petInfoContainer: {
         height: "50%",
     },
 
     input: {
         width: 250,
-        height: "15%",
+        height: "18%",
         backgroundColor: colors.brand.secondary,
         margin: 5,
         borderRadius: 15,
         padding: 10,
+    },
+
+    containerPesoRaza: {
+        justifyContent: "space-between",
+        flexDirection: "row",
+        alignItems: "center",
+        backgroundColor: "red"
+    },
+
+    inputPesoRaza: {
+        backgroundColor: colors.brand.secondary,
     },
 
     buttonContainer: {
@@ -46,10 +62,6 @@ const styles = StyleSheet.create({
         marginTop: "15%",
         height: "20%"
     },
-
-
-
-
 
 });
 
