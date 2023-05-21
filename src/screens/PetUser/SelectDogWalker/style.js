@@ -9,21 +9,20 @@ const styles = StyleSheet.create({
 
     textHeader: {
         color: colors.brand.primary,
-        fontSize: fontSizes.text,
+        fontSize: fontSizes.title,
         margin: 40,
     },
 
-    mapContainer: {
+    walkerListContainer: {
         alignItems: 'center',
 
     },
 
-    mapView: {
-        backgroundColor: "white",
+    containerList: {
+        backgroundColor: colors.brand.white,
         height: '75%',
         width: '90%',
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: "flex-start",
         borderRadius: 20,
     },
 

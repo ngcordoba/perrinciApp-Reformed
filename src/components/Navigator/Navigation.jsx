@@ -12,6 +12,9 @@ import SelectDogWalker from "../../screens/PetUser/SelectDogWalker"
 import userProfile from "../../screens/PetUser/UserProfile"
 import PetProfile from "../../screens/PetUser/PetProfile";
 
+// screens dogWalker
+import WalkerProfile from "../../screens/DogWalker/WalkerProfile"
+
 
 // main screens
 import Support from '../../screens/MainScreens/Support';
@@ -77,6 +80,13 @@ function MyStack() {
                     title: null,
                     headerBackTitleVisible: false,
                 }}
+
+            />
+
+            <HomeStackNavigator.Screen
+                name="WalkerProfile"
+                component={WalkerProfile}
+
 
             />
 

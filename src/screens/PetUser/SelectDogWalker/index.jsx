@@ -1,15 +1,32 @@
-import { Text, SafeAreaView, StatusBar, View } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, FlatList } from 'react-native';
+
 import React from 'react';
 import styles from './style';
 import ImgBackground from '../../../components/ImgBackground/Background';
 import Button from '../../../components/Button';
 import { useNavigation } from '@react-navigation/native'
+import { WALKERACTIVES } from '../../../data/walkersActives';
+import ListOfWalkers from '../../../components/ListOfWalkers';
 
-const SelectDogWalker = () => {
-    const navigation = useNavigation();
+const SelectDogWalker = ({ navigation, route }) => {
+
+    const actives = WALKERACTIVES.filter(actives => actives.isActive === true)
+
+    const handleSelectWalker = (item) => {
+        navigation.navigate("WalkerProfile", {
+            name: item.name,
+        });
+    };
+
+    const renderListOfWalkers = ({ item }) => (
+        <View style={styles.listOfWalkers}>
+            <ListOfWalkers item={item} onSelected={handleSelectWalker} />
+        </View>
+    )
+
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, backgroundColor: 'white' }} >
+        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }} >
             <ImgBackground />
             <View style={styles.container}>
                 <Text style={styles.textHeader}>
@@ -17,9 +34,12 @@ const SelectDogWalker = () => {
                 </Text>
             </View>
 
-            <View style={styles.mapContainer}>
-                <View style={styles.mapView}>
-                    <Text>Listado de paseadores </Text>
+            <View style={styles.walkerListContainer}>
+                <View style={styles.containerList}>
+                    <FlatList
+                        data={actives}
+                        renderItem={renderListOfWalkers}
+                        keyExtractor={item => item.id} />
 
                 </View>
 
