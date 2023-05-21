@@ -13,8 +13,10 @@ const SelectDogWalker = ({ navigation, route }) => {
     const actives = WALKERACTIVES.filter(actives => actives.isActive === true)
 
     const handleSelectWalker = (item) => {
-        navigation.navigate("WalkerProfile", {
+        navigation.navigate("ViewWalkerProfile", {
+            walkerInfo: item,
             name: item.name,
+
         });
     };
 

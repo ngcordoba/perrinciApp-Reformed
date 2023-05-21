@@ -14,6 +14,9 @@ import PetProfile from "../../screens/PetUser/PetProfile";
 
 // screens dogWalker
 import WalkerProfile from "../../screens/DogWalker/WalkerProfile"
+import ViewWalkerPofile from "../../components/ViewWalkerProfile"
+
+
 
 
 // main screens
@@ -84,8 +87,11 @@ function MyStack() {
             />
 
             <HomeStackNavigator.Screen
-                name="WalkerProfile"
-                component={WalkerProfile}
+                name="ViewWalkerProfile"
+                component={ViewWalkerPofile}
+                options={({ route }) => ({
+                    title: route.params.name,
+                })}
 
 
             />
