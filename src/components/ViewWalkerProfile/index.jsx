@@ -3,9 +3,12 @@ import Button from '../Button';
 import ImgBackground from '../ImgBackground/Background';
 import { colors } from '../../theme/colors';
 import { fontSizes } from '../../theme/fonts';
+import { useNavigation } from '@react-navigation/native'
 import React from 'react';
 
 const ViewWalkerProfile = ({ route }) => {
+
+    const navigation = useNavigation();
     const actives = route.params.walkerInfo;
 
     return (
@@ -22,7 +25,9 @@ const ViewWalkerProfile = ({ route }) => {
             </View>
 
             <View style={styles.detailsContainer}>
-                <Text style={styles.label}>{actives.name}</Text>
+
+
+                <Text style={styles.label}>{actives.name} {actives.lastName}</Text>
                 <Text style={styles.label}>Calificacion: {actives.score}</Text>
                 <Text style={styles.label}>Paseos completados: {actives.finishedWalks}</Text>
 
@@ -39,8 +44,8 @@ const ViewWalkerProfile = ({ route }) => {
                     </TouchableOpacity>
 
                     <Button
-                        onPress={() => navigation.navigate("HomeScreen")}
-                        text={"Volver al menu"}>
+                        onPress={() => navigation.navigate("SeleccionarPaseador")}
+                        text={"Volver al listado"}>
                     </Button>
                 </View>
 
@@ -85,11 +90,11 @@ const styles = StyleSheet.create({
 
     label: {
         maxWidth: "90%",
-        height: 30,
+        height: "12%",
         fontSize: fontSizes.text,
         marginVertical: 5,
         margin: "10%",
-        alignItems: "center"
+        padding: "5%",
     },
 
     containerList: {

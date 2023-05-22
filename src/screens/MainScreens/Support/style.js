@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 
     text: {
         color: colors.brand.primary,
-        fontSize: fontSizes.subtitle,
+        fontSize: fontSizes.title,
         margin: 40,
     },
 

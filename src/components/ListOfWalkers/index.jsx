@@ -16,7 +16,7 @@ const ListOfWalkers = ({ item, onSelected }) => {
                 />
 
                 <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>{item.name}</Text>
+                    <Text style={styles.nameText}>{item.name} {item.lastName}</Text>
                     <Text style={styles.scoreText}>Calificación: {item.score}</Text>
                 </View>
             </View>

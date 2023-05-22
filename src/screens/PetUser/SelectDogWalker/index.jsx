@@ -4,7 +4,6 @@ import React from 'react';
 import styles from './style';
 import ImgBackground from '../../../components/ImgBackground/Background';
 import Button from '../../../components/Button';
-import { useNavigation } from '@react-navigation/native'
 import { WALKERACTIVES } from '../../../data/walkersActives';
 import ListOfWalkers from '../../../components/ListOfWalkers';
 
@@ -16,7 +15,7 @@ const SelectDogWalker = ({ navigation, route }) => {
         navigation.navigate("ViewWalkerProfile", {
             walkerInfo: item,
             name: item.name,
-
+            lastName: item.lastName,
         });
     };
 
