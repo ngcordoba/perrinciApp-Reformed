@@ -4,7 +4,7 @@ export const WALKERACTIVES = [
         name: "Gabriel",
         lastName: "Cordoba",
         score: 7,
-        img: "https://lh3.googleusercontent.com/uJR_FMIPPKdYc5zO3H9ABFGpzJhBsYvyWUsCNc2dFLz35xpPM5C8xk9mkCnAYxQtbzVkLPbuV6a7lJ2fcwbWbpZYTcCvc5lpFdl4QFqUchN9poMPLhkbOBliOUoxO4VxCFogTWMkrdGs1764JKLyxJ0C0_8P24d2ujH8NuyMIXUdsB3TmmciqR2NKGHw97oaDvv0qY3IqXFh4ysjE9Z45aHe3LV5Byf7Sum_4yaIsHcJoJsjVcL50Cr-d2A3UHdbgkaumuIOnsrbmyqN2S4_-6nFdfJzp2eTGIzBpjoM09Gld0B_Q5HuiXjArqsW5OQomfu92UNWGNPuG5G0cvgA2T_sPWCJ4g7UhxLGe3O5obp0eG5-ITxdNIuYdnIieegFy6Y4l-VXRSNc4qZgV-xH7uTRHmNVsS4qwdpfViFRV90vRhmkNCIPkq7PgJ8yazHBoKFfReG-rThoUanZZlIiqBE04twCei6ITWILE27PkHgk9I58e5qDEWlS9HMm-6UFI3Iw4pLc_GiYriJyCR2M9qNK43OBKwiP_Tum1B7cj-5j7q1JPCWQL_0G376NKHyzju23EHRoaUPAadt12MXz6frZYwxcfj6h9njDhKF_Cm5OXlVq7zro3tn3dNcOgYaz1MPYqac34fubhUduIfk5KLTch7_pPoqfcBoH7QalMm-DXVTAaj4JtSsXEWU0ACWzQ_kcz4fR-6qSz0V8wpZftaxYLUcBU6Oay9bAtylLl9yWYscm7_syxYbqfHSC3YUNPIS_9ebIOlj2kC5wSc6K3k13zzRZyN_7Lp2GNucAlOBhspB1M0UD5RJprT0UUTQqgAHFb3Ap163URfSel98thqiQJXVrgUMC0DGW62kDPDJ-p1McQAiC381VbCxojSXjfaYqJXnCGWMg176Wbm7haY5JL4f4IrkWuSvEKIZICgvVUw=w525-h933-s-no?authuser=0",
+        img: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
         isActive: true,
         finishedWalks: "30"
     },

@@ -1,12 +1,15 @@
 import { Text, SafeAreaView, View } from 'react-native';
 import React from 'react';
-import ImgBackground from '../../../components/ImgBackground/Background';
-import Button from "../../../components/Button";
 import styles from './style';
 
+import { useNavigation } from '@react-navigation/native'
+import ImgBackground from '../../../components/ImgBackground/Background';
+import Button from "../../../components/Button";
 
 
 const Support = () => {
+
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.safeAreaContainer} >
       <ImgBackground />
@@ -19,9 +22,16 @@ const Support = () => {
         <View style={styles.listContainer}>
           <Button
             style={styles.listText}
-            text={"Ayuda"}></Button>
-          <Button style={styles.listText}
-            text={"Acerca de Perrinci"}></Button>
+            text={"Ayuda"}
+            onPress={() => navigation.navigate("Ayuda")}
+          >
+
+          </Button>
+
+          <Button
+            style={styles.listText}
+            text={"Acerca de Perrinci"}
+            onPress={() => navigation.navigate("AboutPetLink")} />
 
         </View>
 

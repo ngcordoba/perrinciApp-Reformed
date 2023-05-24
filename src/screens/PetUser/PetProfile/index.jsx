@@ -1,7 +1,7 @@
 import { Text, SafeAreaView, StatusBar, View, TextInput, StyleSheet } from 'react-native';
 import { colors } from '../../../theme/colors';
 import React from 'react';
-// import styles from "./styles"
+import styles from "./styles"
 import { Ionicons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons';
 
@@ -33,10 +33,10 @@ const PetProfile = () => {
 
                 <View style={styles.razapeContainer}>
                     <View style={styles.razapeTextInputContainer}>
-                        <Text>Raza</Text>
+                        <Text>Edad</Text>
                         <TextInput
                             style={styles.inputWeightAge}>
-                            <Entypo name="colours" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                            <Entypo name="pin" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>
 
@@ -49,10 +49,28 @@ const PetProfile = () => {
                     </View>
                 </View>
 
+                <View style={styles.razapeContainer}>
+                    <View style={styles.razapeTextInputContainer}>
+                        <Text>Raza</Text>
+                        <TextInput
+                            style={styles.inputWeightAge}>
+                            <Entypo name="fingerprint" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                        </TextInput>
+                    </View>
+
+                    <View style={styles.razapeTextInputContainer}>
+                        <Text>Calificacion prom.</Text>
+                        <TextInput
+                            style={styles.inputWeightAge}>
+                            <Entypo name="star" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                        </TextInput>
+                    </View>
+                </View>
+
                 <Text>Paseos completados</Text>
                 <TextInput
                     style={styles.input}>
-                    <Entypo name="medal" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                    <Entypo name="trophy" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
                 <View style={styles.buttonContainer}>

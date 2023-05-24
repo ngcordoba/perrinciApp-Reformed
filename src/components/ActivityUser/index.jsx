@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { fontSizes } from "../../theme/fonts"
 
-const ListOfWalkers = ({ item, onSelected }) => {
+const ActivityUser = ({ item }) => {
     return (
-        <TouchableOpacity
+        <View
             style={styles.itemContainer}
             onPress={() => onSelected(item)}
         >
@@ -16,21 +16,22 @@ const ListOfWalkers = ({ item, onSelected }) => {
                 />
 
                 <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>{item.name} {item.lastName}</Text>
-                    <Text style={styles.scoreText}>Calificación: {item.score}</Text>
+                    <Text style={styles.nameText}>{item.walkerName} {item.walkerLastName}</Text>
+                    <Text style={styles.scoreText}>{item.date}</Text>
+                    <Text style={styles.scoreText}>${item.price}</Text>
                 </View>
             </View>
-        </TouchableOpacity>
+        </View>
     );
 };
 
-export default ListOfWalkers;
+export default ActivityUser;
 
 const styles = StyleSheet.create({
     itemContainer: {
         paddingHorizontal: 20,
         paddingVertical: 15,
-        alignContent: "flex-start",
+        alignContent: "flex-start"
     },
     contentContainer: {
         flexDirection: 'row',
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: 50,
-        height: "100%",
+        height: "80%",
         marginRight: 16,
         borderRadius: 25,
     },
@@ -54,4 +55,3 @@ const styles = StyleSheet.create({
         fontSize: fontSizes.subtitle,
     },
 });
-

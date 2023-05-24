@@ -21,7 +21,9 @@ import ViewWalkerPofile from "../../components/ViewWalkerProfile"
 
 // main screens
 import Support from '../../screens/MainScreens/Support';
-import More from '../../screens/MainScreens/Mas';
+import More from '../../screens/MainScreens/Activity';
+import Help from "../../screens/MainScreens/Help";
+import About from '../../screens/MainScreens/About'
 
 const Tab = createBottomTabNavigator();
 const HomeStackNavigator = createNativeStackNavigator();
@@ -97,6 +99,26 @@ function MyStack() {
 
             />
 
+            <HomeStackNavigator.Screen
+                name="Ayuda"
+                component={Help}
+                options={{
+                    title: "Ayuda",
+                    headerBackTitleVisible: false,
+                }}
+
+            />
+
+            <HomeStackNavigator.Screen
+                name="AboutPetLink"
+                component={About}
+                options={{
+                    title: "Acerca de",
+                    headerBackTitleVisible: false,
+                }}
+
+            />
+
         </HomeStackNavigator.Navigator>
     )
 }
@@ -152,9 +174,6 @@ function MyTabs() {
                     ),
                     title: "Soporte"
                 }} />
-
-
-
 
 
 
