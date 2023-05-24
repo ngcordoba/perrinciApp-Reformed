@@ -1,16 +1,9 @@
 import { StyleSheet } from "react-native";
-import { fontSizes } from "../../../theme/fonts";
 import { colors } from "../../../theme/colors";
 
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-    },
-
-    textHeader: {
-        color: colors.brand.primary,
-        fontSize: fontSizes.text,
-        margin: 40,
     },
 
     photoContainer: {
@@ -38,7 +31,9 @@ const styles = StyleSheet.create({
         margin: 5,
         borderRadius: 15,
         padding: 10,
+        paddingLeft: 15,
     },
+
 
     buttonContainer: {
         paddingTop: "1.5%",

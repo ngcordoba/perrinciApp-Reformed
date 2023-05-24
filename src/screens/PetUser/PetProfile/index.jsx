@@ -1,46 +1,71 @@
-import React from 'react'
-import { Text, SafeAreaView, StatusBar, View, TextInput } from 'react-native';
-import styles from "./styles"
+import { Text, SafeAreaView, StatusBar, View, TextInput, StyleSheet } from 'react-native';
+import { colors } from '../../../theme/colors';
+import React from 'react';
+// import styles from "./styles"
+import { Ionicons } from '@expo/vector-icons'
+import { Entypo } from '@expo/vector-icons';
+
 import ImgBackground from '../../../components/ImgBackground/Background';
 import Button from '../../../components/Button';
 import { useNavigation } from '@react-navigation/native'
 
+
 const PetProfile = () => {
+
     const navigation = useNavigation();
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }} >
+        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
             <ImgBackground />
-            <Text style={styles.namePet}> KEVIN </Text>
+            <View style={styles.photoContainer}>
+                <View>
 
-            <View style={styles.container}>
+                </View>
 
-                <View style={styles.photoContainer}>
-                    <View>
-                        <Text>Foto</Text>
+            </View>
+
+            <View style={styles.inputContainer}>
+                <Text>Nombre</Text>
+                <TextInput
+                    style={styles.input}>
+                    <Entypo name="baidu" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                </TextInput>
+
+                <View style={styles.razapeContainer}>
+                    <View style={styles.razapeTextInputContainer}>
+                        <Text>Raza</Text>
+                        <TextInput
+                            style={styles.inputWeightAge}>
+                            <Entypo name="colours" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                        </TextInput>
+                    </View>
+
+                    <View style={styles.razapeTextInputContainer}>
+                        <Text>Peso</Text>
+                        <TextInput
+                            style={styles.inputWeightAge}>
+                            <Entypo name="baidu" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                        </TextInput>
                     </View>
                 </View>
 
-                <View style={styles.petInfoContainer}>
-                    <View styles={styles.containerPesoRaza}>
-                        <Text styles={styles.text}>Peso Hola Hola</Text>
-                        <Text>Raza</Text>
-                    </View>
+                <Text>Paseos completados</Text>
+                <TextInput
+                    style={styles.input}>
+                    <Entypo name="medal" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                </TextInput>
 
-                    <Text>Cantidad de paseos</Text>
-                    <Text>Calificacion promedio: </Text>
-
-
-                    <View style={styles.buttonContainer}>
-                        <Button
-                            onPress={() => navigation.navigate("PetProfile")}
-                            text={"Volver al menu"}>
-                        </Button>
-                    </View>
+                <View style={styles.buttonContainer}>
+                    <Button
+                        onPress={() => navigation.navigate("MiPerfil")}
+                        text={"Volver a mi perfil"}>
+                    </Button>
                 </View>
             </View>
+
         </SafeAreaView >
     )
 }
 
 export default PetProfile;
+

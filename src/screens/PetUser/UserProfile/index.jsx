@@ -1,6 +1,7 @@
 import { Text, SafeAreaView, StatusBar, View, TextInput } from 'react-native';
 import React from 'react';
 import styles from './style';
+import { Ionicons } from '@expo/vector-icons'
 
 import ImgBackground from '../../../components/ImgBackground/Background';
 import Button from '../../../components/Button';
@@ -16,19 +17,35 @@ const Profile = () => {
             <ImgBackground />
             <View style={styles.photoContainer}>
                 <View>
-                    <Text>Foto</Text>
+
                 </View>
             </View>
 
             <View style={styles.inputContainer}>
                 <Text>Nombre y apellido</Text>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput
+                    style={styles.input}>
+                    <Ionicons name="person" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                </TextInput>
+
+
                 <Text>Direccion</Text>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput
+                    style={styles.input}>
+                    <Ionicons name="location-sharp" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                </TextInput>
+
                 <Text>Nro. de celular</Text>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput
+                    style={styles.input}>
+                    <Ionicons name="call" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                </TextInput>
+
                 <Text>Correo electronico</Text>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput
+                    style={styles.input}>
+                    <Ionicons name="mail" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                </TextInput>
 
                 <View style={styles.buttonContainer}>
                     <Button
@@ -42,4 +59,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default Profile;

@@ -51,6 +51,7 @@ function MyStack() {
                 name="MiPerfil"
                 component={userProfile}
                 options={{
+                    title: "Mi Perfil",
                     headerBackTitleVisible: false,
 
 
@@ -80,7 +81,7 @@ function MyStack() {
                 name="PetProfile"
                 component={PetProfile}
                 options={{
-                    title: null,
+                    title: "Perfil de mascota",
                     headerBackTitleVisible: false,
                 }}
 
@@ -90,7 +91,7 @@ function MyStack() {
                 name="ViewWalkerProfile"
                 component={ViewWalkerPofile}
                 options={({ route }) => ({
-                    title: route.params.name,
+                    title: route.params.name + " " + route.params.lastName,
                 })}
 
 

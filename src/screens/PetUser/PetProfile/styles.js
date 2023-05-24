@@ -1,28 +1,12 @@
 import { StyleSheet } from "react-native";
-import { fontSizes } from "../../../theme/fonts";
 import { colors } from "../../../theme/colors";
 
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-    },
-
-    namePet: {
-        color: colors.brand.primary,
-        justifyContent: "flex-start"
-    },
-
-    textHeader: {
-        color: colors.brand.primary,
-        fontSize: fontSizes.text,
-        margin: 40,
-    },
-
     photoContainer: {
         alignItems: 'center',
         backgroundColor: "white",
-        height: '22%',
-        width: '35%',
+        height: '20%',
+        width: '40%',
         borderRadius: 20,
         shadowOffset: { width: 0.5, height: 0.5, },
         shadowColor: 'black',
@@ -32,28 +16,37 @@ const styles = StyleSheet.create({
 
     },
 
-    petInfoContainer: {
+    razapeContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+
+    razapeTextInputContainer: {
+        width: 130,
+
+    },
+
+    inputContainer: {
         height: "50%",
+    },
+
+    inputWeightAge: {
+        width: 120,
+        backgroundColor: colors.brand.secondary,
+        margin: 5,
+        borderRadius: 15,
+        padding: "10%",
+        paddingLeft: 15,
     },
 
     input: {
         width: 250,
-        height: "18%",
+        height: "15%",
         backgroundColor: colors.brand.secondary,
         margin: 5,
         borderRadius: 15,
         padding: 10,
-    },
-
-    containerPesoRaza: {
-        justifyContent: "space-between",
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "red"
-    },
-
-    inputPesoRaza: {
-        backgroundColor: colors.brand.secondary,
+        paddingLeft: 15,
     },
 
     buttonContainer: {
@@ -62,6 +55,7 @@ const styles = StyleSheet.create({
         marginTop: "15%",
         height: "20%"
     },
+
 
 });
 
