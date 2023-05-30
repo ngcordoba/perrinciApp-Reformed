@@ -1,13 +1,17 @@
 import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import React from 'react';
+
 import Button from '../Button';
 import ImgBackground from '../ImgBackground/Background';
 import { colors } from '../../theme/colors';
 import { fontSizes } from '../../theme/fonts';
 import { useNavigation } from '@react-navigation/native'
-import React from 'react';
+import { useSelector } from 'react-redux';
+
 
 const ViewWalkerProfile = ({ route }) => {
 
+    // const actives = useSelector(state => state.walkers.selected)
     const navigation = useNavigation();
     const actives = route.params.walkerInfo;
 

@@ -1,4 +1,4 @@
-export const FINISHEDWALKSUSER = [
+export const WALKS = [
     {
         id: "1",
         walkerName: "Gabriel",

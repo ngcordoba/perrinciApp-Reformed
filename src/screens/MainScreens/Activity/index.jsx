@@ -3,12 +3,15 @@ import styles from './style'
 import React from 'react'
 
 import ImgBackground from '../../../components/ImgBackground/Background'
-import { FINISHEDWALKSUSER } from '../../../data/finishedWalksUser'
+// import { WALKS } from '../../../data/walksStatus'
 import ActivityUser from '../../../components/ActivityUser'
+import { useSelector } from 'react-redux'
 
 const ActivityScreen = ({ navigation, route }) => {
 
-  const walksfinished = FINISHEDWALKSUSER.filter(walksfinished => walksfinished.status === "finished")
+  const walks = useSelector(state => state.walks.walks)
+  const walkSelected = useSelector(state => state.walks.selected)
+  // const walksfinished = WALKS.filter(walksfinished => walksfinished.status === "finished")
 
   const renderWaklsFinished = ({ item }) => (
     <View style={styles.listOfWalkers}>
@@ -28,7 +31,7 @@ const ActivityScreen = ({ navigation, route }) => {
       <View style={styles.walkerListContainer}>
         <View style={styles.containerList}>
           <FlatList
-            data={walksfinished}
+            data={walks}
             renderItem={renderWaklsFinished}
             keyExtractor={item => item.id}
           >

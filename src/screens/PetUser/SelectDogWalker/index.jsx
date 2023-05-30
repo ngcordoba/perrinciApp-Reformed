@@ -1,15 +1,17 @@
 import { Text, SafeAreaView, StatusBar, View, FlatList } from 'react-native';
-
 import React from 'react';
+
 import styles from './style';
 import ImgBackground from '../../../components/ImgBackground/Background';
 import Button from '../../../components/Button';
-import { WALKERACTIVES } from '../../../data/walkersActives';
+// import { WALKERS } from '../../../data/walkers';
 import ListOfWalkers from '../../../components/ListOfWalkers';
+import { useSelector } from 'react-redux';
 
 const SelectDogWalker = ({ navigation, route }) => {
 
-    const actives = WALKERACTIVES.filter(actives => actives.isActive === true)
+    const walkers = useSelector(state => state.walkers.walkers)
+    const walkersActives = walkers.filter(walkers => walkers.isActive === true)
 
     const handleSelectWalker = (item) => {
         navigation.navigate("ViewWalkerProfile", {
@@ -38,7 +40,7 @@ const SelectDogWalker = ({ navigation, route }) => {
             <View style={styles.walkerListContainer}>
                 <View style={styles.containerList}>
                     <FlatList
-                        data={actives}
+                        data={walkersActives}
                         renderItem={renderListOfWalkers}
                         keyExtractor={item => item.id} />
 
