@@ -10,12 +10,12 @@ const styles = StyleSheet.create({
     },
 
     textContainer: {
-        margin: "5%"
+        margin: "10%",
     },
 
     text: {
         color: colors.text.secondary,
-        fontSize: fontSizes.body,
+        fontSize: 20,
         fontWeight: fontWeights.regular,
     }
 

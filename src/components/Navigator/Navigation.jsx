@@ -20,10 +20,11 @@ import ViewWalkerPofile from "../../components/ViewWalkerProfile"
 
 
 // main screens
-import Support from '../../screens/MainScreens/Support';
-import More from '../../screens/MainScreens/Activity';
-import Help from "../../screens/MainScreens/Help";
-import About from '../../screens/MainScreens/About'
+import Support from '../../screens/SupportHome';
+import Help from "../../screens/SupportHelp";
+import About from '../../screens/SupportAbout'
+import userActivity from '../../screens/PetUser/UserActivity';
+
 
 const Tab = createBottomTabNavigator();
 const HomeStackNavigator = createNativeStackNavigator();
@@ -42,8 +43,8 @@ function MyStack() {
                 }}
             />
             <HomeStackNavigator.Screen
-                name="Más"
-                component={More}
+                name="Activity"
+                component={userActivity}
                 options={{
                     headerBackTitleVisible: false,
                 }}
@@ -155,8 +156,8 @@ function MyTabs() {
                 }} />
 
             <Tab.Screen
-                name="Más"
-                component={More}
+                name="Activity"
+                component={userActivity}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="receipt-outline" size='20' color={color} />

@@ -1,9 +1,11 @@
 import { Text, SafeAreaView, StatusBar, View } from 'react-native'
-import styles from "./styles"
 import React from 'react'
 
-import ImgBackground from '../../../components/ImgBackground/Background'
-import Button from "../../../components/Button";
+import ImgBackground from '../components/ImgBackground/Background'
+
+import { StyleSheet } from "react-native";
+import { fontSizes } from "../theme/fonts";
+import { colors } from "../theme/colors";
 
 const Help = () => {
 
@@ -31,3 +33,34 @@ const Help = () => {
 }
 
 export default Help;
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center'
+    },
+
+    textHeader: {
+        color: colors.brand.primary,
+        fontSize: fontSizes.title,
+        margin: 40,
+    },
+
+    walkerListContainer: {
+        alignItems: 'center',
+
+    },
+
+    containerList: {
+        backgroundColor: colors.brand.white,
+        height: '80%',
+        width: '80%',
+        borderRadius: 20,
+    },
+
+    buttonContainer: {
+        backgroundColor: "red",
+        marginTop: 25,
+    }
+
+
+});
