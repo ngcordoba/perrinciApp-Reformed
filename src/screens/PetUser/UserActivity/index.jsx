@@ -2,8 +2,8 @@ import { Text, SafeAreaView, StatusBar, View, FlatList } from 'react-native'
 import styles from './style'
 import React from 'react'
 
-import ImgBackground from '../../../components/ImgBackground/Background'
-import ActivityUser from '../../../components/ActivityUser'
+import ImgBackground from '../../../components/ImageBackground'
+import ActivityUser from '../../../components/UserActivity'
 import { useSelector } from 'react-redux'
 
 const ActivityScreen = ({ navigation, route }) => {

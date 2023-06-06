@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'r
 import React from 'react';
 
 import Button from '../Button';
-import ImgBackground from '../ImgBackground/Background';
+import ImgBackground from '../ImageBackground';
 import { colors } from '../../theme/colors';
 import { fontSizes } from '../../theme/fonts';
 import { useNavigation } from '@react-navigation/native'

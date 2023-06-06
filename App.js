@@ -1,5 +1,7 @@
 import React from "react";
-import Navigation from "./src/components/Navigator/Navigation";
+// import Navigation from "./src/components/Navigator/Navigation";
+import BottomTabNavigator from "./src/navigation/BottomTabNavigator";
+import { NavigationContainer } from "@react-navigation/native";
 import { theme } from './src/theme'
 import { Provider } from "react-redux";
 import store from "./src/store";
@@ -8,7 +10,9 @@ import store from "./src/store";
 export default function App() {
   return (
     <Provider store={store}>
-      <Navigation theme={theme} />
+      <NavigationContainer theme={theme}>
+        <BottomTabNavigator />
+      </NavigationContainer>
     </Provider>
   );
 }

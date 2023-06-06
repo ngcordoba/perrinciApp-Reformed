@@ -2,10 +2,10 @@ import { Text, SafeAreaView, StatusBar, View, FlatList } from 'react-native';
 import React from 'react';
 
 import styles from './style';
-import ImgBackground from '../../../components/ImgBackground/Background';
+import ImgBackground from '../../../components/ImageBackground';
 import Button from '../../../components/Button';
 // import { WALKERS } from '../../../data/walkers';
-import ListOfWalkers from '../../../components/ListOfWalkers';
+import ListOfWalkers from '../../../components/ListWalkersActives';
 import { useSelector } from 'react-redux';
 
 const SelectDogWalker = ({ navigation, route }) => {
@@ -14,7 +14,7 @@ const SelectDogWalker = ({ navigation, route }) => {
     const walkersActives = walkers.filter(walkers => walkers.isActive === true)
 
     const handleSelectWalker = (item) => {
-        navigation.navigate("ViewWalkerProfile", {
+        navigation.navigate("VerPerfilDelPaseador", {
             walkerInfo: item,
             name: item.name,
             lastName: item.lastName,
@@ -48,7 +48,7 @@ const SelectDogWalker = ({ navigation, route }) => {
 
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={() => navigation.navigate("HomeScreen")}
+                        onPress={() => navigation.navigate("InicioUsuario")}
                         text={"Volver al menu"}>
                     </Button>
                 </View>

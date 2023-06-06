@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './style';
 import { Ionicons } from '@expo/vector-icons'
 
-import ImgBackground from '../../../components/ImgBackground/Background';
+import ImgBackground from '../../../components/ImageBackground';
 import Button from '../../../components/Button';
 import { useNavigation } from '@react-navigation/native'
 
@@ -49,7 +49,7 @@ const Profile = () => {
 
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={() => navigation.navigate("PetProfile")}
+                        onPress={() => navigation.navigate("PerfilMascota")}
                         text={"Perfil de mi mascota"}>
                     </Button>
                 </View>

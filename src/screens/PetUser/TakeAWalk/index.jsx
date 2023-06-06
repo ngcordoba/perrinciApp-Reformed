@@ -1,7 +1,7 @@
 import { Text, SafeAreaView, StatusBar, View } from 'react-native';
 import React from 'react';
 import styles from './style';
-import ImgBackground from '../../../components/ImgBackground/Background';
+import ImgBackground from '../../../components/ImageBackground';
 import Button from '../../../components/Button';
 import { useNavigation } from '@react-navigation/native'
 

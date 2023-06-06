@@ -2,7 +2,7 @@ import { Text, SafeAreaView, View, StatusBar } from 'react-native';
 import React from 'react';
 
 import { useNavigation } from '@react-navigation/native'
-import ImgBackground from '../components/ImgBackground/Background';
+import ImgBackground from '../components/ImageBackground';
 import Button from "../components/Button";
 
 import { StyleSheet } from "react-native";
@@ -26,7 +26,7 @@ const Support = () => {
           <Button
             style={styles.listText}
             text={"Ayuda"}
-            onPress={() => navigation.navigate("Ayuda")}
+            onPress={() => navigation.navigate("AyudaSoporte")}
           >
 
           </Button>
@@ -34,7 +34,7 @@ const Support = () => {
           <Button
             style={styles.listText}
             text={"Acerca de Perrinci"}
-            onPress={() => navigation.navigate("AboutPetLink")} />
+            onPress={() => navigation.navigate("AcercaDePetLinkSoporte")} />
 
         </View>
 

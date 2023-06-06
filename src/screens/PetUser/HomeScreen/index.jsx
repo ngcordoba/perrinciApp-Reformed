@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import styles from './style';
 import Button from '../../../components/Button';
-import ImgBackground from '../../../components/ImgBackground/Background'
+import ImgBackground from '../../../components/ImageBackground'
 
 
 const HomeScreen = () => {
@@ -34,5 +34,5 @@ const HomeScreen = () => {
   )
 }
 
-export default HomeScreen
+export default HomeScreen;
 

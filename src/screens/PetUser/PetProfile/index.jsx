@@ -5,7 +5,7 @@ import styles from "./styles"
 import { Ionicons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons';
 
-import ImgBackground from '../../../components/ImgBackground/Background';
+import ImgBackground from '../../../components/ImageBackground';
 import Button from '../../../components/Button';
 import { useNavigation } from '@react-navigation/native'
 
@@ -75,7 +75,7 @@ const PetProfile = () => {
 
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={() => navigation.navigate("MiPerfil")}
+                        onPress={() => navigation.navigate("PerfilUsuario")}
                         text={"Volver a mi perfil"}>
                     </Button>
                 </View>

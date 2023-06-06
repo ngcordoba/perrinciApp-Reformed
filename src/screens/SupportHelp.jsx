@@ -1,7 +1,7 @@
 import { Text, SafeAreaView, StatusBar, View } from 'react-native'
 import React from 'react'
 
-import ImgBackground from '../components/ImgBackground/Background'
+import ImgBackground from '../components/ImageBackground'
 
 import { StyleSheet } from "react-native";
 import { fontSizes } from "../theme/fonts";
