@@ -1,40 +1,52 @@
-import { Text, SafeAreaView, StatusBar, View } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, StyleSheet } from 'react-native';
 import React from 'react';
-import styles from './style';
+import { colors } from '../../../theme/colors';
 import ImgBackground from '../../../components/ImageBackground';
 import Button from '../../../components/Button';
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import MapScreen from '../../../components/Mapview';
 
 const TakeAWalk = () => {
-
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, backgroundColor: 'white' }} >
+    <SafeAreaView style={styles.container}>
       <ImgBackground />
-      <View style={styles.container}>
-        <Text style={styles.textHeader}>
-          Buscá paseadores disponibles
-        </Text>
+      <View style={styles.header}>
+        <Text style={styles.textHeader}>Buscá paseadores disponibles</Text>
       </View>
 
-      <View style={styles.mapContainer}>
-        <View style={styles.mapView}>
-          <Text>En esta seccion va el Mapa</Text>
+      <MapScreen />
 
-        </View>
 
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={() => navigation.navigate("SeleccionarPaseador")}
-            text={"Ver listado de paseadores"}>
-          </Button>
-        </View>
-
+      <View style={styles.buttonContainer}>
+        <Button
+          onPress={() => navigation.navigate('SeleccionarPaseador')}
+          text="Ver listado de paseadores"
+        />
       </View>
-
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default TakeAWalk
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight,
+    backgroundColor: 'white',
+  },
+  header: {
+    alignItems: 'center',
+  },
+  textHeader: {
+    color: colors.brand.primary,
+    fontSize: 20,
+    margin: 40,
+  },
+
+  buttonContainer: {
+    alignSelf: 'center',
+  },
+});
+
+export default TakeAWalk;

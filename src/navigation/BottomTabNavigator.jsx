@@ -29,7 +29,7 @@ export default TabNavigator = () => {
                 component={UserNavigation}
                 options={{
                     tabBarIcon: ({ color }) => (
-                        <Ionicons name="home" size='20' color={color} />
+                        <Ionicons name="home" size={20} color={color} />
                     ),
                     headerShown: false,
                 }}
@@ -41,7 +41,7 @@ export default TabNavigator = () => {
                 component={UserProfile} // VERIFICAR EL USUARIO PARA MOSTRAR EL PERFIL DEL USER O PASEADOR
                 options={{
                     tabBarIcon: ({ color }) => (
-                        <Ionicons name="person" size='20' color={color} />
+                        <Ionicons name="person" size={20} color={color} />
                     ),
                     title: "Mi Perfil"
                 }} />
@@ -51,7 +51,7 @@ export default TabNavigator = () => {
                 component={UserActivity} // VERIFICAR EL USUARIO PARA MOSTRAR LA ACTIVIDAD DEL USER O PASEADOR
                 options={{
                     tabBarIcon: ({ color }) => (
-                        <Ionicons name="receipt-outline" size='20' color={color} />
+                        <Ionicons name="receipt-outline" size={20} color={color} />
 
                     ),
                     title: "Actividad"
@@ -62,7 +62,7 @@ export default TabNavigator = () => {
                 component={Soporte}
                 options={{
                     tabBarIcon: ({ color }) => (
-                        <AntDesign name="customerservice" size='20' color={color} />
+                        <AntDesign name="customerservice" size={20} color={color} />
                     ),
                     title: "Soporte"
                 }} />

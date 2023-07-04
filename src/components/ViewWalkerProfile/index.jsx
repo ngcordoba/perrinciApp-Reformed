@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     label: {
         maxWidth: "90%",
         height: "12%",
-        fontSize: fontSizes.text,
+        fontSize: 20,
         marginVertical: 5,
         margin: "10%",
         padding: "5%",
