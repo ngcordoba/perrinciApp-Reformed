@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { fontSizes } from "../../theme/fonts"
+import { fontSizes } from "../theme/fonts"
 
 const ActivityUser = ({ item }) => {
     return (

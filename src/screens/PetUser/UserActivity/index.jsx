@@ -3,7 +3,7 @@ import styles from './style'
 import React from 'react'
 
 import ImgBackground from '../../../components/ImageBackground'
-import ActivityUser from '../../../components/UserActivity'
+import ActivityUser from '../../../components/User_ListActivity'
 import { useSelector } from 'react-redux'
 
 const ActivityScreen = ({ navigation, route }) => {

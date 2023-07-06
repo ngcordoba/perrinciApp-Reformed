@@ -10,7 +10,9 @@ import PetProfile from "../screens/PetUser/PetProfile";
 import UserActivity from "../screens/PetUser/UserActivity";
 import TakeAWalk from "../screens/PetUser/TakeAWalk";
 import SelectDogWalker from "../screens/PetUser/SelectDogWalker";
-import ViewWalkerProfile from "../components/ViewWalkerProfile";
+import ViewWalkerProfile from "../components/User_ViewWalkerProfile";
+import Pago_MercadoPago from "../screens/PetUser/Pago_MercadoPago";
+import MapViewUser from "../screens/PetUser/MapView";
 
 // Importación de screens comunes en ambos tipos de usuario
 import SupportHelp from "../screens/SupportHelp"
@@ -87,6 +89,22 @@ export default UserNavigator = () => {
                 component={ViewWalkerProfile}
                 options={({ route }) => ({
                     title: route.params.name + " " + route.params.lastName,
+                })}
+            />
+
+            <Stack.Screen
+                name="PagoPaseo"
+                component={Pago_MercadoPago}
+                options={({ route }) => ({
+                    title: "Realizá tu pago",
+                })}
+            />
+
+            <Stack.Screen
+                name="MapViewUser"
+                component={MapViewUser}
+                options={({ route }) => ({
+                    title: "Paseo en curso",
                 })}
             />
 

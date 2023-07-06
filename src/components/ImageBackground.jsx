@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 const ImgBackground = () => {
   return (
     <Image
-      source={require('../../../images/backgroundPerrinci.jpg')}
+      source={require('../../src/assets/images/backgroundPerrinci.jpg')}
       style={styles.imagenBackground}
     >
     </Image>

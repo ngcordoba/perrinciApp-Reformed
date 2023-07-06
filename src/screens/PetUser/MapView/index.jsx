@@ -1,12 +1,21 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { SafeAreaView, StyleSheet } from 'react-native';
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import MapScreen from '../../../components/User_LocationMap';
 
 const MapViewUser = () => {
     return (
-        <View>
-            <Text>MapView</Text>
-        </View>
-    )
-}
+        <SafeAreaView style={styles.container}>
+            <MapScreen />
+        </SafeAreaView>
+    );
+};
 
-export default MapViewUser
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
+});
+
+export default MapViewUser;

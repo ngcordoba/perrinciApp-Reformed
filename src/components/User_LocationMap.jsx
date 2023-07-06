@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Text, Alert } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import Map from './../constants/Map';
+import Map from '../constants/Map';
 
 const MapScreen = () => {
     const [location, setLocation] = useState(null);
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     map: {
-        height: '75%',
+        height: '95%',
         width: '90%',
         borderRadius: 20,
     },

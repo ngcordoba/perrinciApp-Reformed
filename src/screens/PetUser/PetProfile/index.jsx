@@ -1,12 +1,10 @@
 import { Text, SafeAreaView, StatusBar, View, TextInput, StyleSheet } from 'react-native';
-import { colors } from '../../../theme/colors';
 import React from 'react';
 import styles from "./styles"
-import { Ionicons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons';
 
 import ImgBackground from '../../../components/ImageBackground';
-import Button from '../../../components/Button';
+import Button from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native'
 
 

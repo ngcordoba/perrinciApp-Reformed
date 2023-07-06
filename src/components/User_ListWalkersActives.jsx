@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import { fontSizes } from "../../theme/fonts"
+import { fontSizes } from "../theme/fonts"
 
 const ListOfWalkers = ({ item, onSelected }) => {
     return (

@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import styles from './style';
-import Button from '../../../components/Button';
+import Button from '../../../components/ButtonRegular';
 import ImgBackground from '../../../components/ImageBackground'
 
 

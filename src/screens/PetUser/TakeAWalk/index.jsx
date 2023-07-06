@@ -2,9 +2,10 @@ import { Text, SafeAreaView, StatusBar, View, StyleSheet } from 'react-native';
 import React from 'react';
 import { colors } from '../../../theme/colors';
 import ImgBackground from '../../../components/ImageBackground';
-import Button from '../../../components/Button';
+import Button from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native';
-import MapScreen from '../../../components/Mapview';
+import MapScreen from '../../../components/User_LocationMap';
+import { fontSizes } from '../../../theme/fonts';
 
 const TakeAWalk = () => {
   const navigation = useNavigation();
@@ -16,8 +17,9 @@ const TakeAWalk = () => {
         <Text style={styles.textHeader}>Buscá paseadores disponibles</Text>
       </View>
 
-      <MapScreen />
-
+      <View style={{ height: "70%" }}>
+        <MapScreen />
+      </View>
 
       <View style={styles.buttonContainer}>
         <Button
@@ -40,7 +42,7 @@ const styles = StyleSheet.create({
   },
   textHeader: {
     color: colors.brand.primary,
-    fontSize: 20,
+    fontSize: fontSizes.text,
     margin: 40,
   },
 

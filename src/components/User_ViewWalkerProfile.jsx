@@ -1,13 +1,11 @@
 import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React from 'react';
 
-import Button from '../Button';
-import ImgBackground from '../ImageBackground';
-import { colors } from '../../theme/colors';
-import { fontSizes } from '../../theme/fonts';
+import Button from './ButtonRegular';
+import ImgBackground from './ImageBackground';
+import { colors } from '../theme/colors';
 import { useNavigation } from '@react-navigation/native'
-import { useSelector } from 'react-redux';
-
+import { fontSizes } from '../theme/fonts';
 
 const ViewWalkerProfile = ({ route }) => {
 
@@ -30,27 +28,20 @@ const ViewWalkerProfile = ({ route }) => {
 
             <View style={styles.detailsContainer}>
 
-
-                <Text style={styles.label}>{actives.name} {actives.lastName}</Text>
                 <Text style={styles.label}>Calificacion: {actives.score}</Text>
                 <Text style={styles.label}>Paseos completados: {actives.finishedWalks}</Text>
+                <Text style={styles.label}>Precio por paseo: ${actives.price}</Text>
+                <Text style={styles.label}>Tiempo de paseo: {actives.durationWalk} hs.</Text>
 
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={() => navigation.navigate("HomeScreen")}
+                        onPress={() => navigation.navigate("PagoPaseo")}
                         text={"Solicitar Paseo"}>
+                            // Enviar request al paseador para aceptar el paseo
                     </Button>
 
-                    <TouchableOpacity
-                        style={styles.buttonChat}
-                        onPress={() => navigation.navigate("HomeScreen")}
-                        text={"Chatear"}>
-                    </TouchableOpacity>
 
-                    <Button
-                        onPress={() => navigation.navigate("SeleccionarPaseador")}
-                        text={"Volver al listado"}>
-                    </Button>
+
                 </View>
 
 
@@ -95,7 +86,7 @@ const styles = StyleSheet.create({
     label: {
         maxWidth: "90%",
         height: "12%",
-        fontSize: 20,
+        fontSize: fontSizes.text,
         marginVertical: 5,
         margin: "10%",
         padding: "5%",
@@ -107,10 +98,6 @@ const styles = StyleSheet.create({
         width: '90%',
         borderRadius: 20,
         alignSelf: "center",
-    },
-
-    buttonChat: {
-        backgroundColor: "yellow"
     },
 
     buttonContainer: {

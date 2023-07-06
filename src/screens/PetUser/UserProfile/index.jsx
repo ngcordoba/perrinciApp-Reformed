@@ -4,7 +4,7 @@ import styles from './style';
 import { Ionicons } from '@expo/vector-icons'
 
 import ImgBackground from '../../../components/ImageBackground';
-import Button from '../../../components/Button';
+import Button from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native'
 
 

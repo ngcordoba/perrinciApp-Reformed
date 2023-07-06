@@ -3,12 +3,12 @@ import React from 'react';
 
 import styles from './style';
 import ImgBackground from '../../../components/ImageBackground';
-import Button from '../../../components/Button';
+import Button from '../../../components/ButtonRegular';
 // import { WALKERS } from '../../../data/walkers';
-import ListOfWalkers from '../../../components/ListWalkersActives';
+import ListOfWalkers from '../../../components/User_ListWalkersActives';
 import { useSelector } from 'react-redux';
 
-const SelectDogWalker = ({ navigation, route }) => {
+const SelectDogWalker = ({ navigation }) => {
 
     const walkers = useSelector(state => state.walkers.walkers)
     const walkersActives = walkers.filter(walkers => walkers.isActive === true)

@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { colors } from '../../theme/colors';
-import { fontSizes } from '../../theme/fonts';
+import { colors } from '../theme/colors';
+import { fontSizes } from '../theme/fonts';
 
 const ButtonRegular = ({ text, onPress }) => {
     return (
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
     buttonText: {
         color: colors.text.white,
-        fontSize: 18,
+        fontSize: fontSizes.buttonText,
 
     }
 

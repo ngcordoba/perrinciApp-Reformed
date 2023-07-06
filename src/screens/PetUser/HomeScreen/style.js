@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 
     text: {
         color: colors.text.secondary,
-        fontSize: 20,
+        fontSize: fontSizes.text,
         fontWeight: fontWeights.regular,
     }
 

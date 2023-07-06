@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 
     textHeader: {
         color: colors.brand.primary,
-        fontSize: 20,
+        fontSize: fontSizes.text,
         margin: 40,
     },
 

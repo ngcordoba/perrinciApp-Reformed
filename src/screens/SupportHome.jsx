@@ -3,7 +3,7 @@ import React from 'react';
 
 import { useNavigation } from '@react-navigation/native'
 import ImgBackground from '../components/ImageBackground';
-import Button from "../components/Button";
+import Button from "../components/ButtonRegular";
 
 import { StyleSheet } from "react-native";
 import { colors } from "../theme/colors";
