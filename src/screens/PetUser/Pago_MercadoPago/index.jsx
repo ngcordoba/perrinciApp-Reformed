@@ -13,7 +13,7 @@ const Pago_MercadoPago = () => {
         <View>
             <Text> Pago_MercadoPago</Text>
             <ButtonRegular
-                onPress={() => navigation.navigate("MapViewUser")}
+                onPress={() => navigation.navigate("PaseoEnCurso")}
                 text={"Continuar"}>
                             // Enviar request al paseador para aceptar el paseo
             // Una vez aceptado, se obtiene la ubicación del paseador

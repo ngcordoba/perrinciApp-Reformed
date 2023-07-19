@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native'
 import React from 'react';
 
 import Button from './ButtonRegular';

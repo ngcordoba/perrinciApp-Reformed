@@ -1,5 +1,4 @@
 import React from "react";
-// import Navigation from "./src/components/Navigator/Navigation";
 import BottomTabNavigator from "./src/navigation/BottomTabNavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import { theme } from './src/theme'

@@ -24,7 +24,8 @@ const HomeScreen = () => {
       </Button>
 
       <Button
-        onPress={() => navigation.navigate("MapView")}
+        // Condicionar este boton, si hay paseo disponible o no
+        onPress={() => navigation.navigate("PaseoEnCurso")}
         text={"Ver Paseo"}>
       </Button>
 

@@ -13,6 +13,8 @@ import SelectDogWalker from "../screens/PetUser/SelectDogWalker";
 import ViewWalkerProfile from "../components/User_ViewWalkerProfile";
 import Pago_MercadoPago from "../screens/PetUser/Pago_MercadoPago";
 import MapViewUser from "../screens/PetUser/MapView";
+import WalkerQualify from "../screens/PetUser/QualifyWalker"
+import FinishWalk from "../screens/PetUser/FinishRide"
 
 // Importación de screens comunes en ambos tipos de usuario
 import SupportHelp from "../screens/SupportHelp"
@@ -100,13 +102,35 @@ export default UserNavigator = () => {
                 })}
             />
 
+
+
             <Stack.Screen
-                name="MapViewUser"
+                // Restringir el "Back", no se puede volver para atras
+                // De esta pantalla en adelante
+                name="PaseoEnCurso"
                 component={MapViewUser}
                 options={({ route }) => ({
                     title: "Paseo en curso",
                 })}
             />
+
+            <Stack.Screen
+                name="CalificarPaseador"
+                component={WalkerQualify}
+                options={({ route }) => ({
+                    title: "Calificá al paseador",
+                })}
+            />
+
+            <Stack.Screen
+                name="PaseoFinalizado"
+                component={FinishWalk}
+                options={({ route }) => ({
+                    title: "Paseo finalizado",
+                    headerBackTitleVisible: false,
+                })}
+            />
+
 
             <Stack.Screen
                 name="AyudaSoporte"
