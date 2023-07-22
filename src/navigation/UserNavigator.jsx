@@ -12,7 +12,7 @@ import TakeAWalk from "../screens/PetUser/TakeAWalk";
 import SelectDogWalker from "../screens/PetUser/SelectDogWalker";
 import ViewWalkerProfile from "../components/User_ViewWalkerProfile";
 import Pago_MercadoPago from "../screens/PetUser/Pago_MercadoPago";
-import MapViewUser from "../screens/PetUser/MapView";
+import MapViewUser from "../screens/PetUser/MapView_User";
 import WalkerQualify from "../screens/PetUser/QualifyWalker"
 import FinishWalk from "../screens/PetUser/FinishRide"
 

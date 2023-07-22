@@ -12,6 +12,8 @@ import UserActivity from './../screens/PetUser/UserActivity';
 import UserProfile from "../screens/PetUser/UserProfile";
 
 // Paseador
+import WalkerNavigator from "./WalkerNavigator";
+import WalkerProfile from "./../screens/DogWalker/WalkerProfile";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +28,7 @@ export default TabNavigator = () => {
         >
             <Tab.Screen
                 name="Inicio"
-                component={UserNavigation}
+                component={UserNavigation} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="home" size={20} color={color} />

@@ -1,12 +1,32 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { View, Text } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import styles from './style';
+import Button from '../../../components/ButtonRegular';
+import ImgBackground from '../../../components/ImageBackground'
+
 
 const HomeScreen = () => {
+
+    const navigation = useNavigation();
+
     return (
-        <View>
-            <Text>Inicio del paseador con botones, mi perfil y empezar a pasear</Text>
+
+        <View style={styles.container}>
+            <ImgBackground />
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>Hola Paseador</Text>
+            </View>
+
+            <Button
+                onPress={() => navigation.navigate("EmpresarAPasear")}
+                text={"Empezar a pasear"}>
+            </Button>
+
+
         </View>
+
     )
 }
 
-export default HomeScreen
+export default HomeScreen;
