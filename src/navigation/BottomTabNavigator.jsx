@@ -12,7 +12,7 @@ import UserActivity from './../screens/PetUser/UserActivity';
 import UserProfile from "../screens/PetUser/UserProfile";
 
 // Paseador
-import WalkerNavigator from "./WalkerNavigator";
+import WalkerNavigation from "./WalkerNavigator";
 import WalkerProfile from "./../screens/DogWalker/WalkerProfile";
 
 const Tab = createBottomTabNavigator();
