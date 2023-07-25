@@ -15,6 +15,15 @@ import UserProfile from "../screens/PetUser/UserProfile";
 import WalkerNavigation from "./WalkerNavigator";
 import WalkerProfile from "./../screens/DogWalker/WalkerProfile";
 
+//Login
+import LoginPage from "../screens/Autentication/SingIn"
+import SingUp from "../screens/Autentication/SingUp"
+import UserRegister from "../screens/Autentication/UserRegister";
+import DogRegister from "../screens/Autentication/DogRegister";
+import WalkerRegister from "../screens/Autentication/WalkerRegister";
+
+
+
 const Tab = createBottomTabNavigator();
 
 export default TabNavigator = () => {
