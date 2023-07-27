@@ -13,6 +13,7 @@ import SingUp from "../screens/Autentication/SingUp";
 import UserRegister from "../screens/Autentication/UserRegister";
 import WalkerRegister from "../screens/Autentication/WalkerRegister";
 import DogRegister from "../screens/Autentication/DogRegister";
+import tipoDeRegistro from "../screens/Autentication/SingUp - Tipo de usuario"
 
 // Importación de screens comunes en ambos tipos de usuario
 import SupportHelp from "../screens/SupportHelp"
@@ -96,6 +97,17 @@ export default UserNavigator = () => {
                     headerShown: false
                 }}
             />
+
+            <Stack.Screen
+                name="tipoDeRegistro"
+                component={tipoDeRegistro}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+
+
 
 
 

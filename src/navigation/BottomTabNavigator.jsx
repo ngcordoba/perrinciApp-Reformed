@@ -21,6 +21,8 @@ import SingUp from "../screens/Autentication/SingUp"
 import UserRegister from "../screens/Autentication/UserRegister";
 import DogRegister from "../screens/Autentication/DogRegister";
 import WalkerRegister from "../screens/Autentication/WalkerRegister";
+import tipoDeRegistro from "../screens/Autentication/SingUp - Tipo de usuario";
+import UserNavigator from "./UserNavigator";
 
 
 
@@ -49,7 +51,7 @@ export default TabNavigator = () => {
 
             <Tab.Screen
                 name="Perfil"
-                component={UserProfile} // VERIFICAR EL USUARIO PARA MOSTRAR EL PERFIL DEL USER O PASEADOR
+                component={WalkerProfile} // VERIFICAR EL USUARIO PARA MOSTRAR EL PERFIL DEL USER O PASEADOR
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="person" size={20} color={color} />
