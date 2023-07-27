@@ -54,7 +54,7 @@ const SingIn = () => {
                     </ButtonPr>
 
                     <ButtonPr
-                        onPress={() => navigation.navigate("PerfilMascota")}
+                        onPress={(handleSubmit) => navigation.navigate("Registrarse")}
                         text={"Registrarse"}>
                     </ButtonPr>
                     <Button

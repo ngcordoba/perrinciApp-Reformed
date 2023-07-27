@@ -69,7 +69,7 @@ const UserRegister = () => {
                 <View style={styles.buttonContainer}>
                     <ButtonPr
                         // Redirigir a DogRegister
-                        onPress={(handleSubmit)} // handleSubmit y navegar
+                        onPress={(handleSubmit) => navigation.navigate("RegistroPerro")} // handleSubmit y navegar
                         text={"Siguiente"}>
                     </ButtonPr>
                 </View>

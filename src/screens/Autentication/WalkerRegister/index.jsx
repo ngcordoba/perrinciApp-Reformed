@@ -60,7 +60,7 @@ const WalkerRegister = () => {
                 <View style={styles.buttonContainer}>
                     <ButtonPr
                         // Confirmar y Redirigir a SingIg
-                        onPress={(handleSubmit)}
+                        onPress={(handleSubmit) => navigation.navigate("IniciarSesion")}
                         text={"Confirmar"}>
                     </ButtonPr>
                 </View>

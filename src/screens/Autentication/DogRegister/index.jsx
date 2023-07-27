@@ -60,7 +60,7 @@ const DogRegister = () => {
                 <View style={styles.buttonContainer}>
                     <ButtonPr
                         // Confirmar SingUp y redirigir a Sing In
-                        onPress={(handleSubmit)}
+                        onPress={(handleSubmit) => navigation.navigate("IniciarSesión")}
                         text={"Confirmar"}>
                     </ButtonPr>
                 </View>

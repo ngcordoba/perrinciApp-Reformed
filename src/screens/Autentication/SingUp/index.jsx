@@ -69,7 +69,7 @@ const SingUp = () => {
 
                 <View style={styles.buttonContainer}>
                     <ButtonPr
-                        onPress={("")}
+                        onPress={(handleSubmit) => navigation.navigate("tipoDeRegistro")}
                         text={"Siguiente"}>
                     </ButtonPr>
                 </View>

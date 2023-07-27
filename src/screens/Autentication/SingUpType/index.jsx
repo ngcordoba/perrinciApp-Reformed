@@ -10,10 +10,12 @@ const tipoDeRegistro = () => {
             <Text>Registrarse como</Text>
 
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => navigation.navigate("RegistroUsuario")}>
                     <Text style={styles.buttonText}>Usuario Común</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => navigation.navigate("RegistroPaseador")}>
                     <Text style={styles.buttonText}>Usuario Paseador</Text>
                 </TouchableOpacity>
             </View>

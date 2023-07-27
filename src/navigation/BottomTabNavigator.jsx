@@ -14,6 +14,7 @@ import UserProfile from "../screens/PetUser/UserProfile";
 // Paseador
 import WalkerNavigation from "./WalkerNavigator";
 import WalkerProfile from "./../screens/DogWalker/WalkerProfile";
+import WalkerActivity from "../screens/DogWalker/WalkerActivity";
 
 //Login
 import LoginPage from "../screens/Autentication/SingIn"
@@ -21,7 +22,7 @@ import SingUp from "../screens/Autentication/SingUp"
 import UserRegister from "../screens/Autentication/UserRegister";
 import DogRegister from "../screens/Autentication/DogRegister";
 import WalkerRegister from "../screens/Autentication/WalkerRegister";
-import tipoDeRegistro from "../screens/Autentication/SingUp - Tipo de usuario";
+import tipoDeRegistro from "../screens/Autentication/SingUpType";
 import UserNavigator from "./UserNavigator";
 
 
@@ -61,7 +62,7 @@ export default TabNavigator = () => {
 
             <Tab.Screen
                 name="Actividad"
-                component={UserActivity} // VERIFICAR EL USUARIO PARA MOSTRAR LA ACTIVIDAD DEL USER O PASEADOR
+                component={WalkerActivity} // VERIFICAR EL USUARIO PARA MOSTRAR LA ACTIVIDAD DEL USER O PASEADOR
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="receipt-outline" size={20} color={color} />

@@ -7,13 +7,15 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/DogWalker/HomeScreen";
 import WalkerProfile from "../screens/DogWalker/WalkerProfile";
 import MapView_DogWalker from "../screens/DogWalker/MapView_DogWalker";
+import ActivityScreen from "../screens/DogWalker/WalkerActivity";
 
 import LoginPage from "../screens/Autentication/SingIn"
 import SingUp from "../screens/Autentication/SingUp";
 import UserRegister from "../screens/Autentication/UserRegister";
 import WalkerRegister from "../screens/Autentication/WalkerRegister";
 import DogRegister from "../screens/Autentication/DogRegister";
-import tipoDeRegistro from "../screens/Autentication/SingUp - Tipo de usuario"
+import SingUpType from "../screens/Autentication/SingUpType"
+
 
 // Importación de screens comunes en ambos tipos de usuario
 import SupportHelp from "../screens/SupportHelp"
@@ -29,6 +31,15 @@ export default UserNavigator = () => {
             <Stack.Screen
                 name="InicioPaseador"
                 component={HomeScreen}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+
+            <Stack.Screen
+                name="ActividadPaseador"
+                component={ActivityScreen}
                 options={{
                     headerBackTitleVisible: false,
                     headerShown: false
@@ -55,7 +66,7 @@ export default UserNavigator = () => {
 
             {/* Testeando diseño de panbtallas de Login */}
             <Stack.Screen
-                name="Login"
+                name="IniciarSesion"
                 component={LoginPage}
                 options={{
                     headerBackTitleVisible: false,
@@ -63,7 +74,7 @@ export default UserNavigator = () => {
                 }}
             />
             <Stack.Screen
-                name="SingUp"
+                name="Registrarse"
                 component={SingUp}
                 options={{
                     headerBackTitleVisible: false,
@@ -72,7 +83,7 @@ export default UserNavigator = () => {
             />
 
             <Stack.Screen
-                name="UserRegister"
+                name="RegistroUsuario"
                 component={UserRegister}
                 options={{
                     headerBackTitleVisible: false,
@@ -81,7 +92,7 @@ export default UserNavigator = () => {
             />
 
             <Stack.Screen
-                name="WalkerRegister"
+                name="RegistroPaseador"
                 component={WalkerRegister}
                 options={{
                     headerBackTitleVisible: false,
@@ -90,7 +101,7 @@ export default UserNavigator = () => {
             />
 
             <Stack.Screen
-                name="DogRegister"
+                name="RegistroPerro"
                 component={DogRegister}
                 options={{
                     headerBackTitleVisible: false,
@@ -100,7 +111,7 @@ export default UserNavigator = () => {
 
             <Stack.Screen
                 name="tipoDeRegistro"
-                component={tipoDeRegistro}
+                component={SingUpType}
                 options={{
                     headerBackTitleVisible: false,
                     headerShown: false

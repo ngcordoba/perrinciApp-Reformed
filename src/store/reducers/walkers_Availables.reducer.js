@@ -1,4 +1,4 @@
-import { WALKERS } from "../../data/walkers";
+import { WALKERS } from "../../data/walkers_Availables";
 
 const initialState = {
     walkers: WALKERS, //lo que obtengo desde la BD en un escenario ideal
