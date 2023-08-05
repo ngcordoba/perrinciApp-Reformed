@@ -12,9 +12,6 @@ const styles = StyleSheet.create({
         height: '20%',
         width: '40%',
         borderRadius: 20,
-        shadowOffset: { width: 0.5, height: 0.5, },
-        shadowColor: 'black',
-        shadowOpacity: 0.5,
         marginBottom: "10%",
         margin: "10%"
 
@@ -45,6 +42,7 @@ const styles = StyleSheet.create({
     razapeContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginBottom: "2%",
     },
 
     razapeTextInputContainer: {
@@ -63,6 +61,18 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         padding: "10%",
         paddingLeft: 15,
+    },
+
+    qualiListContainer: {
+        alignItems: 'center',
+
+    },
+
+    containerList: {
+        margin: "5%",
+        backgroundColor: colors.brand.secondary,
+        width: '100%',
+        borderRadius: 20,
     },
 
 

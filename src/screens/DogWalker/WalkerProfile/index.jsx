@@ -1,16 +1,26 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, TextInput, FlatList } from 'react-native';
 import React from 'react';
 import styles from './style';
 import { Ionicons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons';
 
 import ImgBackground from '../../../components/ImageBackground';
+import WalkerQualifications from '../../../components/Walker_Qualification'
+import { useSelector } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 
 
 const WalkerProfile = () => {
 
     const navigation = useNavigation();
+
+    const walker_Qualifications = useSelector(state => state.walker_Qualifications.walker_qualifications)
+
+    const renderwalker_Qualifications = ({ item }) => (
+        <View style={styles.listOfQualifications}>
+            <WalkerQualifications item={item} />
+        </View>
+    )
 
     return (
         <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
@@ -51,6 +61,24 @@ const WalkerProfile = () => {
                         </TextInput>
                     </View>
 
+                </View>
+
+
+                <Text>Calificaciones</Text>
+
+
+                <View style={styles.qualiListContainer}>
+
+                    <View style={styles.containerList}>
+                        <FlatList
+                            data={walker_Qualifications}
+                            renderItem={renderwalker_Qualifications}
+                            keyExtractor={item => item.id}
+                        >
+
+                        </FlatList>
+
+                    </View>
                 </View>
 
             </View>

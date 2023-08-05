@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Button } from 'react-native';
+import { SafeAreaView, StyleSheet, Button, View } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import MapScreen from '../../../components/User_LocationMap';
@@ -16,7 +16,10 @@ const MapViewWalker = () => {
         <SafeAreaView style={styles.container}>
 
             <MapScreen />
-            <Button title='Ver solicitud' onPress={() => setIsModalOpen(!isModalOpen)} />
+            <View style={styles.buttonsContainer} >
+                <Button title='Ver solicitud' onPress={() => setIsModalOpen(!isModalOpen)} />
+                <Button title='Mi recorrido' />
+            </View>
 
             {/* Este modal debe recibir la petición de paseo por parte del usuario para aparecer */}
             <Walker_Modal
@@ -33,6 +36,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
+    },
+
+    buttonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
 });
 
