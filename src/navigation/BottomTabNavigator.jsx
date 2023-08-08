@@ -22,7 +22,7 @@ import SingUp from "../screens/Autentication/SingUp"
 import UserRegister from "../screens/Autentication/UserRegister";
 import DogRegister from "../screens/Autentication/DogRegister";
 import WalkerRegister from "../screens/Autentication/WalkerRegister";
-import tipoDeRegistro from "../screens/Autentication/SingUpType";
+import TipoDeRegistro from "../screens/Autentication/SingUpType";
 import UserNavigator from "./UserNavigator";
 
 
@@ -40,7 +40,7 @@ export default TabNavigator = () => {
         >
             <Tab.Screen
                 name="Inicio"
-                component={WalkerNavigation} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
+                component={TipoDeRegistro} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="home" size={20} color={color} />
