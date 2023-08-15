@@ -18,7 +18,7 @@ const MapViewWalker = () => {
             <MapScreen />
             <View style={styles.buttonsContainer} >
                 <Button title='Ver solicitud' onPress={() => setIsModalOpen(!isModalOpen)} />
-                <Button title='Mi recorrido' />
+                <Button title='Mi recorrido' onPress={() => navigation.navigate("VerPaseosActivos")} />
             </View>
 
             {/* Este modal debe recibir la petición de paseo por parte del usuario para aparecer */}

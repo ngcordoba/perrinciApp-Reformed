@@ -8,6 +8,8 @@ import HomeScreen from "../screens/DogWalker/HomeScreen";
 import WalkerProfile from "../screens/DogWalker/WalkerProfile";
 import MapView_DogWalker from "../screens/DogWalker/MapView_DogWalker";
 import ActivityScreen from "../screens/DogWalker/WalkerActivity";
+import WalksActives from "../screens/DogWalker/WalksActives";
+import ViewProfileDogAndUser from "../components/Walker_ViewProfileDogAndUser";
 
 import LoginPage from "../screens/Autentication/SingIn"
 import SingUp from "../screens/Autentication/SingUp";
@@ -58,6 +60,24 @@ export default UserNavigator = () => {
             <Stack.Screen
                 name="EmpresarAPasear"
                 component={MapView_DogWalker}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+
+            <Stack.Screen
+                name="VerPaseosActivos"
+                component={WalksActives}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+
+            <Stack.Screen
+                name="VerPerfilUsuario"
+                component={ViewProfileDogAndUser}
                 options={{
                     headerBackTitleVisible: false,
                     headerShown: false

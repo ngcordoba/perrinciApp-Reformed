@@ -15,6 +15,7 @@ import UserProfile from "../screens/PetUser/UserProfile";
 import WalkerNavigation from "./WalkerNavigator";
 import WalkerProfile from "./../screens/DogWalker/WalkerProfile";
 import WalkerActivity from "../screens/DogWalker/WalkerActivity";
+import WalksActives from "../screens/DogWalker/WalksActives";
 
 //Login
 import LoginPage from "../screens/Autentication/SingIn"
@@ -40,7 +41,7 @@ export default TabNavigator = () => {
         >
             <Tab.Screen
                 name="Inicio"
-                component={TipoDeRegistro} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
+                component={WalksActives} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="home" size={20} color={color} />

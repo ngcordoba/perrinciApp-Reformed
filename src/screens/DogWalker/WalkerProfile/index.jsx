@@ -7,12 +7,10 @@ import { Entypo } from '@expo/vector-icons';
 import ImgBackground from '../../../components/ImageBackground';
 import WalkerQualifications from '../../../components/Walker_Qualification'
 import { useSelector } from 'react-redux'
-import { useNavigation } from '@react-navigation/native'
 
 
 const WalkerProfile = () => {
 
-    const navigation = useNavigation();
 
     const walker_Qualifications = useSelector(state => state.walker_Qualifications.walker_qualifications)
 
