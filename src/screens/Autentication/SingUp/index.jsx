@@ -1,5 +1,5 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, Button, Alert, Image } from 'react-native';
-import React, { useState } from 'react';
+import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
 import styles from './style';
 
 import ImgBackground from '../../../components/ImageBackground';
@@ -7,22 +7,45 @@ import ButtonPr from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native'
 
 
-const SingUp = () => {
+const SingUp = ({ route, navigation }) => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('')
     const [confirmEmail, setConfirmEmail] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
 
+    const tipoUsuario = route.params?.tipoUsuario;
+    console.log(tipoUsuario)
+
+
     const handleSubmit = () => {
+
         if (!email || !password || !confirmEmail || !confirmPassword) {
             Alert.alert('Por favor complete los campos vacíos')
+        } else if (email !== confirmEmail) {
+            Alert.alert("Las emails no coinciden")
+        } else if (password !== confirmPassword) {
+            Alert.alert("La contraseñas no coinciden");
+        } else {
+            const usuario = {
+                tipoUsuario,
+                email,
+                password,
+            };
+            if (tipoUsuario == "Paseador") {
+                navigation.navigate("RegistroPaseador", { usuario })
+            } else {
+                navigation.navigate("RegistroUsuario", { usuario })
+            }
         }
-        return;
+
+        // navigation.navigate("Registro"+tipoUsuario)
+
     }
 
-    const navigation = useNavigation();
+
+
 
     return (
         <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
@@ -69,7 +92,7 @@ const SingUp = () => {
 
                 <View style={styles.buttonContainer}>
                     <ButtonPr
-                        onPress={(handleSubmit) => navigation.navigate("tipoDeRegistro")}
+                        onPress={handleSubmit}
                         text={"Siguiente"}>
                     </ButtonPr>
                 </View>

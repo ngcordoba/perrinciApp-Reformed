@@ -4,25 +4,46 @@ import styles from './style';
 
 import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
-import { useNavigation } from '@react-navigation/native'
 
 
-const UserRegister = () => {
+const UserRegister = ({ route, navigation }) => {
 
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
     const [direccion, setDireccion] = useState('');
     const [numeroCelular, setNumeroCelular] = useState('');
+    const [dni, setDni] = useState('');
+
+    console.log(route)
+    const tipoUsuario = route.params?.usuario.tipoUsuario; // Obtener el tipo de usuario por parametros
+    const email = route.params?.usuario.email; // Obtener el email por parametros
+    const password = route.params?.usuario.password; // Obtener el password por parametros
 
 
     const handleSubmit = () => {
-        if (!nombre || !apellido || !direccion || !numeroCelular) {
+        if (!nombre || !apellido || !direccion || !numeroCelular || !dni) {
             Alert.alert('Por favor complete los campos vacíos')
+        } else {
+            // Crear un objeto con los datos adicionales
+            const datosUsuario = {
+                nombre,
+                apellido,
+                numeroCelular,
+                direccion,
+                dni,
+                tipoUsuario,
+                email,
+                password,
+            };
+
+
+
+            console.log(datosUsuario)
+            navigation.navigate("RegistroPerro", datosUsuario);
         }
-        return;
     }
 
-    const navigation = useNavigation();
+
 
     return (
         <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
@@ -35,7 +56,7 @@ const UserRegister = () => {
                 <Text>Nombre</Text>
                 <TextInput
                     value={nombre}
-                    onChangeText={setApellido}
+                    onChangeText={setNombre}
                     style={styles.input}
                     placeholder='Ingresa tu nombre/s'>
                 </TextInput>
@@ -65,11 +86,19 @@ const UserRegister = () => {
                     style={styles.input}>
                 </TextInput>
 
+                <Text>DNI</Text>
+                <TextInput
+                    value={dni}
+                    onChangeText={setDni}
+                    placeholder='Ingresa tu DNI'
+                    style={styles.input}>
+                </TextInput>
+
 
                 <View style={styles.buttonContainer}>
                     <ButtonPr
                         // Redirigir a DogRegister
-                        onPress={(handleSubmit) => navigation.navigate("RegistroPerro")} // handleSubmit y navegar
+                        onPress={handleSubmit}
                         text={"Siguiente"}>
                     </ButtonPr>
                 </View>

@@ -41,7 +41,7 @@ export default TabNavigator = () => {
         >
             <Tab.Screen
                 name="Inicio"
-                component={WalksActives} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
+                component={DogRegister} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="home" size={20} color={color} />

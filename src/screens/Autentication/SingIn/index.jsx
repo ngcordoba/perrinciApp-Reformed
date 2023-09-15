@@ -16,6 +16,7 @@ const SingIn = () => {
         if (!email || !password) {
             Alert.alert('Por favor complete los campos vacíos')
         }
+
         return;
     }
 
@@ -54,7 +55,7 @@ const SingIn = () => {
                     </ButtonPr>
 
                     <ButtonPr
-                        onPress={(handleSubmit) => navigation.navigate("Registrarse")}
+                        onPress={(handleSubmit) => navigation.navigate("RegistrarseComo")}
                         text={"Registrarse"}>
                     </ButtonPr>
                     <Button

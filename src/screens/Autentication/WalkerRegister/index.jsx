@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, Button, Alert, Image } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image } from 'react-native';
 import React, { useState } from 'react';
 import styles from './style';
 
@@ -7,22 +7,44 @@ import ButtonPr from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native'
 
 
-const WalkerRegister = () => {
+const WalkerRegister = ({ route, navigation }) => {
 
     const [nombre, setNombre] = useState("");
     const [apellido, setApellido] = useState("");
-    const [direccion, setDireccion] = useState('');
     const [numeroCelular, setNumeroCelular] = useState('');
+    const [dni, setDni] = useState('');
+
+
+    const tipoUsuario = route.params?.tipoUsuario; // Obtener el tipo de usuario por parametros
+    const email = route.params?.email; // Obtener el email por parametros
+    const password = route.params?.password; // Obtener el password por parametros
 
 
     const handleSubmit = () => {
-        if (!nombre || !apellido || !direccion || !numeroCelular) {
-            Alert.alert('Por favor complete los campos vacíos')
+        if (!nombre || !apellido || !dni || !numeroCelular) {
+            Alert.alert('Por favor complete los campos vacíos');
+        } else {
+            // Crear un objeto con los datos adicionales
+            const datosAdicionales = {
+                nombre,
+                apellido,
+                numeroCelular,
+                dni,
+            };
+
+            // Combinar los datos del tipo de usuario, email y datos adicionales
+            const datosCompletosPaseador = {
+                tipoUsuario,
+                email,
+                password,
+                datosAdicionales,
+            };
+
+            // Fin de registro de paseador. Vuelvo a iniciar sesión con el usuario creado
+            navigation.navigate("IniciarSesion", datosCompletosPaseador);
         }
-        return;
     }
 
-    const navigation = useNavigation();
 
     return (
         <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
@@ -56,11 +78,19 @@ const WalkerRegister = () => {
                     style={styles.input}>
                 </TextInput>
 
+                <Text>DNI</Text>
+                <TextInput
+                    value={dni}
+                    onChangeText={setDni}
+                    placeholder='Ingresa tu número de celular'
+                    style={styles.input}>
+                </TextInput>
+
 
                 <View style={styles.buttonContainer}>
                     <ButtonPr
                         // Confirmar y Redirigir a SingIg
-                        onPress={(handleSubmit) => navigation.navigate("IniciarSesion")}
+                        onPress={handleSubmit}
                         text={"Confirmar"}>
                     </ButtonPr>
                 </View>
