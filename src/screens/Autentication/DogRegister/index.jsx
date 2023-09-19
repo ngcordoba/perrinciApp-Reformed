@@ -4,60 +4,50 @@ import styles from './style';
 
 import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
-import { useNavigation } from '@react-navigation/native'
 
 
 const DogRegister = ({ route, navigation }) => {
 
-    const [nombrePerro, setNombrePerro] = useState("");
-    const [edad, setEdad] = useState('');
+    const [dogName, setDogName] = useState("");
+    const [age, setAge] = useState('');
     const [raza, setRaza] = useState('');
 
 
     const datosUsuario = route.params; // Obtener datos anteriores
-    const nombre = datosUsuario.nombre;
-    const apellido = datosUsuario.apellido;
-    const numeroCelular = datosUsuario.numeroCelular;
-    const direccion = datosUsuario.direccion;
+    const firstName = datosUsuario.name;
+    const lastName = datosUsuario.lastName;
+    const phone = datosUsuario.phone;
+    const address = datosUsuario.address;
     const dni = datosUsuario.dni;
-    const tipoUsuario = datosUsuario.tipoUsuario;
+    const user = datosUsuario.user;
     const email = datosUsuario.email;
     const password = datosUsuario.password;
 
 
     const handleSubmit = async () => {
-        if (!nombre || !edad) {
+        if (!dogName || !age) {
             Alert.alert('Los campos Nombre y Edad son obligatorios')
         } else {
             // Agregar los nuevos datos al objeto datosCompletos
-            const user = {
-                nombre,
-                apellido,
-                numeroCelular,
-                direccion,
+            const fullUser = {
+                firstName,
+                lastName,
+                phone,
+                address,
                 dni,
-                tipoUsuario,
+                user,
                 email,
                 password,
                 perro: {
-                    nombre,
-                    edad,
+                    dogName,
+                    age,
                     raza,
-                }  // Datos anteriores
+                }
 
             };
 
 
-            console.log(user)
-
-            /*
-            "perro":{
-                ...nombre,
-                ...edad,
-                ...raza,
-            } 
-
-            */
+            console.log(fullUser)
 
             try {
                 const response = await fetch('', {
@@ -65,7 +55,7 @@ const DogRegister = ({ route, navigation }) => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(user),
+                    body: JSON.stringify(fullUser),
                 });
 
                 if (response.ok) {
@@ -93,16 +83,16 @@ const DogRegister = ({ route, navigation }) => {
             <View style={styles.inputContainer}>
                 <Text>Nombre</Text>
                 <TextInput
-                    value={nombrePerro}
-                    onChangeText={setNombrePerro}
+                    value={dogName}
+                    onChangeText={setDogName}
                     style={styles.input}
                     placeholder='Nombre de tu mascota'>
                 </TextInput>
 
                 <Text>Edad</Text>
                 <TextInput
-                    value={edad}
-                    onChangeText={setEdad}
+                    value={age}
+                    onChangeText={setAge}
                     style={styles.input}
                     placeholder='Edad de tu mascota'>
                 </TextInput>

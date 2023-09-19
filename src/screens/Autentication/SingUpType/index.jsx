@@ -10,12 +10,12 @@ const TipoDeRegistro = () => {
 
     const navigateToRegistroUsuario = () => {
         // Pasar el tipo de usuario como parámetro a la siguiente pantalla
-        navigation.navigate("Registrarse", { tipoUsuario: "Usuario" });
+        navigation.navigate("Registrarse", { user: "Usuario" });
     };
 
     const navigateToRegistroPaseador = () => {
         // Pasar el tipo de usuario como parámetro a la siguiente pantalla
-        navigation.navigate("Registrarse", { tipoUsuario: "Paseador" });
+        navigation.navigate("Registrarse", { user: "Paseador" });
     };
 
 

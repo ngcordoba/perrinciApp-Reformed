@@ -4,23 +4,37 @@ import styles from './style';
 
 import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, NavigationActions } from '@react-navigation/native'
+import UserNavigator from '../../../navigation/UserNavigator';
+import WalkerNavigator from '../../../navigation/WalkerNavigator'
 
 
 const SingIn = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
+    const navigation = useNavigation();
+
 
     const handleSubmit = () => {
         if (!email || !password) {
             Alert.alert('Por favor complete los campos vacíos')
         }
 
+        // FETCH => enviar usuario y contraseña. recibo el 200, con el objeto usuario, usuario.user
+        if (email === "usuario") {
+            navigation.navigate(
+                'StackUser',
+                {},
+                NavigationActions.navigate({
+                    routeName: 'InicioUsuario'
+                })
+            )
+        } else {
+            navigation.navigate('InicioPaseador'); // Navega a la pantalla 'InicioPaseador' en el stack actual.
+        }
         return;
     }
-
-    const navigation = useNavigation();
 
     return (
         <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
@@ -55,7 +69,7 @@ const SingIn = () => {
                     </ButtonPr>
 
                     <ButtonPr
-                        onPress={(handleSubmit) => navigation.navigate("RegistrarseComo")}
+                        onPress={() => navigation.navigate("RegistrarseComo")}
                         text={"Registrarse"}>
                     </ButtonPr>
                     <Button

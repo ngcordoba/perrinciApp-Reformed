@@ -11,8 +11,6 @@ const styles = StyleSheet.create({
         height: '25%',
         width: '40%',
         borderRadius: 20,
-        shadowColor: 'black',
-        shadowOpacity: 0.2,
         marginBottom: "5%",
         margin: "10%"
 

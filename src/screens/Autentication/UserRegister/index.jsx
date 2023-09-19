@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, Button, Alert, Image } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image } from 'react-native';
 import React, { useState } from 'react';
 import styles from './style';
 
@@ -8,30 +8,30 @@ import ButtonPr from '../../../components/ButtonRegular';
 
 const UserRegister = ({ route, navigation }) => {
 
-    const [nombre, setNombre] = useState("");
-    const [apellido, setApellido] = useState("");
-    const [direccion, setDireccion] = useState('');
-    const [numeroCelular, setNumeroCelular] = useState('');
+    const [firstName, setFirtsName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [address, setAddress] = useState('');
+    const [phone, setPhone] = useState('');
     const [dni, setDni] = useState('');
 
-    console.log(route)
-    const tipoUsuario = route.params?.usuario.tipoUsuario; // Obtener el tipo de usuario por parametros
+
+    const user = route.params?.usuario.user; // Obtener el tipo de usuario por parametros
     const email = route.params?.usuario.email; // Obtener el email por parametros
     const password = route.params?.usuario.password; // Obtener el password por parametros
 
 
     const handleSubmit = () => {
-        if (!nombre || !apellido || !direccion || !numeroCelular || !dni) {
+        if (!firstName || !lastName || !address || !phone || !dni) {
             Alert.alert('Por favor complete los campos vacíos')
         } else {
             // Crear un objeto con los datos adicionales
             const datosUsuario = {
-                nombre,
-                apellido,
-                numeroCelular,
-                direccion,
+                firstName,
+                lastName,
+                phone,
+                address,
                 dni,
-                tipoUsuario,
+                user,
                 email,
                 password,
             };
@@ -55,24 +55,24 @@ const UserRegister = ({ route, navigation }) => {
             <View style={styles.inputContainer}>
                 <Text>Nombre</Text>
                 <TextInput
-                    value={nombre}
-                    onChangeText={setNombre}
+                    value={firstName}
+                    onChangeText={setFirtsName}
                     style={styles.input}
                     placeholder='Ingresa tu nombre/s'>
                 </TextInput>
 
                 <Text>Apellido</Text>
                 <TextInput
-                    value={apellido}
-                    onChangeText={setApellido}
+                    value={lastName}
+                    onChangeText={setLastName}
                     style={styles.input}
                     placeholder='Ingresa tu apellido/s'>
                 </TextInput>
 
                 <Text>Dirección</Text>
                 <TextInput
-                    value={direccion}
-                    onChangeText={setDireccion}
+                    value={address}
+                    onChangeText={setAddress}
                     style={styles.input}
                     placeholder='Ingresa la dirección de tu hogar'>
                 </TextInput>
@@ -80,8 +80,8 @@ const UserRegister = ({ route, navigation }) => {
 
                 <Text>Nro. de Celular</Text>
                 <TextInput
-                    value={numeroCelular}
-                    onChangeText={setNumeroCelular}
+                    value={phone}
+                    onChangeText={setPhone}
                     placeholder='Ingresa tu número de celular'
                     style={styles.input}>
                 </TextInput>

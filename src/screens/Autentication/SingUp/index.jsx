@@ -1,10 +1,9 @@
 import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './style';
 
 import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
-import { useNavigation } from '@react-navigation/native'
 
 
 const SingUp = ({ route, navigation }) => {
@@ -15,8 +14,8 @@ const SingUp = ({ route, navigation }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
 
-    const tipoUsuario = route.params?.tipoUsuario;
-    console.log(tipoUsuario)
+    const user = route.params?.user;
+    console.log(user)
 
 
     const handleSubmit = () => {
@@ -29,23 +28,18 @@ const SingUp = ({ route, navigation }) => {
             Alert.alert("La contraseñas no coinciden");
         } else {
             const usuario = {
-                tipoUsuario,
+                user,
                 email,
                 password,
             };
-            if (tipoUsuario == "Paseador") {
+            if (user == "Paseador") {
                 navigation.navigate("RegistroPaseador", { usuario })
             } else {
                 navigation.navigate("RegistroUsuario", { usuario })
             }
         }
 
-        // navigation.navigate("Registro"+tipoUsuario)
-
     }
-
-
-
 
     return (
         <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >

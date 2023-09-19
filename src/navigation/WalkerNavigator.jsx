@@ -21,7 +21,7 @@ const Stack = createNativeStackNavigator();
 export default UserNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName="Home"
+            initialRouteName="InicioPaseador"
         >
             <Stack.Screen
                 name="InicioPaseador"

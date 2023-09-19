@@ -7,6 +7,7 @@ import WalkerNavigator from "./WalkerNavigator";
 const AppNavigator = () => {
     return <AuthNavigator />;
 
+
 };
 
 export default AppNavigator;
