@@ -4,10 +4,9 @@ import styles from './style';
 
 import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
-import { useNavigation, NavigationActions } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import UserNavigator from '../../../navigation/UserNavigator';
-import WalkerNavigator from '../../../navigation/WalkerNavigator'
-
+import { WalkerNavigator } from '../../../navigation/WalkerNavigator'
 
 const SingIn = () => {
 
@@ -22,18 +21,11 @@ const SingIn = () => {
         }
 
         // FETCH => enviar usuario y contraseña. recibo el 200, con el objeto usuario, usuario.user
-        if (email === "usuario") {
-            navigation.navigate(
-                'StackUser',
-                {},
-                NavigationActions.navigate({
-                    routeName: 'InicioUsuario'
-                })
-            )
+        if (email == "Paseador") {
+            navigation.push("InicioPaseador", { WalkerNavigator })
         } else {
-            navigation.navigate('InicioPaseador'); // Navega a la pantalla 'InicioPaseador' en el stack actual.
+            navigation.navigate("InicioPaseador", { WalkerNavigator })
         }
-        return;
     }
 
     return (

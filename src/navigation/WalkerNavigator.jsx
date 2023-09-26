@@ -18,7 +18,7 @@ import SupportAbout from "../screens/SupportHelp"
 
 const Stack = createNativeStackNavigator();
 
-export default UserNavigator = () => {
+export default WalkerNavigator = () => {
     return (
         <Stack.Navigator
             initialRouteName="InicioPaseador"
