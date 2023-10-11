@@ -26,8 +26,6 @@ import WalkerRegister from "../screens/Autentication/WalkerRegister";
 import TipoDeRegistro from "../screens/Autentication/SingUpType";
 import UserNavigator from "./UserNavigator";
 
-
-
 const Tab = createBottomTabNavigator();
 
 export default TabNavigator = () => {

@@ -21,10 +21,10 @@ const SingIn = () => {
         }
 
         // FETCH => enviar usuario y contraseña. recibo el 200, con el objeto usuario, usuario.user
-        if (email == "Paseador") {
-            navigation.push("InicioPaseador", { WalkerNavigator })
+        if (email == "usuario") {
+            navigation.navigate('User', { screen: 'InicioUsuario' });
         } else {
-            navigation.navigate("InicioPaseador", { WalkerNavigator })
+            navigation.navigate('DogWalker', { screen: 'InicioPaseador' });
         }
     }
 
