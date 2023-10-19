@@ -5,8 +5,6 @@ import styles from './style';
 import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native'
-import UserNavigator from '../../../navigation/UserNavigator';
-import { WalkerNavigator } from '../../../navigation/WalkerNavigator'
 
 const SingIn = () => {
 
@@ -22,9 +20,9 @@ const SingIn = () => {
 
         // FETCH => enviar usuario y contraseña. recibo el 200, con el objeto usuario, usuario.user
         if (email == "usuario") {
-            navigation.navigate('User', { screen: 'InicioUsuario' });
+            navigation.navigate('User');
         } else {
-            navigation.navigate('DogWalker', { screen: 'InicioPaseador' });
+            navigation.navigate('DogWalker');
         }
     }
 

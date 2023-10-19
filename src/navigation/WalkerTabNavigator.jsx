@@ -3,32 +3,16 @@ import { Ionicons } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Soporte from './../screens/SupportHome';
-
 // Importación de screens que varían segun el usuario logeado
 // Usuario
-import UserNavigation from "./UserNavigator"
-import UserActivity from './../screens/PetUser/UserActivity';
-import UserProfile from "../screens/PetUser/UserProfile";
-
-// Paseador
-import WalkerNavigation from "./WalkerNavigator";
-import WalkerProfile from "./../screens/DogWalker/WalkerProfile";
+import HomeScreen from "../screens/DogWalker/HomeScreen";
+import WalkerProfile from '../screens/DogWalker/WalkerProfile';
 import WalkerActivity from "../screens/DogWalker/WalkerActivity";
-import WalksActives from "../screens/DogWalker/WalksActives";
-
-//Login
-import LoginPage from "../screens/Autentication/SingIn"
-import SingUp from "../screens/Autentication/SingUp"
-import UserRegister from "../screens/Autentication/UserRegister";
-import DogRegister from "../screens/Autentication/DogRegister";
-import WalkerRegister from "../screens/Autentication/WalkerRegister";
-import TipoDeRegistro from "../screens/Autentication/SingUpType";
-import UserNavigator from "./UserNavigator";
+import Soporte from '../screens/SupportHome';
 
 const Tab = createBottomTabNavigator();
 
-export default TabNavigator = () => {
+const WalkerTabNavigator = () => {
     return (
         <Tab.Navigator
             initialRouteName="Inicio"
@@ -39,7 +23,7 @@ export default TabNavigator = () => {
         >
             <Tab.Screen
                 name="Inicio"
-                component={DogRegister} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
+                component={HomeScreen}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="home" size={20} color={color} />
@@ -51,7 +35,7 @@ export default TabNavigator = () => {
 
             <Tab.Screen
                 name="Perfil"
-                component={WalkerProfile} // VERIFICAR EL USUARIO PARA MOSTRAR EL PERFIL DEL USER O PASEADOR
+                component={WalkerProfile}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="person" size={20} color={color} />
@@ -61,7 +45,7 @@ export default TabNavigator = () => {
 
             <Tab.Screen
                 name="Actividad"
-                component={WalkerActivity} // VERIFICAR EL USUARIO PARA MOSTRAR LA ACTIVIDAD DEL USER O PASEADOR
+                component={WalkerActivity}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="receipt-outline" size={20} color={color} />
@@ -85,3 +69,5 @@ export default TabNavigator = () => {
         </Tab.Navigator>
     );
 }
+
+export default WalkerTabNavigator;

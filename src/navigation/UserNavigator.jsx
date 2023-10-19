@@ -1,13 +1,11 @@
-/* Pila del usuario "común" donde estan importadas todas las screens
+/* Pila del usuario donde estan importadas todas las screens
 por las que el usuario navegará una vez que esté registrado.
 */
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "../screens/PetUser/HomeScreen";
-import UserProfile from "../screens/PetUser/UserProfile";
 import PetProfile from "../screens/PetUser/PetProfile";
-import UserActivity from "../screens/PetUser/UserActivity";
 import TakeAWalk from "../screens/PetUser/TakeAWalk";
 import SelectDogWalker from "../screens/PetUser/SelectDogWalker";
 import ViewWalkerProfile from "../components/User_ViewWalkerProfile";
@@ -16,35 +14,34 @@ import MapViewUser from "../screens/PetUser/MapView_User";
 import WalkerQualify from "../screens/PetUser/QualifyWalker"
 import FinishWalk from "../screens/PetUser/FinishRide"
 
-// Importación de screens comunes en ambos tipos de usuario
+// Menu de navegación del usuario
+import UserTabNavigator from "./UserTabNavigator"
+
+
+// Pantallas de soporte; común para los dos tipos de usuario
 import SupportHelp from "../screens/SupportHelp"
 import SupportAbout from "../screens/SupportHelp"
+
 
 const Stack = createNativeStackNavigator();
 
 export default UserNavigator = () => {
     return (
         <Stack.Navigator
-            name="StackUser"
-            initialRouteName="InicioUsuario"
         >
             <Stack.Screen
-                name="InicioUsuario"
-                component={HomeScreen}
+                name="TabUserNav"
+                component={UserTabNavigator}
                 options={{
-                    headerBackTitleVisible: false,
-                    headerShown: false
+                    headerShown: false,
                 }}
             />
 
             <Stack.Screen
-                name="PerfilUsuario"
-                component={UserProfile}
+                name="HomeScreen"
+                component={HomeScreen}
                 options={{
-                    title: "Mi Perfil",
-                    headerBackTitleVisible: false,
-
-
+                    headerShown: false,
                 }}
             />
 
@@ -57,16 +54,6 @@ export default UserNavigator = () => {
                 }}
 
             />
-
-            <Stack.Screen
-                name="ActividadUsuario"
-                component={UserActivity}
-                options={{
-                    headerBackTitleVisible: false,
-                }}
-
-            />
-
 
             <Stack.Screen
                 name="SolicitarPaseo"
@@ -150,6 +137,8 @@ export default UserNavigator = () => {
                     headerBackTitleVisible: false,
                 }}
             />
+
+
 
 
         </Stack.Navigator>
