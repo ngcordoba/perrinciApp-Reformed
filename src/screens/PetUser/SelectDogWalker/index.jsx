@@ -48,7 +48,7 @@ const SelectDogWalker = ({ navigation }) => {
 
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={() => navigation.navigate("InicioUsuario")}
+                        onPress={() => navigation.navigate("TabUserNav")}
                         text={"Volver al menu"}>
                     </Button>
                 </View>

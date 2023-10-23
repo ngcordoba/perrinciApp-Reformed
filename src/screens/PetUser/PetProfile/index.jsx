@@ -71,12 +71,7 @@ const PetProfile = () => {
                     <Entypo name="trophy" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
-                <View style={styles.buttonContainer}>
-                    <Button
-                        onPress={() => navigation.navigate("PerfilUsuario")}
-                        text={"Volver a mi perfil"}>
-                    </Button>
-                </View>
+
             </View>
 
         </SafeAreaView >

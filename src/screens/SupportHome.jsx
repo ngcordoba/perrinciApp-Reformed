@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.brand.primary,
     fontSize: fontSizes.title,
-    margin: 40,
+    margin: "10%",
   },
 
   listContainer: {

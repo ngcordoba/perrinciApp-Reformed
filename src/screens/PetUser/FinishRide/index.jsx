@@ -18,7 +18,7 @@ const FinishWalk = () => {
             </View>
 
             <Button
-                onPress={() => navigation.navigate("InicioUsuario")}
+                onPress={() => navigation.navigate("TabUserNav")}
                 text={"Volver al inicio"}>
             </Button>
 

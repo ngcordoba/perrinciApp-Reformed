@@ -1,9 +1,7 @@
-/* Pila del usuario donde estan importadas todas las screens
-por las que el usuario navegará una vez que esté registrado.
-*/
-
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useNavigation } from '@react-navigation/native';
 
+import UserTabNavigator from "./UserTabNavigator";
 import HomeScreen from "../screens/PetUser/HomeScreen";
 import PetProfile from "../screens/PetUser/PetProfile";
 import TakeAWalk from "../screens/PetUser/TakeAWalk";
@@ -11,24 +9,21 @@ import SelectDogWalker from "../screens/PetUser/SelectDogWalker";
 import ViewWalkerProfile from "../components/User_ViewWalkerProfile";
 import Pago_MercadoPago from "../screens/PetUser/Pago_MercadoPago";
 import MapViewUser from "../screens/PetUser/MapView_User";
-import WalkerQualify from "../screens/PetUser/QualifyWalker"
-import FinishWalk from "../screens/PetUser/FinishRide"
-
-// Menu de navegación del usuario
-import UserTabNavigator from "./UserTabNavigator"
-
-
-// Pantallas de soporte; común para los dos tipos de usuario
-import SupportHelp from "../screens/SupportHelp"
-import SupportAbout from "../screens/SupportHelp"
+import WalkerQualify from "../screens/PetUser/QualifyWalker";
+import FinishWalk from "../screens/PetUser/FinishRide";
+import SupportHelp from "../screens/SupportHelp";
+import SupportAbout from "../screens/SupportHelp";
+import { Button } from "react-native";
 
 
 const Stack = createNativeStackNavigator();
 
-export default UserNavigator = () => {
+
+export default UserStack = () => {
+
+    const navigation = useNavigation();
     return (
-        <Stack.Navigator
-        >
+        <Stack.Navigator initialRouteName="TabUserNav">
             <Stack.Screen
                 name="TabUserNav"
                 component={UserTabNavigator}
@@ -36,7 +31,6 @@ export default UserNavigator = () => {
                     headerShown: false,
                 }}
             />
-
             <Stack.Screen
                 name="HomeScreen"
                 component={HomeScreen}
@@ -44,7 +38,6 @@ export default UserNavigator = () => {
                     headerShown: false,
                 }}
             />
-
             <Stack.Screen
                 name="PerfilMascota"
                 component={PetProfile}
@@ -52,9 +45,7 @@ export default UserNavigator = () => {
                     title: "Perfil de mi mascota",
                     headerBackTitleVisible: false,
                 }}
-
             />
-
             <Stack.Screen
                 name="SolicitarPaseo"
                 component={TakeAWalk}
@@ -63,7 +54,6 @@ export default UserNavigator = () => {
                     headerBackTitleVisible: false,
                 }}
             />
-
             <Stack.Screen
                 name="SeleccionarPaseador"
                 component={SelectDogWalker}
@@ -72,8 +62,6 @@ export default UserNavigator = () => {
                     headerBackTitleVisible: false,
                 }}
             />
-
-
             <Stack.Screen
                 name="VerPerfilDelPaseador"
                 component={ViewWalkerProfile}
@@ -81,27 +69,30 @@ export default UserNavigator = () => {
                     title: route.params.name + " " + route.params.lastName,
                 })}
             />
-
             <Stack.Screen
                 name="PagoPaseo"
                 component={Pago_MercadoPago}
                 options={({ route }) => ({
                     title: "Realizá tu pago",
+                    headerBackTitleVisible: false,
                 })}
             />
-
-
-
             <Stack.Screen
-                // Restringir el "Back", no se puede volver para atras
-                // De esta pantalla en adelante
+                // casita para volver al home.
                 name="PaseoEnCurso"
                 component={MapViewUser}
                 options={({ route }) => ({
                     title: "Paseo en curso",
+                    headerBackTitleVisible: false,
+                    headerRight: () => (
+                        <Button
+                            onPress={() => navigation.navigate("TabUserNav")}
+                            title="Inicio"
+                        >
+                        </Button>
+                    )
                 })}
             />
-
             <Stack.Screen
                 name="CalificarPaseador"
                 component={WalkerQualify}
@@ -109,7 +100,6 @@ export default UserNavigator = () => {
                     title: "Calificá al paseador",
                 })}
             />
-
             <Stack.Screen
                 name="PaseoFinalizado"
                 component={FinishWalk}
@@ -118,8 +108,6 @@ export default UserNavigator = () => {
                     headerBackTitleVisible: false,
                 })}
             />
-
-
             <Stack.Screen
                 name="AyudaSoporte"
                 component={SupportHelp}
@@ -128,7 +116,6 @@ export default UserNavigator = () => {
                     headerBackTitleVisible: false,
                 }}
             />
-
             <Stack.Screen
                 name="AcercaDePetLinkSoporte"
                 component={SupportAbout}
@@ -137,10 +124,6 @@ export default UserNavigator = () => {
                     headerBackTitleVisible: false,
                 }}
             />
-
-
-
-
         </Stack.Navigator>
     )
 }
