@@ -47,7 +47,7 @@ const WalksActives = ({ navigation }) => {
 
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={() => navigation.navigate("InicioUsuario")}
+                        onPress={() => navigation.navigate("TabWalkerNav")}
                         text={"Volver al menu"}>
                     </Button>
                 </View>

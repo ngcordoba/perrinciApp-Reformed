@@ -41,7 +41,8 @@ export default WalkerNavigator = () => {
                 name="EmpresarAPasear"
                 component={MapView_DogWalker}
                 options={{
-                    headerBackTitleVisible: false,
+                    title: "Empezar a pasear",
+                    headerBackVisible: false,
                 }}
             />
 

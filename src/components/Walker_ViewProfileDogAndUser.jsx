@@ -17,26 +17,21 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
                 <View style={styles.photoContainer}>
                     <Image
                         style={styles.image}
-                        source={{ uri: item.img }}
                     />
                 </View>
 
                 <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>{item.name}</Text>
-                    <Text style={styles.scoreText}>Calificacion: {item.score}</Text>
-                    <Text style={styles.scoreText}>Paseos completados: {item.finishedWalks}</Text>
+                    <Text style={styles.nameText}>Name</Text>
+                    <Text style={styles.scoreText}>Calificacion: </Text>
+                    <Text style={styles.scoreText}>Paseos completados: </Text>
                 </View>
             </View>
 
 
-
-
-
-            <View style={styles.contentContainer}>
+            <View style={styles.dogContainerInfo}>
                 <View style={styles.photoContainer}>
                     <Image
                         style={styles.image}
-                        source={{ uri: item.petImg }}
                     />
                 </View>
 
@@ -45,11 +40,6 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
                     <Text style={styles.scoreText}>Edad: </Text>
                     <Text style={styles.scoreText}>Raza: </Text>
                 </View>
-            </View>
-
-            <View style={styles.detailsContainer}>
-                <Text style={styles.label}>Peso:  kg</Text>
-                <Text style={styles.label}>Altura:  cm</Text>
             </View>
 
             <View style={styles.buttonContainer}>
@@ -75,14 +65,21 @@ const styles = StyleSheet.create({
         alignItems: "center",
         paddingHorizontal: 20,
     },
+
+    dogContainerInfo: {
+        height: "50%",
+        flexDirection: "row",
+        alignItems: "center",
+        paddingHorizontal: 20,
+    },
     photoContainer: {
-        height: '100%',
         width: '40%',
         marginHorizontal: '5%',
     },
     image: {
         width: '100%',
-        height: '100%',
+        height: '50%',
+        backgroundColor: "black",
         borderRadius: 20,
     },
     textContainer: {
@@ -105,7 +102,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.brand.white,
         alignSelf: "center",
         borderRadius: 15,
-        marginTop: 20,
         paddingHorizontal: 20,
     },
     label: {
@@ -113,7 +109,6 @@ const styles = StyleSheet.create({
         marginVertical: 5,
     },
     buttonContainer: {
-        marginTop: 25,
         alignItems: "center"
     }
 });

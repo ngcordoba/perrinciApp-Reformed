@@ -14,7 +14,7 @@ export default function Walker_Modal({ isModalOpen, setIsModalOpen }) {
                         <Text style={[styles.modalTitle, { textAlign: 'center', alignSelf: 'center' }]}> Hola, Soy Kevin, quiero dar un paseo, me buscas? </Text>
                         <View style={styles.modalContain}>
                             {/* En visualizar perfil, el paseador navegará a un componente con el "Objeto" User, y podrá volver al MapView para Aceptar o rechazar */}
-                            <Button1 text={"Visualizar Perfil"} onPress={() => navigation.navigate("PerfilPaseador")} ></Button1>
+                            <Button1 text={"Visualizar Perfil"} onPress={() => navigation.navigate("VerPerfilUsuario")} ></Button1>
                             {/* Alert avisando al usuario el paseo rechazado */}
                             <Button1 text={"Rechazar Paseo"}>  </Button1>
                             {/* Al aceptar, se envía la confirmación al User y se carga la dirección en el mapa del paseador. Se carga tambien un paseo en la lista de activos */}

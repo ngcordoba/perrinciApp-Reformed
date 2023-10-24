@@ -63,6 +63,7 @@ const SingIn = () => {
                         text={"Registrarse"}>
                     </ButtonPr>
                     <Button
+                        onPress={() => navigation.navigate("ResetearContrasena")}
                         title="¿Olvidaste tu contraseña?"></Button>
                 </View>
             </View>

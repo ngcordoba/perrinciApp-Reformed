@@ -40,7 +40,7 @@ const ForgotPassword = () => {
 
                 <View style={styles.buttonContainer}>
                     <ButtonPr
-                        onPress={(handleSubmit) => navigation.navigate("")}
+                        onPress={(handleSubmit) => navigation.navigate("NuevaContrasena")}
                         text={"Siguiente"}>
                     </ButtonPr>
                 </View>
