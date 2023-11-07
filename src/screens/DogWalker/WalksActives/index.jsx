@@ -1,9 +1,9 @@
-import { Text, SafeAreaView, StatusBar, View, FlatList } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, FlatList, Button } from 'react-native';
 import React from 'react';
 
 import styles from './styles';
 import ImgBackground from '../../../components/ImageBackground';
-import Button from '../../../components/ButtonRegular';
+import PerrinciButton from '../../../components/ButtonRegular';
 import ListWalksActives from "../../../components/Walker_ListWalksActives"
 import { useSelector } from 'react-redux';
 
@@ -46,11 +46,22 @@ const WalksActives = ({ navigation }) => {
                 </View>
 
                 <View style={styles.buttonContainer}>
+
+                    <PerrinciButton
+                        onPress={() => navigation.navigate("EmpezarAPasear")}
+                        text={"Finalizar actividad"}>
+                    </PerrinciButton>
+
                     <Button
-                        onPress={() => navigation.navigate("TabWalkerNav")}
-                        text={"Volver al menu"}>
+                        onPress={() => navigation.navigate("EmpezarAPasear")}
+                        title="Volver al mapa">
                     </Button>
+
                 </View>
+
+
+
+
 
             </View>
 

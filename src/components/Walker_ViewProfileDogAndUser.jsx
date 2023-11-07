@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, Image, Button } from 'react-native';
 import React from 'react';
 
-import Button from './ButtonRegular';
+import PerrinciButton from './ButtonRegular';
 import ImgBackground from './ImageBackground';
-import { colors } from '../theme/colors';
-import { useNavigation } from '@react-navigation/native'
+import { colors } from '../theme/index';
+import { useNavigation } from '@react-navigation/native';
 import { fontSizes } from '../theme/fonts';
 
 const Walker_ViewProfileDogAndWalker = ({ item }) => {
@@ -15,24 +15,19 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
             <ImgBackground />
             <View style={styles.contentContainer}>
                 <View style={styles.photoContainer}>
-                    <Image
-                        style={styles.image}
-                    />
+                    <Image style={styles.image} />
                 </View>
 
                 <View style={styles.textContainer}>
                     <Text style={styles.nameText}>Name</Text>
                     <Text style={styles.scoreText}>Calificacion: </Text>
-                    <Text style={styles.scoreText}>Paseos completados: </Text>
+                    <Text style={styles.scoreText}>Direccion: </Text>
                 </View>
             </View>
 
-
             <View style={styles.dogContainerInfo}>
                 <View style={styles.photoContainer}>
-                    <Image
-                        style={styles.image}
-                    />
+                    <Image style={styles.image} />
                 </View>
 
                 <View style={styles.textContainer}>
@@ -43,11 +38,20 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
             </View>
 
             <View style={styles.buttonContainer}>
+                <PerrinciButton
+                    onPress={() => navigation.navigate("EmpezarAPasear")}
+                    text={"Aceptar paseo"}
+                />
+                <PerrinciButton
+                    onPress={() => navigation.navigate("EmpezarAPasear")}
+                    text={"Rechazar paseo"}
+                />
+
                 <Button
-                    onPress={() => navigation.navigate("PagoPaseo")}
-                    text={"Solicitar Paseo"}>
-                        // Enviar request al paseador para aceptar el paseo
+                    onPress={() => navigation.navigate("EmpezarAPasear")}
+                    title="Volver al mapa">
                 </Button>
+
             </View>
         </SafeAreaView>
     );
@@ -58,57 +62,51 @@ export default Walker_ViewProfileDogAndWalker;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     contentContainer: {
-        height: "50%",
-        flexDirection: "row",
-        alignItems: "center",
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-around', // Espacio uniforme alrededor de elementos
         paddingHorizontal: 20,
+        marginBottom: "10%"
     },
-
     dogContainerInfo: {
-        height: "50%",
-        flexDirection: "row",
-        alignItems: "center",
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-around', // Espacio uniforme alrededor de elementos
         paddingHorizontal: 20,
     },
     photoContainer: {
-        width: '40%',
-        marginHorizontal: '5%',
+        flex: 1,
+        marginHorizontal: 10,
+        alignItems: 'center', // Centra la imagen horizontalmente
     },
     image: {
-        width: '100%',
-        height: '50%',
-        backgroundColor: "black",
+        width: '80%',
+        aspectRatio: 1,
+        backgroundColor: 'black',
         borderRadius: 20,
     },
     textContainer: {
         flex: 1,
-        height: '100%',
-        justifyContent: "center",
+        justifyContent: 'center',
     },
     nameText: {
         fontSize: fontSizes.text,
-        marginBottom: "2%",
-        color: "black"
+        marginBottom: 10,
+        color: 'black', // Centra el texto horizontalmente
     },
     scoreText: {
         fontSize: fontSizes.subtitle,
-        marginBottom: "2%",
-    },
-    detailsContainer: {
-        height: '50%',
-        width: '90%',
-        backgroundColor: colors.brand.white,
-        alignSelf: "center",
-        borderRadius: 15,
-        paddingHorizontal: 20,
+        marginBottom: 10, // Centra el texto horizontalmente
     },
     label: {
         fontSize: fontSizes.text,
         marginVertical: 5,
     },
     buttonContainer: {
-        alignItems: "center"
-    }
+        marginTop: "10%" // Espacio uniforme entre botones
+    },
 });

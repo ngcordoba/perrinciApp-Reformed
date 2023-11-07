@@ -11,14 +11,16 @@ const styles = StyleSheet.create({
 
     textContainer: {
         margin: "10%",
-        alignItems: "center"
+        alignItems: "center",
+
     },
 
     text: {
         color: colors.text.secondary,
         fontSize: fontSizes.text,
-        fontWeight: fontWeights.regular,
+        textAlign: "center",
     }
+
 
 
 });

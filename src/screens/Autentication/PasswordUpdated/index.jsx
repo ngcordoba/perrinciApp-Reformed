@@ -13,11 +13,11 @@ const PasswordUpdated = () => {
         <View style={styles.container}>
             <ImgBackground />
             <View style={styles.textContainer}>
-                <Text style={styles.text}>Su contraseña ha sido modificada con exito</Text>
+                <Text style={styles.text}>¡Su contraseña ha sido modificada con exito!</Text>
             </View>
 
             <Button
-                onPress={() => navigation.navigate("LoginPage")}
+                onPress={() => navigation.navigate("IniciarSesion")}
                 text={"Volver al inicio"}>
             </Button>
 

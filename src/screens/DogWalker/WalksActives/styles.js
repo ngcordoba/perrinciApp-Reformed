@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
     containerList: {
         backgroundColor: colors.brand.white,
-        height: '75%',
+        height: '65%',
         width: '90%',
         justifyContent: "flex-start",
         borderRadius: 20,

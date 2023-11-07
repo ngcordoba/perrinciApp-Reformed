@@ -47,7 +47,7 @@ const NewPassword = () => {
 
                 <View style={styles.buttonContainer}>
                     <ButtonPr
-                        onPress={(handleSubmit) => navigation.navigate("")}
+                        onPress={(handleSubmit) => navigation.navigate("ContrasenaActualizada")}
                         text={"Confirmar"}>
                     </ButtonPr>
                 </View>

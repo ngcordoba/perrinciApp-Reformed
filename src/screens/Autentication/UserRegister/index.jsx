@@ -1,110 +1,122 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image } from 'react-native';
 import React, { useState } from 'react';
-import styles from './style';
-
+import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image, ScrollView, KeyboardAvoidingView } from 'react-native'; import styles from './style';
 import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
 
-
 const UserRegister = ({ route, navigation }) => {
-
-    const [firstName, setFirtsName] = useState("");
+    const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [address, setAddress] = useState('');
+    const [street, setStreet] = useState('');
+    const [department, setDepartment] = useState('');
+    const [number, setNumber] = useState('');
     const [phone, setPhone] = useState('');
     const [dni, setDni] = useState('');
 
-
-    const user = route.params?.usuario.user; // Obtener el tipo de usuario por parametros
-    const email = route.params?.usuario.email; // Obtener el email por parametros
-    const password = route.params?.usuario.password; // Obtener el password por parametros
-
+    const user = route.params?.usuario.user;
+    const email = route.params?.usuario.email;
+    const password = route.params?.usuario.password;
 
     const handleSubmit = () => {
-        if (!firstName || !lastName || !address || !phone || !dni) {
-            Alert.alert('Por favor complete los campos vacíos')
+        if (!firstName || !lastName || !street || !phone || !dni) {
+            Alert.alert('Por favor complete los campos vacíos');
         } else {
-            // Crear un objeto con los datos adicionales
             const datosUsuario = {
                 firstName,
                 lastName,
                 phone,
-                address,
+                direccion: {
+                    street,
+                    number,
+                    department,
+                },
                 dni,
                 user,
                 email,
                 password,
             };
 
-
-
-            console.log(datosUsuario)
+            console.log(datosUsuario);
             navigation.navigate("RegistroPerro", datosUsuario);
         }
     }
 
-
-
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
-            <ImgBackground />
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : null}
+            style={{ flex: 1 }}
+        >
+            <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }}>
+                <ImgBackground />
+                <View style={styles.inputContainer}>
+                    <Text>Nombre</Text>
+                    <TextInput
+                        value={firstName}
+                        onChangeText={setFirstName}
+                        style={styles.input}
+                        placeholder='Ingresa tu nombre/s'
+                    />
+                    <Text>Apellido</Text>
+                    <TextInput
+                        value={lastName}
+                        onChangeText={setLastName}
+                        style={styles.input}
+                        placeholder='Ingresa tu apellido/s'
+                    />
 
-            <Image source={require('../../../assets/images/perrinciLogo.png')} style={styles.photoContainer} />
+                    <Text>Nro. de Celular</Text>
+                    <TextInput
+                        value={phone}
+                        onChangeText={setPhone}
+                        style={styles.input}
+                        placeholder='Ingresa tu número de celular'
+                    />
+                    <Text>DNI</Text>
+                    <TextInput
+                        value={dni}
+                        onChangeText={setDni}
+                        style={styles.input}
+                        placeholder='Ingresa tu DNI'
+                    />
 
+                    <Text>Calle</Text>
+                    <TextInput
+                        value={street}
+                        onChangeText={setStreet}
+                        style={styles.input}
+                        placeholder='Ingresa la calle de tu hogar'
+                    />
+                    <View style={styles.inlineInputContainer}>
 
-            <View style={styles.inputContainer}>
-                <Text>Nombre</Text>
-                <TextInput
-                    value={firstName}
-                    onChangeText={setFirtsName}
-                    style={styles.input}
-                    placeholder='Ingresa tu nombre/s'>
-                </TextInput>
+                        <View style={styles.inlineInput}>
+                            <Text>Altura</Text>
+                            <TextInput
+                                value={number}
+                                onChangeText={setNumber}
+                                style={styles.inputStreetandNumber}
+                                placeholder='Altura'
+                            />
+                        </View>
 
-                <Text>Apellido</Text>
-                <TextInput
-                    value={lastName}
-                    onChangeText={setLastName}
-                    style={styles.input}
-                    placeholder='Ingresa tu apellido/s'>
-                </TextInput>
+                        <View style={styles.inlineInput}>
+                            <Text>Departamento</Text>
+                            <TextInput
 
-                <Text>Dirección</Text>
-                <TextInput
-                    value={address}
-                    onChangeText={setAddress}
-                    style={styles.input}
-                    placeholder='Ingresa la dirección de tu hogar'>
-                </TextInput>
-
-
-                <Text>Nro. de Celular</Text>
-                <TextInput
-                    value={phone}
-                    onChangeText={setPhone}
-                    placeholder='Ingresa tu número de celular'
-                    style={styles.input}>
-                </TextInput>
-
-                <Text>DNI</Text>
-                <TextInput
-                    value={dni}
-                    onChangeText={setDni}
-                    placeholder='Ingresa tu DNI'
-                    style={styles.input}>
-                </TextInput>
-
-
-                <View style={styles.buttonContainer}>
-                    <ButtonPr
-                        // Redirigir a DogRegister
-                        onPress={handleSubmit}
-                        text={"Siguiente"}>
-                    </ButtonPr>
+                                value={department}
+                                onChangeText={setDepartment}
+                                style={styles.inputStreetandNumber}
+                                placeholder='Departamento'
+                            />
+                        </View>
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <ButtonPr
+                            onPress={handleSubmit}
+                            text={"Siguiente"}
+                        />
+                    </View>
                 </View>
-            </View>
-
-        </SafeAreaView>
+            </SafeAreaView>
+        </KeyboardAvoidingView>
     )
 }
 

@@ -17,7 +17,9 @@ const DogRegister = ({ route, navigation }) => {
     const firstName = datosUsuario.name;
     const lastName = datosUsuario.lastName;
     const phone = datosUsuario.phone;
-    const address = datosUsuario.address;
+    const number = datosUsuario.number;
+    const department = datosUsuario.department;
+    const street = datosUsuario.street;
     const dni = datosUsuario.dni;
     const user = datosUsuario.user;
     const email = datosUsuario.email;
@@ -33,7 +35,11 @@ const DogRegister = ({ route, navigation }) => {
                 firstName,
                 lastName,
                 phone,
-                address,
+                direccion: {
+                    street,
+                    number,
+                    department,
+                },
                 dni,
                 user,
                 email,
@@ -49,6 +55,7 @@ const DogRegister = ({ route, navigation }) => {
 
             console.log(fullUser)
 
+            /*    
             try {
                 const response = await fetch('', {
                     method: "POST",
@@ -67,7 +74,8 @@ const DogRegister = ({ route, navigation }) => {
             } catch (error) {
                 console.error('error:', error);
             }
-
+            */
+            navigation.navigate('IniciarSesion');
         }
     }
 

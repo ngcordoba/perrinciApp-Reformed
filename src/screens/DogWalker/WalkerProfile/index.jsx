@@ -47,7 +47,7 @@ const WalkerProfile = () => {
                         <Text>Paseos</Text>
                         <TextInput
                             style={styles.inputWeightAge}>
-                            <Entypo name="fingerprint" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                            <Entypo name="man" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>
 
@@ -60,6 +60,26 @@ const WalkerProfile = () => {
                     </View>
 
                 </View>
+
+                <View style={styles.razapeContainer}>
+                    <View style={styles.razapeTextInputContainer}>
+                        <Text>Precio del paseo</Text>
+                        <TextInput
+                            style={styles.inputWeightAge}>
+                            <Entypo name="credit" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                        </TextInput>
+                    </View>
+
+                    <View style={styles.razapeTextInputContainer}>
+                        <Text>Tiempo de paseo</Text>
+                        <TextInput
+                            style={styles.inputWeightAge}>
+                            <Entypo name="clock" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
+                        </TextInput>
+                    </View>
+
+                </View>
+
 
 
                 <Text>Calificaciones</Text>

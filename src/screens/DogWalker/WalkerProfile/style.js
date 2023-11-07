@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         width: '40%',
         borderRadius: 20,
         marginBottom: "10%",
-        margin: "10%"
+        margin: "5%"
 
     },
 
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     },
 
     containerList: {
-        margin: "5%",
+        margin: "3%",
         backgroundColor: colors.brand.secondary,
         width: '100%',
         borderRadius: 20,

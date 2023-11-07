@@ -25,9 +25,9 @@ const ListWalksActives = ({ item, onSelected }) => {
                 </View>
             </TouchableOpacity>
             <View style={styles.buttonContainer}>
-                <Button title='Ya llegué' />
-                <Button title='Volviendo' />
-                <Button title='Ya volví' />
+                <Button key="button1" title='Ya llegué' />
+                <Button key="button2" title='Volviendo' />
+                <Button key="button3" title='Ya volví' />
             </View>
 
         </View>

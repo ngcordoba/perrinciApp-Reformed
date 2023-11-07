@@ -11,6 +11,9 @@ import ViewProfileDogAndUser from "../components/Walker_ViewProfileDogAndUser";
 
 import WalkerTabNavigator from "./WalkerTabNavigator";
 
+import SupportHelp from "../screens/SupportHelp";
+import SupportAbout from "../screens/SupportAbout";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +41,7 @@ export default WalkerNavigator = () => {
 
 
             <Stack.Screen
-                name="EmpresarAPasear"
+                name="EmpezarAPasear"
                 component={MapView_DogWalker}
                 options={{
                     title: "Empezar a pasear",
@@ -64,7 +67,22 @@ export default WalkerNavigator = () => {
                 }}
             />
 
-
+            <Stack.Screen
+                name="AyudaSoporte"
+                component={SupportHelp}
+                options={{
+                    title: "Ayuda",
+                    headerBackTitleVisible: false,
+                }}
+            />
+            <Stack.Screen
+                name="AcercaDePetLinkSoporte"
+                component={SupportAbout}
+                options={{
+                    title: "Acerca de PetLink",
+                    headerBackTitleVisible: false,
+                }}
+            />
 
         </Stack.Navigator>
     )
