@@ -3,7 +3,6 @@ import React from 'react';
 
 import PerrinciButton from './ButtonRegular';
 import ImgBackground from './ImageBackground';
-import { colors } from '../theme/index';
 import { useNavigation } from '@react-navigation/native';
 import { fontSizes } from '../theme/fonts';
 
@@ -39,10 +38,12 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
 
             <View style={styles.buttonContainer}>
                 <PerrinciButton
+                    id="walkAccepted"
                     onPress={() => navigation.navigate("EmpezarAPasear")}
                     text={"Aceptar paseo"}
                 />
                 <PerrinciButton
+                    id="walkRejected"
                     onPress={() => navigation.navigate("EmpezarAPasear")}
                     text={"Rechazar paseo"}
                 />

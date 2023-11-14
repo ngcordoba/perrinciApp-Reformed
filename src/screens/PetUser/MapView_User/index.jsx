@@ -19,6 +19,7 @@ const MapViewUser = () => {
                 text={"Test Calification"}>
             </Button>
 
+
         </SafeAreaView>
 
         /* Pasa a la siguiente screen una vez que el usuario paseador

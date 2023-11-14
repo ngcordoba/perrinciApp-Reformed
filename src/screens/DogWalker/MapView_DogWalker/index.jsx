@@ -1,15 +1,27 @@
 import { SafeAreaView, StyleSheet, Button, View } from 'react-native';
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import MapScreen from '../../../components/User_LocationMap';
 import ButtonPr from '../../../components/ButtonRegular';
 import Walker_Modal from '../../../components/Walker_Modal';
 
 const MapViewWalker = () => {
+
+    const route = useRoute();
+    const walkerState = route.params?.walkerState || false;
+
     // El MapScreen solicita los permisos al usuario para acceder a la ubicación en tiempo real.
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     const navigation = useNavigation();
+
+    const handleSolicitudPaseo = () => {
+
+        setIsModalOpen(true);
+
+    };
+
+
     return (
 
         // Ubicación del paseador.
@@ -17,7 +29,7 @@ const MapViewWalker = () => {
 
             <MapScreen />
             <View style={styles.buttonsContainer} >
-                <Button title='Ver solicitud' onPress={() => setIsModalOpen(!isModalOpen)} />
+                <Button title='Ver solicitud' onPress={handleSolicitudPaseo} />
                 <Button title='Mi recorrido' onPress={() => navigation.navigate("VerPaseosActivos")} />
             </View>
 

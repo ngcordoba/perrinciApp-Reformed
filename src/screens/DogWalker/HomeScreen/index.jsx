@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import styles from './style';
@@ -9,6 +9,13 @@ import ImgBackground from '../../../components/ImageBackground'
 const HomeScreen = () => {
 
     const navigation = useNavigation();
+    const [walkerState, setWalkerState] = useState(false)
+
+    handlerEmpezarAPasear = () => {
+        setWalkerState(true);
+        navigation.navigate("EmpezarAPasear", { walkerState })
+    };
+
 
     return (
 
@@ -19,7 +26,9 @@ const HomeScreen = () => {
             </View>
 
             <Button
-                onPress={() => navigation.navigate("EmpezarAPasear")}
+                onPress={() => {
+                    navigation.navigate("EmpezarAPasear", { walkerActive })
+                }}
                 text={"Empezar a pasear"}>
             </Button>
 

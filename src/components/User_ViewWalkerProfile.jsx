@@ -13,6 +13,38 @@ const ViewWalkerProfile = ({ route }) => {
     const navigation = useNavigation();
     const actives = route.params.walkerInfo;
 
+    /*
+
+    const solicitarPaseo = () => {
+        Realiza una solicitud al backend para notificar al paseador
+        Esto dependerá de cómo esté configurada tu API en el backend.
+        Puedes enviar la información del usuario y detalles del paseo.
+        Por ejemplo, puedes usar fetch o axios para hacer la solicitud al servidor.
+        
+        fetch('URL_DE_TU_API/solicitarPaseo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId: 123, // ID del usuario que solicita el paseo.
+                userLocation: Mario Bravo 947 // dirección del usuario.
+                walkerId: actives.id, // ID del paseador al que se le solicita el paseo.
+                walkerLocation: ubicación del paseador.
+
+                 
+            }),
+        })
+        .then((response) => {
+            Manejar la respuesta del servidor, si es necesario
+        })
+        .catch((error) => {
+            Manejar errores, si es necesario
+        });
+    };
+
+    */
+
     return (
         <SafeAreaView style={styles.container}>
             <ImgBackground />

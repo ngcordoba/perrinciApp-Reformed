@@ -1,5 +1,5 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput } from 'react-native';
-import React from 'react';
+import { Text, SafeAreaView, StatusBar, View, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import React, { useState } from 'react'; // Importa useState
 import styles from './style';
 import { Ionicons } from '@expo/vector-icons'
 
@@ -8,42 +8,77 @@ import Button from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native'
 
 const WalkerQualify = () => {
-
     const navigation = useNavigation();
+    const [rating, setRating] = useState(0); // Estado para la puntuación
+    const [comment, setComment] = useState(''); // Estado para los comentarios
+
+    const handleRatingChange = (value) => {
+        // Actualiza la puntuación
+        setRating(value);
+    };
+
+    const handleCommentChange = (text) => {
+        // Actualiza los comentarios
+        setComment(text);
+    };
+
+    const handleKeyboardDismiss = () => {
+        Keyboard.dismiss(); // Cierre del teclado al presionar fuera del area de escritura.
+    };
+
+
+
+    const handleSendRating = () => {
+        console.log('Puntuación:', rating);
+        console.log('Comentarios:', comment);
+        navigation.navigate("PaseoFinalizado");
+    };
+
+
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
-            <ImgBackground />
-            <View style={styles.photoContainer}>
-                <View>
-
+        <TouchableWithoutFeedback onPress={handleKeyboardDismiss}>
+            <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }}>
+                <ImgBackground />
+                <View style={styles.photoContainer}>
+                    <View>
+                        {/* Agrega la imagen y el texto del paseador si es necesario */}
+                    </View>
                 </View>
-            </View>
 
-            <View style={styles.inputContainer}>
-                <Text>Calificá el servicio del paseador</Text>
-                <Text>Estrellas 1 a 5</Text>
+                <View style={styles.inputContainer}>
+                    <Text style={styles.text}>Calificá la atencion del paseador</Text>
+                    {/* Logica para calificar con estrellas */}
+                    <View style={styles.starContainer}>
+                        {[1, 2, 3, 4, 5].map((value) => (
+                            <Ionicons
+                                key={value}
+                                name="star"
+                                size={32}
+                                color={rating >= value ? "gold" : "gray"}
+                                onPress={() => handleRatingChange(value)}
+                            />
+                        ))}
+                    </View>
 
+                    <Text style={styles.text}>Comentarios Adicionales</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Añadir comentarios"
+                        onChangeText={(text) => handleCommentChange(text)}
+                        value={comment}
+                        multiline={true}
+                        numberOfLines={4}
+                        maxLength={100}
+                        blurOnSubmit={true} // Cierra el teclado al presionar "return o done"
+                    />
 
-
-                <Text>Comentarios Adicionales</Text>
-                <TextInput
-                    style={styles.input}>
-                    <Ionicons name="location-sharp" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
-                </TextInput>
-
-
-
-                <View style={styles.buttonContainer}>
-                    <Button
-                        onPress={() => navigation.navigate("PaseoFinalizado")}
-                        text={"Enviar calificación"}>
-                        // Enviar y guardar calificación en BD
-                    </Button>
+                    <View style={styles.buttonContainer}>
+                        <Button onPress={handleSendRating} text={"Enviar calificación"} />
+                    </View>
                 </View>
-            </View>
-
-        </SafeAreaView>
-    )
+            </SafeAreaView>
+        </TouchableWithoutFeedback>
+    );
 }
 
 export default WalkerQualify;

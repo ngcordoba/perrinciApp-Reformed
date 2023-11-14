@@ -4,6 +4,8 @@ import { fontSizes } from "../theme/fonts"
 import { Button } from 'react-native';
 
 const ListWalksActives = ({ item, onSelected }) => {
+
+
     return (
         <View>
             <TouchableOpacity
