@@ -2,6 +2,7 @@ import React from "react";
 import { Ionicons } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Button } from "react-native";
 
 // Importación de screens que varían segun el usuario logeado
 // Usuario
@@ -9,10 +10,12 @@ import HomeScreen from "../screens/DogWalker/HomeScreen";
 import WalkerProfile from '../screens/DogWalker/WalkerProfile';
 import WalkerActivity from "../screens/DogWalker/WalkerActivity";
 import Soporte from '../screens/SupportHome';
+import { useNavigation } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 
 const WalkerTabNavigator = () => {
+    const navigation = useNavigation();
     return (
         <Tab.Navigator
             initialRouteName="Inicio"
@@ -36,12 +39,20 @@ const WalkerTabNavigator = () => {
             <Tab.Screen
                 name="Perfil"
                 component={WalkerProfile}
-                options={{
+                options={({ route }) => ({
+                    title: "Mi Perfil",
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="person" size={20} color={color} />
                     ),
-                    title: "Mi Perfil"
-                }} />
+                    headerRight: () => (
+                        <Button
+                            onPress={() => navigation.navigate("CBUWalker")}
+                            title="CVU/CBU"
+                        >
+                        </Button>
+                    )
+                })}
+            />
 
             <Tab.Screen
                 name="Actividad"

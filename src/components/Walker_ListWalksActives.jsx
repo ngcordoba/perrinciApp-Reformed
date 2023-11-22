@@ -28,8 +28,8 @@ const ListWalksActives = ({ item, onSelected }) => {
             </TouchableOpacity>
             <View style={styles.buttonContainer}>
                 <Button key="button1" title='Ya llegué' />
-                <Button key="button2" title='Volviendo' />
-                <Button key="button3" title='Ya volví' />
+                <Button key="b2" title='Volviendo' />
+                <Button key="b3" title='Finalizar paseo' />
             </View>
 
         </View>

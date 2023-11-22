@@ -8,10 +8,11 @@ import ListWalksActives from "../../../components/Walker_ListWalksActives"
 import { useSelector } from 'react-redux';
 
 
-const WalksActives = ({ navigation }) => {
+const WalksActives = ({ navigation, route }) => {
 
     const walksActives = useSelector(state => state.walker_WalksActives.walker_walksActives)
-
+    const walkerState = route.params?.walkerState;
+    console.log(walkerState)
 
 
     const handleSelectUser = (item) => {
@@ -25,6 +26,12 @@ const WalksActives = ({ navigation }) => {
             <ListWalksActives item={item} onSelected={handleSelectUser} />
         </View>
     )
+
+    const handleFinalizarActividad = () => {
+        const walkerState = false;
+        navigation.navigate("TabWalkerNav", { walkerState });
+        console.log(walkerState)
+    };
 
 
     return (
@@ -48,7 +55,7 @@ const WalksActives = ({ navigation }) => {
                 <View style={styles.buttonContainer}>
 
                     <PerrinciButton
-                        onPress={() => navigation.navigate("EmpezarAPasear")}
+                        onPress={(handleFinalizarActividad)}
                         text={"Finalizar actividad"}>
                     </PerrinciButton>
 

@@ -8,6 +8,7 @@ import HomeScreen from "../screens/DogWalker/HomeScreen";
 import MapView_DogWalker from "../screens/DogWalker/MapView_DogWalker";
 import WalksActives from "../screens/DogWalker/WalksActives";
 import ViewProfileDogAndUser from "../components/Walker_ViewProfileDogAndUser";
+import WalkerCBU from "../screens/DogWalker/WalkerCBU"
 
 import WalkerTabNavigator from "./WalkerTabNavigator";
 
@@ -36,6 +37,14 @@ export default WalkerNavigator = () => {
                 options={{
                     headerBackTitleVisible: false,
                     headerShown: false
+                }}
+            />
+
+            <Stack.Screen
+                name="CBUWalker"
+                component={WalkerCBU}
+                options={{
+                    title: "Consultar mi CBU",
                 }}
             />
 

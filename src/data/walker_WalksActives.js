@@ -1,5 +1,6 @@
 export const WALKSACTIVES = [
     {
+        id: 1,
         idWalk: 1,
         idUser: 1,
         userName: "Ezequiel Fornes",
@@ -14,6 +15,7 @@ export const WALKSACTIVES = [
         dogQualificationProm: "5"
     },
     {
+        id: 2,
         idWalk: 2,
         idUser: 2,
         userName: "Matias Guerra",

@@ -11,12 +11,13 @@ const HomeScreen = () => {
     const navigation = useNavigation();
     const [walkerState, setWalkerState] = useState(false)
 
-    handlerEmpezarAPasear = () => {
+    const handlerEmpezarAPasear = () => {
         setWalkerState(true);
-        navigation.navigate("EmpezarAPasear", { walkerState })
+        navigation.navigate("EmpezarAPasear", { walkerState: true });
+
     };
 
-
+    console.log(walkerState)
     return (
 
         <View style={styles.container}>
@@ -26,9 +27,7 @@ const HomeScreen = () => {
             </View>
 
             <Button
-                onPress={() => {
-                    navigation.navigate("EmpezarAPasear", { walkerActive })
-                }}
+                onPress={(handlerEmpezarAPasear)}
                 text={"Empezar a pasear"}>
             </Button>
 

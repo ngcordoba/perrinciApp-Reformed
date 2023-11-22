@@ -8,7 +8,7 @@ import Walker_Modal from '../../../components/Walker_Modal';
 const MapViewWalker = () => {
 
     const route = useRoute();
-    const walkerState = route.params?.walkerState || false;
+    const walkerState = route.params?.walkerState;
 
     // El MapScreen solicita los permisos al usuario para acceder a la ubicación en tiempo real.
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -20,9 +20,10 @@ const MapViewWalker = () => {
         setIsModalOpen(true);
 
     };
-
+    console.log(walkerState)
 
     return (
+
 
         // Ubicación del paseador.
         <SafeAreaView style={styles.container}>
@@ -30,7 +31,7 @@ const MapViewWalker = () => {
             <MapScreen />
             <View style={styles.buttonsContainer} >
                 <Button title='Ver solicitud' onPress={handleSolicitudPaseo} />
-                <Button title='Mi recorrido' onPress={() => navigation.navigate("VerPaseosActivos")} />
+                <Button title='Mi recorrido' onPress={() => navigation.navigate("VerPaseosActivos", { walkerState })} />
             </View>
 
             {/* Este modal debe recibir la petición de paseo por parte del usuario para aparecer */}

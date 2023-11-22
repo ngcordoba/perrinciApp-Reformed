@@ -25,17 +25,16 @@ const styles = StyleSheet.create({
         width: 250,
         height: "15%",
         backgroundColor: colors.brand.secondary,
-        margin: 5,
+        margin: "2%",
         borderRadius: 15,
-        padding: 10,
-        paddingLeft: 15,
+        padding: 25,
+        paddingLeft: "15%",
     },
 
 
     buttonContainer: {
-        paddingTop: "1.5%",
         alignItems: 'center',
-        marginTop: "15%",
+        marginTop: "10%",
         height: "20%"
     },
 

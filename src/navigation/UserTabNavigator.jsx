@@ -24,7 +24,7 @@ const UserTabNavigator = () => {
         >
             <Tab.Screen
                 name="Inicio"
-                component={HomeScreen} // CONDICIONAR PARA TIPO DE LOGUEO -> USUARIO O PASEADOR
+                component={HomeScreen}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="home" size={20} color={color} />
@@ -36,7 +36,7 @@ const UserTabNavigator = () => {
 
             <Tab.Screen
                 name="Perfil"
-                component={UserProfile} // VERIFICAR EL USUARIO PARA MOSTRAR EL PERFIL DEL USER O PASEADOR
+                component={UserProfile}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="person" size={20} color={color} />
@@ -46,7 +46,7 @@ const UserTabNavigator = () => {
 
             <Tab.Screen
                 name="Actividad"
-                component={UserActivity} // VERIFICAR EL USUARIO PARA MOSTRAR LA ACTIVIDAD DEL USER O PASEADOR
+                component={UserActivity}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="receipt-outline" size={20} color={color} />

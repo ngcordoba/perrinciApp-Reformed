@@ -14,13 +14,14 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
             <ImgBackground />
             <View style={styles.contentContainer}>
                 <View style={styles.photoContainer}>
-                    <Image style={styles.image} />
+                    <Image style={styles.image}
+                    />
                 </View>
 
                 <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>Name</Text>
-                    <Text style={styles.scoreText}>Calificacion: </Text>
-                    <Text style={styles.scoreText}>Direccion: </Text>
+                    <Text style={styles.nameText}>Nombre: {item.userName}</Text>
+                    <Text style={styles.scoreText}>Calificacion: {item.dogQualificationProm} </Text>
+                    <Text style={styles.scoreText}>Direccion: {item.userAddress} </Text>
                 </View>
             </View>
 
@@ -30,9 +31,9 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
                 </View>
 
                 <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>Nombre</Text>
-                    <Text style={styles.scoreText}>Edad: </Text>
-                    <Text style={styles.scoreText}>Raza: </Text>
+                    <Text style={styles.nameText}>Nombre: {item.dogName}</Text>
+                    <Text style={styles.scoreText}>Edad:{item.dogAge}</Text>
+                    <Text style={styles.scoreText}>Raza: {item.dogRaza} </Text>
                 </View>
             </View>
 
