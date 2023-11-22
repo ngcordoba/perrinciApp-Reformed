@@ -15,15 +15,11 @@ const WalksActives = ({ navigation, route }) => {
     console.log(walkerState)
 
 
-    const handleSelectUser = (item) => {
-        navigation.navigate("VerPerfilUsuario", {
-            userInfo: item,
-        });
-    };
+
 
     const renderListOfWalksActives = ({ item }) => (
         <View >
-            <ListWalksActives item={item} onSelected={handleSelectUser} />
+            <ListWalksActives item={item} />
         </View>
     )
 
