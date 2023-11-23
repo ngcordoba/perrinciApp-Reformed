@@ -14,9 +14,6 @@ const WalksActives = ({ navigation, route }) => {
     const walkerState = route.params?.walkerState;
     console.log(walkerState)
 
-
-
-
     const renderListOfWalksActives = ({ item }) => (
         <View >
             <ListWalksActives item={item} />

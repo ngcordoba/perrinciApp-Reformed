@@ -10,7 +10,7 @@ const ListWalksActives = ({ item, onSelected }) => {
         <View>
             <TouchableOpacity
                 style={styles.itemContainer}
-                onPress={() => onSelected(item)}
+
             >
                 <View style={styles.contentContainer}>
                     <Image
