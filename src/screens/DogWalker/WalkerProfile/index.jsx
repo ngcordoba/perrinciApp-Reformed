@@ -1,107 +1,175 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, FlatList } from 'react-native';
-import React from 'react';
-import styles from './style';
-import { Ionicons } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons';
+import React, { useState, useEffect } from 'react';
+import {
+    Text,
+    SafeAreaView,
+    StatusBar,
+    View,
+    TextInput,
+    FlatList,
+    TouchableOpacity,
+    Alert,
+} from 'react-native';
 
+import { Ionicons, Entypo } from '@expo/vector-icons';
 import ImgBackground from '../../../components/ImageBackground';
-import WalkerQualifications from '../../../components/Walker_Qualification'
-import { useSelector } from 'react-redux'
-
+import WalkerQualifications from '../../../components/Walker_Qualification';
+import styles from './style';
 
 const WalkerProfile = () => {
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedPhoneNumber, setEditedPhoneNumber] = useState('');
+    const [editedPrice, setEditedPrice] = useState('');
+    const [editedWalkTime, setEditedWalkTime] = useState('');
 
+    // Estados para mantener los datos originales
+    const [originalPhoneNumber, setOriginalPhoneNumber] = useState('Número original');
+    const [originalPrice, setOriginalPrice] = useState('Precio original');
+    const [originalWalkTime, setOriginalWalkTime] = useState('Tiempo de paseo');
 
-    const walker_Qualifications = useSelector(state => state.walker_Qualifications.walker_qualifications)
+    const [walkerQualifications, setWalkerQualifications] = useState([]);
 
-    const renderwalker_Qualifications = ({ item }) => (
+    useEffect(() => {
+        // Obtener datos de json-server
+        fetch('http://localhost:3000/walkerQualifications')
+            .then(response => response.json())
+            .then(data => setWalkerQualifications(data))
+            .catch(error => console.error('Error fetching data:', error));
+    }, []);
+
+    const renderWalkerQualifications = ({ item }) => (
         <View style={styles.listOfQualifications}>
             <WalkerQualifications item={item} />
         </View>
-    )
+    );
+
+    const handlePhoneNumberChange = (text) => {
+        setEditedPhoneNumber(text);
+    };
+
+    const handleSaveChanges = () => {
+        Alert.alert(
+            'Confirmar cambios',
+            '¿Está seguro de que desea guardar los cambios?',
+            [
+                { text: 'Cancelar', style: 'cancel' },
+                {
+                    text: 'Guardar',
+                    onPress: () => {
+                        // Backend
+                        setIsEditing(false);
+                        // Actualizar los datos originales
+                        setOriginalPhoneNumber(editedPhoneNumber);
+                        setOriginalPrice(editedPrice);
+                        setOriginalWalkTime(editedWalkTime);
+                    },
+                },
+            ],
+            { cancelable: true }
+        );
+    };
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
-            <ImgBackground />
-            <View style={styles.photoContainer}>
-                <View>
+        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }}>
 
-                </View>
+
+            <ImgBackground />
+
+            <View style={styles.photoContainer}>
+                <View />
             </View>
 
+
+
+
             <View style={styles.inputContainer}>
+
+
                 <Text>Nombre y apellido</Text>
-                <TextInput
-                    style={styles.input}>
-                    <Ionicons name="person" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
-                </TextInput>
+                <View style={styles.inputWithIcon}>
+                    <Ionicons name="person" size={22} color="gray" style={styles.inputIcon} />
+                    <TextInput
+                        style={styles.input}
+                        editable={false}
+                        selectTextOnFocus={false}
+                        value="Gabriel Cordoba"
+                    />
+                </View>
 
                 <Text>Nro. de celular</Text>
-                <TextInput
-                    style={styles.input}>
-                    <Ionicons name="call" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
-                </TextInput>
-
-                <View style={styles.razapeContainer}>
-                    <View style={styles.razapeTextInputContainer}>
-                        <Text>Paseos</Text>
-                        <TextInput
-                            style={styles.inputWeightAge}>
-                            <Entypo name="man" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
-                        </TextInput>
-                    </View>
-
-                    <View style={styles.razapeTextInputContainer}>
-                        <Text>Calificacion prom.</Text>
-                        <TextInput
-                            style={styles.inputWeightAge}>
-                            <Entypo name="star" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
-                        </TextInput>
-                    </View>
-
+                <View style={styles.inputWithIcon}>
+                    <Ionicons name="call" size={22} color="gray" style={styles.inputIcon} />
+                    <TextInput
+                        style={styles.input}
+                        defaultValue={originalPhoneNumber}
+                        onChange={(e) => handlePhoneNumberChange(e.nativeEvent.text)}
+                        editable={isEditing}
+                        keyboardType="numeric"
+                        placeholder=""
+                    />
                 </View>
 
                 <View style={styles.razapeContainer}>
-                    <View style={styles.razapeTextInputContainer}>
-                        <Text>Precio del paseo</Text>
-                        <TextInput
-                            style={styles.inputWeightAge}>
-                            <Entypo name="credit" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
-                        </TextInput>
-                    </View>
+                    <View style={styles.inputRow}>
+                        <View style={{ flex: 1 }}>
+                            <Text>Precio del paseo</Text>
+                            <View style={styles.inputWithIcon}>
+                                <Entypo name="credit" size={22} color="gray" style={styles.inputIcon} />
+                                <TextInput
+                                    style={styles.inputWeightAge}
+                                    onChangeText={text => setEditedPrice(text)}
+                                    keyboardType="numeric"
+                                    placeholder=""
+                                    value={isEditing ? editedPrice : originalPrice}
+                                    editable={isEditing}
+                                />
+                            </View>
+                        </View>
 
-                    <View style={styles.razapeTextInputContainer}>
-                        <Text>Tiempo de paseo</Text>
-                        <TextInput
-                            style={styles.inputWeightAge}>
-                            <Entypo name="clock" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
-                        </TextInput>
+                        <View style={{ flex: 1 }}>
+                            <Text>Tiempo de paseo</Text>
+                            <View style={styles.inputWithIcon}>
+                                <Entypo name="hour-glass" size={22} color="gray" style={styles.inputIcon} />
+                                <TextInput
+                                    style={styles.inputWeightAge}
+                                    onChangeText={text => setEditedWalkTime(text)}
+                                    keyboardType="numeric"
+                                    placeholder=""
+                                    value={isEditing ? editedWalkTime : originalWalkTime}
+                                    editable={isEditing}
+                                />
+                            </View>
+                        </View>
                     </View>
-
                 </View>
 
 
+                <TouchableOpacity onPress={() => setIsEditing(!isEditing)}>
+                    <Text style={styles.editButton}>{isEditing ? 'Cancelar' : 'Editar mis datos personales'}</Text>
+                </TouchableOpacity>
 
-                <Text>Calificaciones</Text>
+                {isEditing && (
+                    <TouchableOpacity onPress={handleSaveChanges}>
+                        <Text style={styles.saveButton}>Guardar cambios</Text>
+                    </TouchableOpacity>
+                )}
+
+
 
 
                 <View style={styles.qualiListContainer}>
-
+                    <Text>Calificaciones</Text>
                     <View style={styles.containerList}>
                         <FlatList
-                            data={walker_Qualifications}
-                            renderItem={renderwalker_Qualifications}
-                            keyExtractor={item => item.id}
-                        >
-
-                        </FlatList>
-
+                            data={walkerQualifications}
+                            renderItem={renderWalkerQualifications}
+                            keyExtractor={item => item.idQualy}
+                        />
                     </View>
                 </View>
-
             </View>
-        </SafeAreaView>
-    )
-}
+
+        </SafeAreaView >
+    );
+};
 
 export default WalkerProfile;

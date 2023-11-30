@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     },
 
     inputContainer: {
-        height: "50%",
+        height: "40%",
+        margin: "30%"
     },
 
     input: {
@@ -30,10 +31,14 @@ const styles = StyleSheet.create({
         marginBottom: "3%"
     },
 
+    titleInputs: {
+        margin: "3%"
+    },
+
 
     buttonContainer: {
         alignItems: 'center',
-        marginTop: "5%",
+        marginTop: "20%",
         height: "20%"
     },
 

@@ -1,75 +1,61 @@
-import { StyleSheet } from "react-native";
-import { colors } from "../../../theme/colors";
+import { StyleSheet } from 'react-native';
+import { colors } from '../../../theme/colors';
+import { fontSizes } from '../../../theme/fonts';
 
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-    },
 
     photoContainer: {
         alignItems: 'center',
-        backgroundColor: "white",
-        height: '20%',
-        width: '40%',
+        backgroundColor: 'white',
         borderRadius: 20,
-        marginBottom: "10%",
-        margin: "5%"
-
+        marginBottom: '30%',
+        margin: '5%',
     },
 
     inputContainer: {
-        height: "50%",
+        height: '8%',
+        width: "70%"
     },
 
     input: {
-        width: 250,
-        height: "15%",
-        backgroundColor: colors.brand.secondary,
-        margin: 5,
-        borderRadius: 15,
-        padding: 10,
         paddingLeft: 15,
     },
 
-
-    buttonContainer: {
-        paddingTop: "1.5%",
+    inputWithIcon: {
+        flexDirection: 'row',
         alignItems: 'center',
-        marginTop: "15%",
-        height: "20%"
+        height: "95%",
+        backgroundColor: colors.brand.secondary,
+        margin: 5,
+        borderRadius: 15,
+        paddingLeft: 15,
     },
 
     razapeContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: "2%",
+        marginBottom: '6%',
     },
 
-    razapeTextInputContainer: {
-        width: 130,
-
+    inputRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
     },
 
-    inputContainer: {
-        height: "50%",
-    },
 
     inputWeightAge: {
-        width: 120,
+        flex: 1,
         backgroundColor: colors.brand.secondary,
-        margin: 5,
         borderRadius: 15,
-        padding: "10%",
-        paddingLeft: 15,
     },
 
     qualiListContainer: {
-        alignItems: 'center',
 
     },
 
     containerList: {
-        margin: "3%",
+        margin: '20%',
         backgroundColor: colors.brand.secondary,
         width: '100%',
         borderRadius: 20,
@@ -77,8 +63,22 @@ const styles = StyleSheet.create({
 
 
 
+    editButton: {
+        color: colors.brand.primary,
+        fontSize: fontSizes.buttonsCustom,
+        fontWeight: 'bold',
+        margin: "5%",
+        marginBottom: "10%",
+        alignSelf: "center"
+    },
 
-
+    saveButton: {
+        color: colors.brand.primary,
+        fontSize: fontSizes.buttonsCustom,
+        fontWeight: 'bold',
+        alignSelf: "center",
+        marginBottom: "10%"
+    },
 });
 
 export default styles;

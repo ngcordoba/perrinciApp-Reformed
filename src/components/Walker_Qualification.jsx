@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { fontSizes } from "../theme/fonts"
 
 const QualificationsWalker = ({ item }) => {

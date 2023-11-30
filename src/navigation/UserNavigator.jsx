@@ -6,7 +6,6 @@ import HomeScreen from "../screens/PetUser/HomeScreen";
 import PetProfile from "../screens/PetUser/PetProfile";
 import TakeAWalk from "../screens/PetUser/TakeAWalk";
 import SelectDogWalker from "../screens/PetUser/SelectDogWalker";
-import ViewWalkerProfile from "../components/User_ViewWalkerProfile";
 import Pago_MercadoPago from "../screens/PetUser/Pago_MercadoPago";
 import MapViewUser from "../screens/PetUser/MapView_User";
 import WalkerQualify from "../screens/PetUser/QualifyWalker";
@@ -14,6 +13,7 @@ import FinishWalk from "../screens/PetUser/FinishRide";
 import SupportHelp from "../screens/SupportHelp";
 import SupportAbout from "../screens/SupportHelp";
 import { Button } from "react-native";
+import ViewDogWalker from "../screens/PetUser/ViewDogWalker";
 
 
 const Stack = createNativeStackNavigator();
@@ -62,13 +62,15 @@ export default UserStack = () => {
                     headerBackTitleVisible: false,
                 }}
             />
+
             <Stack.Screen
-                name="VerPerfilDelPaseador"
-                component={ViewWalkerProfile}
+                name="Perfildelpaseador"
+                component={ViewDogWalker}
                 options={({ route }) => ({
                     title: route.params.name + " " + route.params.lastName,
                 })}
             />
+
             <Stack.Screen
                 name="PagoPaseo"
                 component={Pago_MercadoPago}

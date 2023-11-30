@@ -10,4 +10,5 @@ export const fontSizes = {
   text: 20,
   buttonText: 18,
   body: 18,
+  buttonsCustom: 16,
 };

@@ -55,9 +55,9 @@ const DogRegister = ({ route, navigation }) => {
 
             console.log(fullUser)
 
-            /*    
+            /*
             try {
-                const response = await fetch('', {
+                const response = await fetch('http://localhost:3000/users', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',

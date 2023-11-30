@@ -12,6 +12,8 @@ const WalkerRegister = ({ route, navigation }) => {
     const [walkerLastName, setWalkerLastName] = useState("");
     const [walkerPhone, setWalkerPhone] = useState('');
     const [dni, setDni] = useState('');
+    const [cbu, setCbu] = useState('');
+    const [alias, setAlias] = useState('');
 
 
     const user = route.params?.usuario.user;
@@ -32,6 +34,8 @@ const WalkerRegister = ({ route, navigation }) => {
                 walkerLastName,
                 walkerPhone,
                 dni,
+                cbu,
+                alias,
             };
 
             console.log(userWalker)
@@ -46,11 +50,8 @@ const WalkerRegister = ({ route, navigation }) => {
         <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
             <ImgBackground />
 
-            <Image source={require('../../../assets/images/perrinciLogo.png')} style={styles.photoContainer} />
-
-
             <View style={styles.inputContainer}>
-                <Text>Nombre</Text>
+                <Text style={styles.titleInputs}>Nombre</Text>
                 <TextInput
                     value={walkerFirstName}
                     onChangeText={setWalkerFirstName}
@@ -58,7 +59,7 @@ const WalkerRegister = ({ route, navigation }) => {
                     placeholder='Ingresa tu nombre/s'>
                 </TextInput>
 
-                <Text>Apellido</Text>
+                <Text style={styles.titleInputs}>Apellido</Text>
                 <TextInput
                     value={walkerLastName}
                     onChangeText={setWalkerLastName}
@@ -66,7 +67,7 @@ const WalkerRegister = ({ route, navigation }) => {
                     placeholder='Ingresa tu apellido/s'>
                 </TextInput>
 
-                <Text>Nro. de Celular</Text>
+                <Text style={styles.titleInputs}>Nro. de Celular</Text>
                 <TextInput
                     value={walkerPhone}
                     onChangeText={setWalkerPhone}
@@ -74,13 +75,30 @@ const WalkerRegister = ({ route, navigation }) => {
                     style={styles.input}>
                 </TextInput>
 
-                <Text>DNI</Text>
+                <Text style={styles.titleInputs}>DNI</Text>
                 <TextInput
                     value={dni}
                     onChangeText={setDni}
-                    placeholder='Ingresa tu número de celular'
+                    placeholder='Ingresa tu DNI'
                     style={styles.input}>
                 </TextInput>
+
+                <Text style={styles.titleInputs}>CBU/CVU</Text>
+                <TextInput
+                    value={cbu}
+                    onChangeText={setCbu}
+                    placeholder='Ingresa CBU de Mercado Pago'
+                    style={styles.input}>
+                </TextInput>
+
+                <Text style={styles.titleInputs}>Alias</Text>
+                <TextInput
+                    value={alias}
+                    onChangeText={setAlias}
+                    placeholder='Ingresa tu Alias de Mercado Pago'
+                    style={styles.input}>
+                </TextInput>
+
 
 
                 <View style={styles.buttonContainer}>

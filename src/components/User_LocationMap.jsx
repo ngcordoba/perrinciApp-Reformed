@@ -6,7 +6,7 @@ import Map from '../constants/Map';
 
 const MapScreen = () => {
     const [location, setLocation] = useState(null);
-    const [formattedAddress, setFormattedAddress] = useState('');
+    const [userAddress, setUserAddress] = useState('');
 
     useEffect(() => {
         getLocationPermission();
@@ -37,7 +37,7 @@ const MapScreen = () => {
 
             if (data.results.length > 0) {
                 const formattedAddress = data.results[0].formatted_address;
-                setFormattedAddress(formattedAddress);
+                setUserAddress(formattedAddress); // Actualiza la dirección en el estado del usuario
                 console.log(formattedAddress);
             }
         } catch (error) {
@@ -60,9 +60,7 @@ const MapScreen = () => {
                     <Marker coordinate={location} />
                 </MapView>
             )}
-
         </View>
-
     );
 };
 

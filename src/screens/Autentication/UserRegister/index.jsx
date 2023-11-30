@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image, ScrollView, KeyboardAvoidingView } from 'react-native'; import styles from './style';
+import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, KeyboardAvoidingView } from 'react-native';
+import styles from './style';
 import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
+import LocationUser from '../../../components/Location_UserSingIn';
+
 
 const UserRegister = ({ route, navigation }) => {
     const [firstName, setFirstName] = useState("");
@@ -16,6 +19,13 @@ const UserRegister = ({ route, navigation }) => {
     const email = route.params?.usuario.email;
     const password = route.params?.usuario.password;
 
+    const [selectedLocation, setSelectedLocation] = useState(null);
+
+    const handleLocationSelect = (location) => {
+        setSelectedLocation(location);
+        console.log(location)
+    };
+
     const handleSubmit = () => {
         if (!firstName || !lastName || !street || !phone || !dni) {
             Alert.alert('Por favor complete los campos vacíos');
@@ -28,6 +38,8 @@ const UserRegister = ({ route, navigation }) => {
                     street,
                     number,
                     department,
+                    coordinates: selectedLocation ? selectedLocation.coordinates : null,
+                    formattedAddress: selectedLocation ? selectedLocation.address : null,
                 },
                 dni,
                 user,
@@ -36,9 +48,10 @@ const UserRegister = ({ route, navigation }) => {
             };
 
             console.log(datosUsuario);
+            // 
             navigation.navigate("RegistroPerro", datosUsuario);
         }
-    }
+    };
 
     return (
         <KeyboardAvoidingView
@@ -46,6 +59,7 @@ const UserRegister = ({ route, navigation }) => {
             style={{ flex: 1 }}
         >
             <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }}>
+                <LocationUser onLocationSelect={handleLocationSelect} />
                 <ImgBackground />
                 <View style={styles.inputContainer}>
                     <Text>Nombre</Text>
