@@ -12,12 +12,12 @@ const UserRegister_Address = ({ route, navigation }) => {
     const [department, setDepartment] = useState('');
     const [number, setNumber] = useState('');
     const [neighborhood, setNeighborhood] = useState('');
-    const [locate, setLocate] = useState('');
+    const [state, setState] = useState('');
 
 
     const datosUsuario = route.params;
     const location = datosUsuario.location
-    const firstName = datosUsuario.name;
+    const firstName = datosUsuario.firstName;
     const lastName = datosUsuario.lastName;
     const phone = datosUsuario.phone;
     const dni = datosUsuario.dni;
@@ -29,7 +29,7 @@ const UserRegister_Address = ({ route, navigation }) => {
         if (!street || !number || !department) {
             Alert.alert('Por favor complete los campos vacíos');
         } else {
-            const datosUsuario = {
+            const datosUsuarioAddress = {
                 firstName,
                 lastName,
                 phone,
@@ -45,14 +45,14 @@ const UserRegister_Address = ({ route, navigation }) => {
                     department,
                     number,
                     neighborhood,
-                    locate
+                    state
 
                 }
             };
 
-            console.log(datosUsuario);
+            console.log(datosUsuarioAddress);
             // 
-            navigation.navigate("RegistroPerro", datosUsuario);
+            navigation.navigate("RegistroPerro", datosUsuarioAddress);
         }
     };
 
@@ -121,8 +121,8 @@ const UserRegister_Address = ({ route, navigation }) => {
                             <Text>Localidad</Text>
                             <TextInput
 
-                                value={locate}
-                                onChangeText={setLocate}
+                                value={state}
+                                onChangeText={setState}
                                 style={styles.inputStreetandNumber}
                                 placeholder='Localidad'
                             />

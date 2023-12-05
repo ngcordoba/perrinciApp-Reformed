@@ -9,8 +9,8 @@ import LocationUser from '../../../components/Location_UserSingIn';
 const UserRegister = ({ route, navigation }) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [phone, setPhone] = useState('');
-    const [dni, setDni] = useState('');
+    const [phone, setPhone] = useState("");
+    const [dni, setDni] = useState("");
 
     const user = route.params?.usuario.user;
     const email = route.params?.usuario.email;

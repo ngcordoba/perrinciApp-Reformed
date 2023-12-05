@@ -17,7 +17,7 @@ const ActivityWalker = ({ item }) => {
 
                 <View style={styles.textContainer}>
                     <Text style={styles.nameText}>{item.dogName} </Text>
-                    <Text style={styles.scoreText}>Usuario: {item.userName}</Text>
+                    <Text style={styles.scoreText}>Dueño: {item.userName}</Text>
                     <Text style={styles.scoreText}>{item.date}</Text>
                     <Text style={styles.scoreText}>${item.price}</Text>
                 </View>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         width: 70,
         height: "90%",
         marginRight: 16,
-        borderRadius: "40%",
+        borderRadius: 40,
     },
     textContainer: {
         flex: 1,

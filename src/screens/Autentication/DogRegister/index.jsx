@@ -13,22 +13,22 @@ const DogRegister = ({ route, navigation }) => {
     const [raza, setRaza] = useState('');
 
 
-    const datosUsuario = route.params; // Obtener datos anteriores
-    const firstName = datosUsuario.name;
-    const lastName = datosUsuario.lastName;
-    const phone = datosUsuario.phone;
-    const location = datosUsuario.location
-    const dni = datosUsuario.dni;
-    const user = datosUsuario.user;
-    const password = datosUsuario.password;
+    const datosUsuarioAddress = route.params; // Obtener datos anteriores
+    const firstName = datosUsuarioAddress.name;
+    const lastName = datosUsuarioAddress.lastName;
+    const phone = datosUsuarioAddress.phone;
+    const location = datosUsuarioAddress.location
+    const dni = datosUsuarioAddress.dni;
+    const user = datosUsuarioAddress.user;
+    const password = datosUsuarioAddress.password;
 
-    const street = datosUsuario.street;
-    const number = datosUsuario.number;
-    const department = datosUsuario.department;
-    const neighborhood = datosUsuario.neighborhood;
-    const locate = datosUsuario.locate;
+    const street = datosUsuarioAddress.street;
+    const number = datosUsuarioAddress.number;
+    const department = datosUsuarioAddress.department;
+    const neighborhood = datosUsuarioAddress.neighborhood;
+    const state = datosUsuarioAddress.state;
 
-    const email = datosUsuario.email;
+    const email = datosUsuarioAddress.email;
 
 
     const handleSubmit = async () => {
@@ -52,7 +52,7 @@ const DogRegister = ({ route, navigation }) => {
                     department,
                     number,
                     neighborhood,
-                    locate
+                    state
                 },
                 perro: {
                     dogName,
