@@ -8,14 +8,9 @@ import HomeScreen from "../screens/DogWalker/HomeScreen";
 import MapView_DogWalker from "../screens/DogWalker/MapView_DogWalker";
 import WalksActives from "../screens/DogWalker/WalksActives";
 import ViewProfileDogAndUser from "../components/Walker_ViewProfileDogAndUser";
-<<<<<<< Updated upstream
-=======
 import WalkerCBU from "../screens/DogWalker/WalkerCBU"
 import RideFinished from "../screens/DogWalker/RideFinished";
->>>>>>> Stashed changes
-
 import WalkerTabNavigator from "./WalkerTabNavigator";
-
 import SupportHelp from "../screens/SupportHelp";
 import SupportAbout from "../screens/SupportAbout";
 
@@ -39,6 +34,15 @@ export default WalkerNavigator = () => {
             <Stack.Screen
                 name="InicioPaseador"
                 component={HomeScreen}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+
+            <Stack.Screen
+                name="PaseadorCBU"
+                component={WalkerCBU}
                 options={{
                     headerBackTitleVisible: false,
                     headerShown: false

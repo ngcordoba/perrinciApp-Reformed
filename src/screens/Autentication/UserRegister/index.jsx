@@ -9,9 +9,6 @@ import LocationUser from '../../../components/Location_UserSingIn';
 const UserRegister = ({ route, navigation }) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [street, setStreet] = useState('');
-    const [department, setDepartment] = useState('');
-    const [number, setNumber] = useState('');
     const [phone, setPhone] = useState('');
     const [dni, setDni] = useState('');
 
@@ -27,17 +24,14 @@ const UserRegister = ({ route, navigation }) => {
     };
 
     const handleSubmit = () => {
-        if (!firstName || !lastName || !street || !phone || !dni) {
+        if (!firstName || !lastName || !phone || !dni) {
             Alert.alert('Por favor complete los campos vacíos');
         } else {
             const datosUsuario = {
                 firstName,
                 lastName,
                 phone,
-                direccion: {
-                    street,
-                    number,
-                    department,
+                coordenates: {
                     coordinates: selectedLocation ? selectedLocation.coordinates : null,
                     formattedAddress: selectedLocation ? selectedLocation.address : null,
                 },
@@ -49,7 +43,7 @@ const UserRegister = ({ route, navigation }) => {
 
             console.log(datosUsuario);
             // 
-            navigation.navigate("RegistroPerro", datosUsuario);
+            navigation.navigate("RegistroUsuario_direccion", datosUsuario);
         }
     };
 
@@ -92,36 +86,7 @@ const UserRegister = ({ route, navigation }) => {
                         placeholder='Ingresa tu DNI'
                     />
 
-                    <Text>Calle</Text>
-                    <TextInput
-                        value={street}
-                        onChangeText={setStreet}
-                        style={styles.input}
-                        placeholder='Ingresa la calle de tu hogar'
-                    />
-                    <View style={styles.inlineInputContainer}>
 
-                        <View style={styles.inlineInput}>
-                            <Text>Altura</Text>
-                            <TextInput
-                                value={number}
-                                onChangeText={setNumber}
-                                style={styles.inputStreetandNumber}
-                                placeholder='Altura'
-                            />
-                        </View>
-
-                        <View style={styles.inlineInput}>
-                            <Text>Departamento</Text>
-                            <TextInput
-
-                                value={department}
-                                onChangeText={setDepartment}
-                                style={styles.inputStreetandNumber}
-                                placeholder='Departamento'
-                            />
-                        </View>
-                    </View>
                     <View style={styles.buttonContainer}>
                         <ButtonPr
                             onPress={handleSubmit}

@@ -17,13 +17,18 @@ const DogRegister = ({ route, navigation }) => {
     const firstName = datosUsuario.name;
     const lastName = datosUsuario.lastName;
     const phone = datosUsuario.phone;
-    const number = datosUsuario.number;
-    const department = datosUsuario.department;
-    const street = datosUsuario.street;
+    const location = datosUsuario.location
     const dni = datosUsuario.dni;
     const user = datosUsuario.user;
-    const email = datosUsuario.email;
     const password = datosUsuario.password;
+
+    const street = datosUsuario.street;
+    const number = datosUsuario.number;
+    const department = datosUsuario.department;
+    const neighborhood = datosUsuario.neighborhood;
+    const locate = datosUsuario.locate;
+
+    const email = datosUsuario.email;
 
 
     const handleSubmit = async () => {
@@ -35,15 +40,20 @@ const DogRegister = ({ route, navigation }) => {
                 firstName,
                 lastName,
                 phone,
-                direccion: {
-                    street,
-                    number,
-                    department,
+                coordenates: {
+                    location
                 },
                 dni,
                 user,
                 email,
                 password,
+                address: {
+                    street,
+                    department,
+                    number,
+                    neighborhood,
+                    locate
+                },
                 perro: {
                     dogName,
                     age,

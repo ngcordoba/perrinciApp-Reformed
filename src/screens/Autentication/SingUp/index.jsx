@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
 import styles from './style';
 
@@ -42,57 +42,63 @@ const SingUp = ({ route, navigation }) => {
     }
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
-            <ImgBackground />
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : null}
+            style={{ flex: 1 }}
+        >
 
-            <Image source={require('../../../assets/images/perrinciLogo.png')} style={styles.photoContainer} />
+            <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
+                <ImgBackground />
 
-
-            <View style={styles.inputContainer}>
-                <Text>Correo electrónico</Text>
-                <TextInput
-                    value={email}
-                    onChangeText={setEmail}
-                    style={styles.input}
-                    placeholder='Ingresar correo electrónico'>
-                </TextInput>
-
-                <Text>Reingrese correo electrónico</Text>
-                <TextInput
-                    value={confirmEmail}
-                    onChangeText={setConfirmEmail}
-                    style={styles.input}
-                    placeholder='Ingresar correo electrónico'>
-                </TextInput>
+                <Image source={require('../../../assets/images/perrinciLogo.png')} style={styles.photoContainer} />
 
 
-                <Text>Contraseña</Text>
-                <TextInput
-                    value={password}
-                    secureTextEntry
-                    onChangeText={setPassword}
-                    placeholder='Ingresar contraseña'
-                    style={styles.input}>
-                </TextInput>
+                <View style={styles.inputContainer}>
+                    <Text>Correo electrónico</Text>
+                    <TextInput
+                        value={email}
+                        onChangeText={setEmail}
+                        style={styles.input}
+                        placeholder='Ingresar correo electrónico'>
+                    </TextInput>
 
-                <Text>Reingrese contraseña</Text>
-                <TextInput
-                    value={confirmPassword}
-                    secureTextEntry
-                    onChangeText={setConfirmPassword}
-                    placeholder='Ingresar contraseña'
-                    style={styles.input}>
-                </TextInput>
+                    <Text>Reingrese correo electrónico</Text>
+                    <TextInput
+                        value={confirmEmail}
+                        onChangeText={setConfirmEmail}
+                        style={styles.input}
+                        placeholder='Ingresar correo electrónico'>
+                    </TextInput>
 
-                <View style={styles.buttonContainer}>
-                    <ButtonPr
-                        onPress={handleSubmit}
-                        text={"Siguiente"}>
-                    </ButtonPr>
+
+                    <Text>Contraseña</Text>
+                    <TextInput
+                        value={password}
+                        secureTextEntry
+                        onChangeText={setPassword}
+                        placeholder='Ingresar contraseña'
+                        style={styles.input}>
+                    </TextInput>
+
+                    <Text>Reingrese contraseña</Text>
+                    <TextInput
+                        value={confirmPassword}
+                        secureTextEntry
+                        onChangeText={setConfirmPassword}
+                        placeholder='Ingresar contraseña'
+                        style={styles.input}>
+                    </TextInput>
+
+                    <View style={styles.buttonContainer}>
+                        <ButtonPr
+                            onPress={handleSubmit}
+                            text={"Siguiente"}>
+                        </ButtonPr>
+                    </View>
                 </View>
-            </View>
 
-        </SafeAreaView>
+            </SafeAreaView>
+        </KeyboardAvoidingView>
     )
 }
 
