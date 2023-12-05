@@ -4,8 +4,10 @@ import SingIn from "../screens/Autentication/SingIn";
 import SingUp from "../screens/Autentication/SingUp";
 import SingUpType from "../screens/Autentication/SingUpType";
 import UserRegister from "../screens/Autentication/UserRegister";
+import UserRegister_Address from "../screens/Autentication/UserRegister_address";
 import DogRegister from "../screens/Autentication/DogRegister";
 import WalkerRegister from "../screens/Autentication/WalkerRegister";
+import WalkerRegister_Address from "../screens/Autentication/WalkerRegister_address";
 import ForgotPassword from "../screens/Autentication/ForgotPassword"
 import NewPassword from "../screens/Autentication/NewPassword";
 import PasswordUpdated from "../screens/Autentication/PasswordUpdated"
@@ -55,6 +57,15 @@ export default UserNavigator = () => {
             />
 
             <Stack.Screen
+                name="RegistroUsuario_direccion"
+                component={UserRegister_Address}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+
+            <Stack.Screen
                 name="RegistroPerro"
                 component={DogRegister}
                 options={{
@@ -66,6 +77,15 @@ export default UserNavigator = () => {
             <Stack.Screen
                 name="RegistroPaseador"
                 component={WalkerRegister}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+
+            <Stack.Screen
+                name="RegistroPaseador_direccion"
+                component={WalkerRegister_Address}
                 options={{
                     headerBackTitleVisible: false,
                     headerShown: false

@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../../theme/colors";
+import { index } from "../../../theme/index"
 import { fontSizes } from "../../../theme/fonts";
 
 const styles = StyleSheet.create({
@@ -7,46 +8,42 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
+    text: {
+        fontSize: fontSizes.subtitle
+    },
     photoContainer: {
         alignItems: 'center',
-        height: '25%',
+        backgroundColor: "white",
+        height: '20%',
         width: '40%',
         borderRadius: 20,
-        marginBottom: "5%",
+        marginBottom: "10%",
         margin: "10%"
-
     },
-
     inputContainer: {
-        height: "40%",
-        margin: "30%"
+        height: "50%",
+        alignItems: "center",
     },
-
     input: {
-        width: 220,
-        height: "15%",
+        width: 250,
+        height: 50,
         backgroundColor: colors.brand.secondary,
-        margin: "2%",
         borderRadius: 15,
         paddingLeft: 15,
-        marginBottom: "3%"
+        marginTop: "5%"
     },
-
-    titleInputs: {
-        margin: "3%"
-    },
-
-
     buttonContainer: {
+        paddingTop: "1.5%",
         alignItems: 'center',
-        marginTop: "20%",
-        height: "20%"
+        marginTop: "15%",
+        height: "20%",
     },
-
-
-
-
-
+    starContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: '5%'
+    },
 });
 
 export default styles;

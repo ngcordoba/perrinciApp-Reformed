@@ -13,17 +13,22 @@ const DogRegister = ({ route, navigation }) => {
     const [raza, setRaza] = useState('');
 
 
-    const datosUsuario = route.params; // Obtener datos anteriores
-    const firstName = datosUsuario.name;
-    const lastName = datosUsuario.lastName;
-    const phone = datosUsuario.phone;
-    const number = datosUsuario.number;
-    const department = datosUsuario.department;
-    const street = datosUsuario.street;
-    const dni = datosUsuario.dni;
-    const user = datosUsuario.user;
-    const email = datosUsuario.email;
-    const password = datosUsuario.password;
+    const datosUsuarioAddress = route.params; // Obtener datos anteriores
+    const firstName = datosUsuarioAddress.name;
+    const lastName = datosUsuarioAddress.lastName;
+    const phone = datosUsuarioAddress.phone;
+    const location = datosUsuarioAddress.location
+    const dni = datosUsuarioAddress.dni;
+    const user = datosUsuarioAddress.user;
+    const password = datosUsuarioAddress.password;
+
+    const street = datosUsuarioAddress.street;
+    const number = datosUsuarioAddress.number;
+    const department = datosUsuarioAddress.department;
+    const neighborhood = datosUsuarioAddress.neighborhood;
+    const state = datosUsuarioAddress.state;
+
+    const email = datosUsuarioAddress.email;
 
 
     const handleSubmit = async () => {
@@ -35,15 +40,20 @@ const DogRegister = ({ route, navigation }) => {
                 firstName,
                 lastName,
                 phone,
-                direccion: {
-                    street,
-                    number,
-                    department,
+                coordenates: {
+                    location
                 },
                 dni,
                 user,
                 email,
                 password,
+                address: {
+                    street,
+                    department,
+                    number,
+                    neighborhood,
+                    state
+                },
                 perro: {
                     dogName,
                     age,
@@ -55,9 +65,9 @@ const DogRegister = ({ route, navigation }) => {
 
             console.log(fullUser)
 
-            /*    
+            /*
             try {
-                const response = await fetch('', {
+                const response = await fetch('http://localhost:3000/users', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
