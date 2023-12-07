@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
 import styles from './style';
 
@@ -92,49 +92,54 @@ const DogRegister = ({ route, navigation }) => {
 
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
-            <ImgBackground />
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : null}
+            style={{ flex: 1 }}
+        >
+            <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
+                <ImgBackground />
 
-            <Image source={require('../../../assets/images/perrinciLogo.png')} style={styles.photoContainer} />
-
-
-            <View style={styles.inputContainer}>
-                <Text>Nombre</Text>
-                <TextInput
-                    value={dogName}
-                    onChangeText={setDogName}
-                    style={styles.input}
-                    placeholder='Nombre de tu mascota'>
-                </TextInput>
-
-                <Text>Edad</Text>
-                <TextInput
-                    value={age}
-                    onChangeText={setAge}
-                    style={styles.input}
-                    placeholder='Edad de tu mascota'>
-                </TextInput>
+                <Image source={require('../../../assets/images/perrinciLogo.png')} style={styles.photoContainer} />
 
 
-                <Text>Raza</Text>
-                <TextInput
-                    value={raza}
-                    onChangeText={setRaza}
-                    placeholder='Raza'
-                    style={styles.input}>
-                </TextInput>
+                <View style={styles.inputContainer}>
+                    <Text>Nombre</Text>
+                    <TextInput
+                        value={dogName}
+                        onChangeText={setDogName}
+                        style={styles.input}
+                        placeholder='Nombre de tu mascota'>
+                    </TextInput>
+
+                    <Text>Edad</Text>
+                    <TextInput
+                        value={age}
+                        onChangeText={setAge}
+                        style={styles.input}
+                        placeholder='Edad de tu mascota'>
+                    </TextInput>
 
 
-                <View style={styles.buttonContainer}>
-                    <ButtonPr
-                        // Confirmar SingUp y redirigir a Sing In
-                        onPress={handleSubmit}
-                        text={"Confirmar"}>
-                    </ButtonPr>
+                    <Text>Raza</Text>
+                    <TextInput
+                        value={raza}
+                        onChangeText={setRaza}
+                        placeholder='Raza'
+                        style={styles.input}>
+                    </TextInput>
+
+
+                    <View style={styles.buttonContainer}>
+                        <ButtonPr
+                            // Confirmar SingUp y redirigir a Sing In
+                            onPress={handleSubmit}
+                            text={"Confirmar"}>
+                        </ButtonPr>
+                    </View>
                 </View>
-            </View>
 
-        </SafeAreaView>
+            </SafeAreaView>
+        </KeyboardAvoidingView>
     )
 }
 
