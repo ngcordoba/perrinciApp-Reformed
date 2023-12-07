@@ -1,68 +1,79 @@
-import { View, Text, StyleSheet, SafeAreaView, Image, Button } from 'react-native';
-import React from 'react';
+import { View, StyleSheet, SafeAreaView, FlatList } from 'react-native';
+import React, { useEffect, useState } from 'react';
 
-import PerrinciButton from './ButtonRegular';
-import ImgBackground from './ImageBackground';
+import ImgBackground from '../../../components/ImageBackground';
 import { useNavigation } from '@react-navigation/native';
-import { fontSizes } from '../theme/fonts';
+import Walker_ViewProfileDogAndWalker from '../../../components/Walker_ViewProfileDogAndUser'
 
-const Walker_ViewProfileDogAndWalker = ({ item }) => {
+import { fontSizes } from '../../../theme/fonts';
+
+const mockDataUserDog = [
+    {
+        id: "1",
+        dogName: "Tobi",
+        userName: "Ezequiel",
+        address: "Mario Bravo 942",
+        age: "1 año",
+        imgUser: "https://tntsports.com.ar/__export/1696264222933/sites/tntsports/img/2023/09/25/marcelo_gallardo_crop1695666718963.jpg_1180740533.jpg",
+        imgDog: "https://www.losandes.com.ar/resizer/4G1YHAlpq83ayyHDAyH62acrDTc=/1023x1012/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/HBSTEZJTME2DMY3DGQ3DMYLGMQ.jpg",
+        raza: "Salchicha",
+        qualification: "4 ★"
+    },
+]
+
+const ViewDogAndWalker = ({ item }) => {
     const navigation = useNavigation();
+
+    const [dataUserDog, setdataUserDog] = useState([])
+
+    useEffect(() => {
+        setdataUserDog(mockDataUserDog);
+    }, []);
+
+    /*
+      useEffect(() => {
+        // Realizar la llamada al backend aquí
+        const fetchActivityUser = async () => {
+          try {
+            const response = await fetch('URL_DE_TU_API/walkerActivityData');
+            const data = await response.json();
+            setWalkersActives(data);
+          } catch (error) {
+            console.error('Error fetching activity:', error);
+          }
+        };
+    
+        fetchActivityUser();
+      }, []); 
+    
+      */
+
+    const renderDogUserData = ({ item }) => (
+        <View style={styles.listOfWalkers}>
+            <Walker_ViewProfileDogAndWalker item={item} />
+        </View>
+    )
 
     return (
         <SafeAreaView style={styles.container}>
             <ImgBackground />
-            <View style={styles.contentContainer}>
-                <View style={styles.photoContainer}>
-                    <Image style={styles.image} />
-                </View>
+            <FlatList
+                data={dataUserDog}
+                renderItem={renderDogUserData}
+                keyExtractor={item => item.id}
+            >
 
-                <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>Name</Text>
-                    <Text style={styles.scoreText}>Calificacion: </Text>
-                    <Text style={styles.scoreText}>Direccion: </Text>
-                </View>
-            </View>
-
-            <View style={styles.dogContainerInfo}>
-                <View style={styles.photoContainer}>
-                    <Image style={styles.image} />
-                </View>
-
-                <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>Nombre</Text>
-                    <Text style={styles.scoreText}>Edad: </Text>
-                    <Text style={styles.scoreText}>Raza: </Text>
-                </View>
-            </View>
-
-            <View style={styles.buttonContainer}>
-                <PerrinciButton
-                    onPress={() => navigation.navigate("EmpezarAPasear")}
-                    text={"Aceptar paseo"}
-                />
-                <PerrinciButton
-                    onPress={() => navigation.navigate("EmpezarAPasear")}
-                    text={"Rechazar paseo"}
-                />
-
-                <Button
-                    onPress={() => navigation.navigate("EmpezarAPasear")}
-                    title="Volver al mapa">
-                </Button>
-
-            </View>
+            </FlatList>
         </SafeAreaView>
-    );
-};
+    )
+}
 
-export default Walker_ViewProfileDogAndWalker;
+export default ViewDogAndWalker;
+
+
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     contentContainer: {
         width: '100%',
@@ -83,7 +94,7 @@ const styles = StyleSheet.create({
         alignItems: 'center', // Centra la imagen horizontalmente
     },
     image: {
-        width: '80%',
+        width: '70%',
         aspectRatio: 1,
         backgroundColor: 'black',
         borderRadius: 20,
@@ -107,5 +118,6 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         marginTop: "10%" // Espacio uniforme entre botones
+
     },
 });

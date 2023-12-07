@@ -25,12 +25,12 @@ const About = () => {
                         pasear a nuestra mascota y se complejiza la tarea de conseguir a un paseador de confianza.
                         Hemos desarrollado esta aplicacion con el objetivo de poder unir a mas paseadores con usuarios, manteniendo
                         la seguridad, comunicacion e inclusión.
-                        Lo mas importante para nosotros es que nuestro usuarios se sienta protegidos como tambien sus mascotas, por eso,
-                        hemos implementado la funcionalidad de ubicacion en tiempo real, para saber en todo momento donde está tu mascota.
+                        Lo mas importante para nosotros es que nuestro usuarios se sienta protegidos como tambien sus mascotas. Por eso,
+                        hemos implementado la funcionalidad de ubicacion en tiempo real, para que sepas donde está tu mascota en todo momento.
                         Además, tanto los usuarios como los paseadores podran conocerse a través de sus perfiles y se podrá evaluar
                         la comunicación entre ellos al finalizar los paseos.
 
-                        Esperemos que tu paso por Petlink muy placentero.
+                        Esperemos que tu paso por Petlink sea muy placentero.
                     </Text>
                 </View>
             </View>

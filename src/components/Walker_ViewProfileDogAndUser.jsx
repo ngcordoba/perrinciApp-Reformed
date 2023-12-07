@@ -2,7 +2,6 @@ import { View, Text, StyleSheet, SafeAreaView, Image, Button } from 'react-nativ
 import React from 'react';
 
 import PerrinciButton from './ButtonRegular';
-import ImgBackground from './ImageBackground';
 import { useNavigation } from '@react-navigation/native';
 import { fontSizes } from '../theme/fonts';
 
@@ -11,28 +10,29 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ImgBackground />
             <View style={styles.contentContainer}>
                 <View style={styles.photoContainer}>
-                    <Image style={styles.image} />
+                    <Image style={styles.image}
+                        source={{ uri: item.imgUser }} />
                 </View>
 
                 <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>Name</Text>
-                    <Text style={styles.scoreText}>Calificacion: </Text>
-                    <Text style={styles.scoreText}>Direccion: </Text>
+                    <Text style={styles.nameText}>{item.userName} </Text>
+                    <Text style={styles.scoreText}>Calificacion: {item.qualification}  </Text>
+                    <Text style={styles.scoreText}>Direccion: {item.address} </Text>
                 </View>
             </View>
 
             <View style={styles.dogContainerInfo}>
                 <View style={styles.photoContainer}>
-                    <Image style={styles.image} />
+                    <Image style={styles.image}
+                        source={{ uri: item.imgDog }} />
                 </View>
 
                 <View style={styles.textContainer}>
-                    <Text style={styles.nameText}>Nombre</Text>
-                    <Text style={styles.scoreText}>Edad: </Text>
-                    <Text style={styles.scoreText}>Raza: </Text>
+                    <Text style={styles.nameText}>Nombre: {item.dogName} </Text>
+                    <Text style={styles.scoreText}>Edad: {item.age}</Text>
+                    <Text style={styles.scoreText}>Raza: {item.raza}</Text>
                 </View>
             </View>
 
@@ -61,8 +61,9 @@ export default Walker_ViewProfileDogAndWalker;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        marginTop: "10%",
+        alignItems: "center",
+        marginTop: "30%"
     },
     contentContainer: {
         width: '100%',
@@ -79,11 +80,10 @@ const styles = StyleSheet.create({
     },
     photoContainer: {
         flex: 1,
-        marginHorizontal: 10,
         alignItems: 'center', // Centra la imagen horizontalmente
     },
     image: {
-        width: '80%',
+        width: '70%',
         aspectRatio: 1,
         backgroundColor: 'black',
         borderRadius: 20,

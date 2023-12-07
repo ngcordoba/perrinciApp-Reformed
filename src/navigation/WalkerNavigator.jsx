@@ -7,7 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/DogWalker/HomeScreen";
 import MapView_DogWalker from "../screens/DogWalker/MapView_DogWalker";
 import WalksActives from "../screens/DogWalker/WalksActives";
-import ViewProfileDogAndUser from "../components/Walker_ViewProfileDogAndUser";
+import ViewDogAndWalker from "../screens/DogWalker/ViewDogProfile";
 import WalkerCBU from "../screens/DogWalker/WalkerCBU"
 import RideFinished from "../screens/DogWalker/RideFinished";
 import WalkerTabNavigator from "./WalkerTabNavigator";
@@ -70,7 +70,7 @@ export default WalkerNavigator = () => {
 
             <Stack.Screen
                 name="VerPerfilUsuario"
-                component={ViewProfileDogAndUser}
+                component={ViewDogAndWalker}
                 options={{
                     headerBackTitleVisible: false,
                     headerShown: false
