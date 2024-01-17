@@ -8,7 +8,7 @@ import Walker_Modal from '../../../components/Walker_Modal';
 const MapViewWalker = () => {
     // El MapScreen solicita los permisos al usuario para acceder a la ubicación en tiempo real.
     const [isModalOpen, setIsModalOpen] = useState(false)
-
+    // /walker/active/request
     const navigation = useNavigation();
     return (
 

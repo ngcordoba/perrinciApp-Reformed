@@ -4,12 +4,13 @@ import styles from "./styles"
 import { Entypo } from '@expo/vector-icons';
 
 import ImgBackground from '../../../components/ImageBackground';
-import Button from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native'
+import { useUser } from '../../../context/UserContext';
 
 
 const PetProfile = () => {
 
+    const { user } = useUser();
     const navigation = useNavigation();
 
     return (
@@ -25,7 +26,8 @@ const PetProfile = () => {
             <View style={styles.inputContainer}>
                 <Text>Nombre</Text>
                 <TextInput
-                    style={styles.input}>
+                    style={styles.input}
+                    value={user.Dog.dogName}>
                     <Entypo name="baidu" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
@@ -33,7 +35,8 @@ const PetProfile = () => {
                     <View style={styles.razapeTextInputContainer}>
                         <Text>Edad</Text>
                         <TextInput
-                            style={styles.inputWeightAge}>
+                            style={styles.inputWeightAge}
+                            value={user.Dog.dogAge}>
                             <Entypo name="pin" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>
@@ -41,7 +44,8 @@ const PetProfile = () => {
                     <View style={styles.razapeTextInputContainer}>
                         <Text>Peso</Text>
                         <TextInput
-                            style={styles.inputWeightAge}>
+                            style={styles.inputWeightAge}
+                            value={user.Dog.dogWeight}>
                             <Entypo name="baidu" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>
@@ -51,7 +55,8 @@ const PetProfile = () => {
                     <View style={styles.razapeTextInputContainer}>
                         <Text>Raza</Text>
                         <TextInput
-                            style={styles.inputWeightAge}>
+                            style={styles.inputWeightAge}
+                            value={user.Dog.dogRaza}>
                             <Entypo name="fingerprint" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>

@@ -10,7 +10,7 @@ const mockWalkersData = [
         id: 1,
         name: 'John',
         lastName: 'Doe',
-        img: 'https://example.com/john.jpg',
+        img: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80',
         score: 4.5,
     },
 
@@ -28,7 +28,7 @@ const SelectDogWalker = ({ navigation }) => {
         // Realizar la llamada al backend aquí
         const fetchWalkers = async () => {
           try {
-            const response = await fetch('URL_DE_TU_API/walkersActivos');
+            const response = await fetch('http://localhost:8080/dog/owner/walkers');
             const data = await response.json();
             setWalkersActives(data);
           } catch (error) {

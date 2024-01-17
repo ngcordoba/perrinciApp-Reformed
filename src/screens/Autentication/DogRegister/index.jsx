@@ -40,6 +40,7 @@ const DogRegister = ({ route, navigation }) => {
                     number,
                     department,
                 },
+                // location,
                 dni,
                 user,
                 email,

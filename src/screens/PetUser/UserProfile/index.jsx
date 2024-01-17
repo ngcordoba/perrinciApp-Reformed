@@ -6,9 +6,12 @@ import { Ionicons } from '@expo/vector-icons'
 import ImgBackground from '../../../components/ImageBackground';
 import Button from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native'
+import { useUser } from '../../../context/UserContext';
 
 
 const Profile = () => {
+
+    const { user } = useUser();
 
     const navigation = useNavigation();
 
@@ -24,26 +27,31 @@ const Profile = () => {
             <View style={styles.inputContainer}>
                 <Text>Nombre y apellido</Text>
                 <TextInput
-                    style={styles.input}>
+                    style={styles.input}
+                    value={user.nombre}>
+
                     <Ionicons name="person" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
 
                 <Text>Direccion</Text>
                 <TextInput
-                    style={styles.input}>
+                    style={styles.input}
+                >
                     <Ionicons name="location-sharp" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
                 <Text>Nro. de celular</Text>
                 <TextInput
-                    style={styles.input}>
+                    style={styles.input}
+                    value={user.celular}>
                     <Ionicons name="call" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
                 <Text>Correo electronico</Text>
                 <TextInput
-                    style={styles.input}>
+                    style={styles.input}
+                    value={user.email}>
                     <Ionicons name="mail" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 

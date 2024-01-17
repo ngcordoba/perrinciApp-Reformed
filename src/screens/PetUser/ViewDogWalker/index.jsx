@@ -1,9 +1,10 @@
-import { View, Text, SafeAreaView, Image } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react';
 
 import Button from '../../../components/ButtonRegular';
 import ImgBackground from '../../../components/ImageBackground';
 import styles from "./style"
+import { handleIntegrationMP } from '../../../utils/MP_integration';
 
 import { useNavigation } from '@react-navigation/native'
 
@@ -13,7 +14,23 @@ const ViewDogWalker = ({ route }) => {
     const { walkerInfo } = route.params;
     const navigation = useNavigation();
 
+    const realizarPagoDePaseo = () => {
+        handleIntegrationMP()
+        console.log("Hola")
+    }
+
+
     /*
+
+    Solicitud de paseo:
+    UserName - UserLastName
+    UserLocation
+    DogName
+    DogRaza
+    WalkerName
+    WalkerPrice
+    WalkerTiempoDePaseo
+
 
     const solicitarPaseo = () => {
         Realiza una solicitud al backend para notificar al paseador
@@ -64,7 +81,7 @@ const ViewDogWalker = ({ route }) => {
 
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={() => navigation.navigate("PagoPaseo")}
+                        onPress={realizarPagoDePaseo}
                         text={"Solicitar Paseo"}>
                             // Enviar request al paseador para aceptar el paseo
                     </Button>
