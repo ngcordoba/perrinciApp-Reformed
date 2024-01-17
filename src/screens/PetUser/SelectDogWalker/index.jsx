@@ -14,6 +14,15 @@ const mockWalkersData = [
         score: 4.5,
     },
 
+
+    {
+        id: 2,
+        name: 'Juan Roman',
+        lastName: 'Riquelme',
+        img: 'https://pbs.twimg.com/media/FjFekIBWAAEjE7D.jpg:large',
+        score: 5,
+    },
+
 ];
 
 const SelectDogWalker = ({ navigation }) => {

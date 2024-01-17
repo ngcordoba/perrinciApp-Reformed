@@ -51,13 +51,14 @@ const styles = StyleSheet.create({
     },
 
     qualiListContainer: {
-
+        alignItems: 'center',
     },
 
     containerList: {
-        margin: '20%',
+        margin: '10%',
         backgroundColor: colors.brand.secondary,
-        width: '100%',
+        width: '110%',
+        height: '120%',
         borderRadius: 20,
     },
 

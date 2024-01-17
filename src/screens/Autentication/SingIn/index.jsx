@@ -40,7 +40,8 @@ const SignIn = () => {
         }
       };
 
-      if (email === 'usuario') {
+      if (userData.tipo === 'usuario') {
+
         setUser(userData);
         navigation.navigate('User');
       } else if (email === 'paseador') {

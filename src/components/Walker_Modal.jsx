@@ -20,7 +20,7 @@ export default function Walker_Modal({ isModalOpen, setIsModalOpen }) {
                 <View style={styles.modalContainerStyle}>
                     <View style={styles.modalStyle}>
                         <Text style={[styles.modalTitle, { textAlign: "center", alignSelf: "center" }]}>
-                            Hola, Soy Kevin, quiero dar un paseo, me buscas?
+                            ¡Tenés una solicitud de paseo pendiente!
                         </Text>
                         <View style={styles.modalContain}>
                             <PerrinciButton

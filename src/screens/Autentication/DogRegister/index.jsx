@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, TextInput, Alert, Image, KeyboardAvoidingView } from 'react-native';
 import React, { useState } from 'react';
 import styles from './style';
 
@@ -13,17 +13,22 @@ const DogRegister = ({ route, navigation }) => {
     const [raza, setRaza] = useState('');
 
 
-    const datosUsuario = route.params; // Obtener datos anteriores
-    const firstName = datosUsuario.name;
-    const lastName = datosUsuario.lastName;
-    const phone = datosUsuario.phone;
-    const number = datosUsuario.number;
-    const department = datosUsuario.department;
-    const street = datosUsuario.street;
-    const dni = datosUsuario.dni;
-    const user = datosUsuario.user;
-    const email = datosUsuario.email;
-    const password = datosUsuario.password;
+    const datosUsuarioAddress = route.params; // Obtener datos anteriores
+    const firstName = datosUsuarioAddress.name;
+    const lastName = datosUsuarioAddress.lastName;
+    const phone = datosUsuarioAddress.phone;
+    const location = datosUsuarioAddress.location
+    const dni = datosUsuarioAddress.dni;
+    const user = datosUsuarioAddress.user;
+    const password = datosUsuarioAddress.password;
+
+    const street = datosUsuarioAddress.street;
+    const number = datosUsuarioAddress.number;
+    const department = datosUsuarioAddress.department;
+    const neighborhood = datosUsuarioAddress.neighborhood;
+    const state = datosUsuarioAddress.state;
+
+    const email = datosUsuarioAddress.email;
 
 
     const handleSubmit = async () => {
@@ -35,16 +40,21 @@ const DogRegister = ({ route, navigation }) => {
                 firstName,
                 lastName,
                 phone,
-                direccion: {
-                    street,
-                    number,
-                    department,
+                coordenates: {
+                    location
                 },
                 // location,
                 dni,
                 user,
                 email,
                 password,
+                address: {
+                    street,
+                    department,
+                    number,
+                    neighborhood,
+                    state
+                },
                 perro: {
                     dogName,
                     age,
@@ -83,49 +93,54 @@ const DogRegister = ({ route, navigation }) => {
 
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
-            <ImgBackground />
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : null}
+            style={{ flex: 1 }}
+        >
+            <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight, alignItems: 'center' }} >
+                <ImgBackground />
 
-            <Image source={require('../../../assets/images/perrinciLogo.png')} style={styles.photoContainer} />
-
-
-            <View style={styles.inputContainer}>
-                <Text>Nombre</Text>
-                <TextInput
-                    value={dogName}
-                    onChangeText={setDogName}
-                    style={styles.input}
-                    placeholder='Nombre de tu mascota'>
-                </TextInput>
-
-                <Text>Edad</Text>
-                <TextInput
-                    value={age}
-                    onChangeText={setAge}
-                    style={styles.input}
-                    placeholder='Edad de tu mascota'>
-                </TextInput>
+                <Image source={require('../../../assets/images/perrinciLogo.png')} style={styles.photoContainer} />
 
 
-                <Text>Raza</Text>
-                <TextInput
-                    value={raza}
-                    onChangeText={setRaza}
-                    placeholder='Raza'
-                    style={styles.input}>
-                </TextInput>
+                <View style={styles.inputContainer}>
+                    <Text>Nombre</Text>
+                    <TextInput
+                        value={dogName}
+                        onChangeText={setDogName}
+                        style={styles.input}
+                        placeholder='Nombre de tu mascota'>
+                    </TextInput>
+
+                    <Text>Edad</Text>
+                    <TextInput
+                        value={age}
+                        onChangeText={setAge}
+                        style={styles.input}
+                        placeholder='Edad de tu mascota'>
+                    </TextInput>
 
 
-                <View style={styles.buttonContainer}>
-                    <ButtonPr
-                        // Confirmar SingUp y redirigir a Sing In
-                        onPress={handleSubmit}
-                        text={"Confirmar"}>
-                    </ButtonPr>
+                    <Text>Raza</Text>
+                    <TextInput
+                        value={raza}
+                        onChangeText={setRaza}
+                        placeholder='Raza'
+                        style={styles.input}>
+                    </TextInput>
+
+
+                    <View style={styles.buttonContainer}>
+                        <ButtonPr
+                            // Confirmar SingUp y redirigir a Sing In
+                            onPress={handleSubmit}
+                            text={"Confirmar"}>
+                        </ButtonPr>
+                    </View>
                 </View>
-            </View>
 
-        </SafeAreaView>
+            </SafeAreaView>
+        </KeyboardAvoidingView>
     )
 }
 

@@ -3,12 +3,11 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { fontSizes } from "../theme/fonts"
 import { Button } from 'react-native';
 
-const ListWalksActives = ({ item, onSelected }) => {
+const ListWalksActives = ({ item }) => {
     return (
         <View>
             <TouchableOpacity
                 style={styles.itemContainer}
-                onPress={() => onSelected(item)}
             >
                 <View style={styles.contentContainer}>
                     <Image

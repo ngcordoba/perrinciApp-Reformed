@@ -7,13 +7,18 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/DogWalker/HomeScreen";
 import MapView_DogWalker from "../screens/DogWalker/MapView_DogWalker";
 import WalksActives from "../screens/DogWalker/WalksActives";
+
 import ViewProfileDogAndUser from "../components/Walker_ViewProfileDogAndUser";
 import WalkerCBU from "../screens/DogWalker/WalkerCBU"
 import RideFinished from "../screens/DogWalker/RideFinished";
 
 
-import WalkerTabNavigator from "./WalkerTabNavigator";
 
+import ViewDogAndWalker from "../screens/DogWalker/ViewDogProfile";
+import WalkerCBU from "../screens/DogWalker/WalkerCBU"
+import RideFinished from "../screens/DogWalker/RideFinished";
+
+import WalkerTabNavigator from "./WalkerTabNavigator";
 import SupportHelp from "../screens/SupportHelp";
 import SupportAbout from "../screens/SupportAbout";
 
@@ -43,6 +48,15 @@ export default WalkerNavigator = () => {
                 }}
             />
 
+            <Stack.Screen
+                name="PaseadorCBU"
+                component={WalkerCBU}
+                options={{
+                    headerBackTitleVisible: false,
+                    headerShown: false
+                }}
+            />
+
 
             <Stack.Screen
                 name="EmpezarAPasear"
@@ -64,7 +78,7 @@ export default WalkerNavigator = () => {
 
             <Stack.Screen
                 name="VerPerfilUsuario"
-                component={ViewProfileDogAndUser}
+                component={ViewDogAndWalker}
                 options={{
                     headerBackTitleVisible: false,
                     headerShown: false
