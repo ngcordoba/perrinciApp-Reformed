@@ -15,8 +15,6 @@ import RideFinished from "../screens/DogWalker/RideFinished";
 
 
 import ViewDogAndWalker from "../screens/DogWalker/ViewDogProfile";
-import WalkerCBU from "../screens/DogWalker/WalkerCBU"
-import RideFinished from "../screens/DogWalker/RideFinished";
 
 import WalkerTabNavigator from "./WalkerTabNavigator";
 import SupportHelp from "../screens/SupportHelp";
