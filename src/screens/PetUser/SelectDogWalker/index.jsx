@@ -12,6 +12,9 @@ const mockWalkersData = [
         lastName: 'Doe',
         img: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80',
         score: 4.5,
+        walksCompleted: 213,
+        price: 150,
+        timeWalk: 120,
     },
 
 
@@ -21,6 +24,9 @@ const mockWalkersData = [
         lastName: 'Riquelme',
         img: 'https://pbs.twimg.com/media/FjFekIBWAAEjE7D.jpg:large',
         score: 5,
+        walksCompleted: 87,
+        price: 150,
+        timeWalk: 180,
     },
 
 ];

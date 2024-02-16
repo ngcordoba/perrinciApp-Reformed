@@ -1,10 +1,11 @@
-import { View, Text, SafeAreaView } from 'react-native'
+import { View, Text, SafeAreaView, Image } from 'react-native'
 import React from 'react';
 
 import Button from '../../../components/ButtonRegular';
 import ImgBackground from '../../../components/ImageBackground';
 import styles from "./style"
 import { handleIntegrationMP } from '../../../utils/MP_integration';
+import { openBrowserAsync } from "expo-web-browser";
 
 import { useNavigation } from '@react-navigation/native'
 
@@ -14,9 +15,13 @@ const ViewDogWalker = ({ route }) => {
     const { walkerInfo } = route.params;
     const navigation = useNavigation();
 
-    const realizarPagoDePaseo = () => {
-        handleIntegrationMP()
-        console.log("Hola")
+    const realizarPagoDePaseo = async () => {
+        const data = await handleIntegrationMP(walkerInfo)
+        if (!data) {
+            return console.log("Ha ocurrido un error")
+        }
+        openBrowserAsync(data)
+        console.log("La integracion esta funcionando")
     }
 
 
@@ -67,17 +72,21 @@ const ViewDogWalker = ({ route }) => {
             <ImgBackground />
             <View style={styles.contentContainer}>
                 <View style={styles.photoContainer}>
+                <Image
+                    style={styles.image}
+                    source={{ uri: walkerInfo.img }}
 
+                />
                 </View>
 
             </View>
 
             <View style={styles.detailsContainer}>
 
-                <Text style={styles.label}>Calificacion: {walkerInfo.name}.</Text>
-                <Text style={styles.label}>Paseos completados:{walkerInfo.lastName} .</Text>
-                <Text style={styles.label}>Precio por paseo: $.</Text>
-                <Text style={styles.label}>Tiempo de paseo: . hs.</Text>
+                <Text style={styles.label}>Calificacion: {walkerInfo.score}</Text>
+                <Text style={styles.label}>Paseos completados: {walkerInfo.walksCompleted}</Text>
+                <Text style={styles.label}>Precio por paseo: {walkerInfo.price}</Text>
+                <Text style={styles.label}>Tiempo de paseo: {walkerInfo.timeWalk} minutos.</Text>
 
                 <View style={styles.buttonContainer}>
                     <Button

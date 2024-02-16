@@ -1,17 +1,16 @@
-import { openBrowserAsync } from "expo-web-browser";
 import { ACCESS_TOKEN } from "../../config.json"
 
-export const handleIntegrationMP = async () => {
+export const handleIntegrationMP = async (walkerInfo) => {
     const preference = {
         "items": [
             {
-                "title": "name",
-                "description": `Compra de celular `,
+                "title": `Paseo con ${walkerInfo.name}` ,
+                "description": "Paseo de mascotas",
                 "picture_url": "imagen",
                 "category_id": "cells",
                 "quantity": 1,
-                "currency_id": "$",
-                "unit_price": 10
+                "currency_id": `$`,
+                "unit_price": 100,
             }
         ]
     }
