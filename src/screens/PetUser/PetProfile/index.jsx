@@ -1,7 +1,6 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, StyleSheet } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, TextInput } from 'react-native';
 import React from 'react';
 import styles from "./styles"
-import { Entypo } from '@expo/vector-icons';
 
 import ImgBackground from '../../../components/ImageBackground';
 import { useNavigation } from '@react-navigation/native'
@@ -28,7 +27,6 @@ const PetProfile = () => {
                 <TextInput
                     style={styles.input}
                     value={user.Dog.dogName}>
-                    <Entypo name="baidu" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
                 <View style={styles.razapeContainer}>
@@ -37,7 +35,6 @@ const PetProfile = () => {
                         <TextInput
                             style={styles.inputWeightAge}
                             value={user.Dog.dogAge}>
-                            <Entypo name="pin" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>
 
@@ -46,7 +43,6 @@ const PetProfile = () => {
                         <TextInput
                             style={styles.inputWeightAge}
                             value={user.Dog.dogWeight}>
-                            <Entypo name="baidu" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>
                 </View>
@@ -57,7 +53,6 @@ const PetProfile = () => {
                         <TextInput
                             style={styles.inputWeightAge}
                             value={user.Dog.dogRaza}>
-                            <Entypo name="fingerprint" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>
 
@@ -65,7 +60,6 @@ const PetProfile = () => {
                         <Text>Calificacion prom.</Text>
                         <TextInput
                             style={styles.inputWeightAge}>
-                            <Entypo name="star" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                         </TextInput>
                     </View>
                 </View>
@@ -73,7 +67,6 @@ const PetProfile = () => {
                 <Text>Paseos completados</Text>
                 <TextInput
                     style={styles.input}>
-                    <Entypo name="trophy" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
 

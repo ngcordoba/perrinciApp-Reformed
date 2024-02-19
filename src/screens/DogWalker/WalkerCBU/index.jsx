@@ -1,16 +1,18 @@
-import { Text, SafeAreaView, StatusBar, View, TextInput, FlatList } from 'react-native';
+import { Text, SafeAreaView, StatusBar, View, TextInput } from 'react-native';
 import React from 'react';
 import styles from './style';
-import { Ionicons } from '@expo/vector-icons'
 
 import ImgBackground from '../../../components/ImageBackground';
+import ButtonRegular from '../../../components/ButtonRegular';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 
 const WalkerCBU = () => {
 
     const [cbu, setCBU] = useState("")
     const [alias, setAlias] = useState("")
+    const navigation = useNavigation();
 
 
     return (
@@ -21,21 +23,27 @@ const WalkerCBU = () => {
             </View>
 
             <View style={styles.inputContainer}>
-                <Text>CBU/CVU</Text>
+                <Text style={styles.titleinput}>CBU/CVU</Text>
                 <TextInput
                     value={cbu}
                     onChangeText={setCBU}
                     style={styles.input}>
-                    <Ionicons name="wallet" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
-                <Text>Alias</Text>
+                <Text style={styles.titleinput}>Alias</Text>
                 <TextInput
                     value={alias}
                     onChangeText={setAlias}
                     style={styles.input}>
-                    <Ionicons name="wallet" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
+
+                <View style={styles.buttonContainer}>
+                <ButtonRegular
+                onPress={navigation.goBack}
+                text={"Volver atras"}
+                />
+                </View>
+                
 
 
             </View>

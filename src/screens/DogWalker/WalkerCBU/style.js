@@ -4,81 +4,31 @@ import { fontSizes } from '../../../theme/fonts';
 
 const styles = StyleSheet.create({
 
-    photoContainer: {
-        alignItems: 'center',
-        backgroundColor: 'white',
-        borderRadius: 20,
-        marginBottom: '30%',
-        margin: '5%',
+    inputContainer: {
+        marginTop: '50%',
+        height: '8%',
+        width: "70%",
+        alignItems: "center"
     },
 
-    inputContainer: {
-        height: '8%',
-        width: "70%"
+    titleinput: {
+        alignSelf: 'stretch'
     },
 
     input: {
-        paddingLeft: 15,
-    },
-
-    inputWithIcon: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        height: "95%",
+        width: 220,
+        height: "100%",
         backgroundColor: colors.brand.secondary,
-        margin: 5,
+        margin: "2%",
         borderRadius: 15,
         paddingLeft: 15,
+        marginBottom: "3%"
     },
 
-    razapeContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: '6%',
-    },
+    buttonContainer: {
+        marginTop: "10%"
+    }
 
-    inputRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '100%',
-    },
-
-
-    inputWeightAge: {
-        flex: 1,
-        backgroundColor: colors.brand.secondary,
-        borderRadius: 15,
-    },
-
-    qualiListContainer: {
-
-    },
-
-    containerList: {
-        margin: '20%',
-        backgroundColor: colors.brand.secondary,
-        width: '100%',
-        borderRadius: 20,
-    },
-
-
-
-    editButton: {
-        color: colors.brand.primary,
-        fontSize: fontSizes.buttonsCustom,
-        fontWeight: 'bold',
-        margin: "5%",
-        marginBottom: "10%",
-        alignSelf: "center"
-    },
-
-    saveButton: {
-        color: colors.brand.primary,
-        fontSize: fontSizes.buttonsCustom,
-        fontWeight: 'bold',
-        alignSelf: "center",
-        marginBottom: "10%"
-    },
 });
 
 export default styles;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-native";
 import { Ionicons } from '@expo/vector-icons'
 import { AntDesign } from '@expo/vector-icons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -9,10 +10,12 @@ import HomeScreen from "../screens/DogWalker/HomeScreen";
 import WalkerProfile from '../screens/DogWalker/WalkerProfile';
 import WalkerActivity from "../screens/DogWalker/WalkerActivity";
 import Soporte from '../screens/SupportHome';
+import { useNavigation } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 
 const WalkerTabNavigator = () => {
+    const navigation = useNavigation();
     return (
         <Tab.Navigator
             initialRouteName="Inicio"
@@ -40,7 +43,14 @@ const WalkerTabNavigator = () => {
                     tabBarIcon: ({ color }) => (
                         <Ionicons name="person" size={20} color={color} />
                     ),
-                    title: "Mi Perfil"
+                    title: "Mi Perfil",
+                    headerRight: () => (
+                        <Button
+                            onPress={() => navigation.navigate("PaseadorCBU")}
+                            title="CBU/CVU"
+                        >
+                        </Button>
+                    )
                 }} />
 
             <Tab.Screen

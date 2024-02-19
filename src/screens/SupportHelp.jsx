@@ -21,9 +21,12 @@ const Help = () => {
 
             <View style={styles.walkerListContainer}>
                 <View style={styles.containerList}>
-                    <Text>Estimado usuario: </Text>
-                    <Text>Por cualquier duda o consulta que exista, tanto de funcionalidad como de algun inconveniente o imprevisto, envíenos un correo electrónico a petlinkHelp@petlink.com y responderemos a sus consultas tan rapido como sea posible</Text>
-                    <Text>Para reportar un problema comunicate al numero 1123952295 o escribino a petlink@petlink.com </Text>
+                    <Text style={styles.text}>Estimado usuario, </Text>
+                    <Text style={styles.text}>Por cualquier duda o consulta que exista con respecto a funcionalidades y acerca de Perrinci, te dejamos nuestras direcciones de contacto y responderemos a sus consultas tan rapido como sea posible: </Text>
+                    <Text style={styles.text}> ✉️ info@perrinci.com.ar</Text>
+                    <Text style={styles.text}>Para reportar un problema: </Text>
+                    <Text style={styles.text}> ✉️ support@perrinci.com.ar</Text>
+                    <Text style={styles.text}> ☎️ 0800-912-2018</Text>
                 </View>
             </View>
 
@@ -56,6 +59,12 @@ const styles = StyleSheet.create({
         width: '80%',
         borderRadius: 20,
     },
+
+    text: {
+        margin: "3%",
+        textAlign: 'auto',
+        fontSize: 16,
+    }, 
 
     buttonContainer: {
         backgroundColor: "red",

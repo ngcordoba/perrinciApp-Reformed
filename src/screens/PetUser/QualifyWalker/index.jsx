@@ -31,7 +31,7 @@ const WalkerQualify = () => {
     const handleSendRating = () => {
         console.log('Puntuación:', rating);
         console.log('Comentarios:', comment);
-        navigation.navigate("PaseoFinalizado");
+        navigation.replace("PaseoFinalizado");
     };
 
 

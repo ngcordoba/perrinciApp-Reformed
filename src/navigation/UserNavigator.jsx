@@ -11,7 +11,7 @@ import MapViewUser from "../screens/PetUser/MapView_User";
 import WalkerQualify from "../screens/PetUser/QualifyWalker";
 import FinishWalk from "../screens/PetUser/FinishRide";
 import SupportHelp from "../screens/SupportHelp";
-import SupportAbout from "../screens/SupportHelp";
+import SupportAbout from "../screens/SupportAbout";
 import { Button } from "react-native";
 import ViewDogWalker from "../screens/PetUser/ViewDogWalker";
 
@@ -100,6 +100,8 @@ export default UserStack = () => {
                 component={WalkerQualify}
                 options={({ route }) => ({
                     title: "Calificá al paseador",
+                    headerBackTitleVisible: false,
+
                 })}
             />
             <Stack.Screen

@@ -1,5 +1,5 @@
-import { View, Text, SafeAreaView, Image } from 'react-native'
-import React from 'react';
+import React, { useState } from 'react';
+import { View, Text, SafeAreaView, Image, ActivityIndicator, Modal, Alert } from 'react-native';
 
 import Button from '../../../components/ButtonRegular';
 import ImgBackground from '../../../components/ImageBackground';
@@ -11,17 +11,47 @@ import { useNavigation } from '@react-navigation/native'
 
 
 const ViewDogWalker = ({ route }) => {
-
     const { walkerInfo } = route.params;
     const navigation = useNavigation();
+    const [solicitudEnProgreso, setSolicitudEnProgreso] = useState(false);
+    const [mostrarModal, setMostrarModal] = useState(false);
 
     const realizarPagoDePaseo = async () => {
-        const data = await handleIntegrationMP(walkerInfo)
-        if (!data) {
-            return console.log("Ha ocurrido un error")
-        }
-        openBrowserAsync(data)
-        console.log("La integracion esta funcionando")
+        setSolicitudEnProgreso(true);
+        setMostrarModal(true);
+
+        setTimeout(async () => {
+            try {
+                const data = await handleIntegrationMP(walkerInfo);
+                if (!data) {
+                    console.log("Ha ocurrido un error");
+                    setSolicitudEnProgreso(false);
+                    setMostrarModal(false);
+                    return;
+                }
+    
+                // chequear con el back la respuesta del paseador.
+                // logica para determinar si la solicitud de paseo fue aceptada o no. 
+                const solicitudAceptada = true;
+                setSolicitudEnProgreso(false);
+                setMostrarModal(false);
+    
+                console.log("Valor de solicitudAceptada:", solicitudAceptada);
+    
+                if (solicitudAceptada === true) {
+                    openBrowserAsync(data)
+                    console.log("Se ha aceptado el paseo y la integracion esta funcionando")
+                } else {
+                    console.log("Solicitud rechazada por el paseador");
+                    Alert.alert("El paseador ha rechazado su solicitud, por favor seleccione otro")
+                    navigation.goBack();
+                }
+            } catch (error) {
+                console.error("Ha ocurrido un error:", error);
+                setSolicitudEnProgreso(false);
+                setMostrarModal(false);
+            }
+        }, 30000);
     }
 
 
@@ -98,10 +128,23 @@ const ViewDogWalker = ({ route }) => {
 
 
                 </View>
-
-
-
             </View>
+
+            <Modal
+                animationType="fade"
+                transparent={true}
+                visible={mostrarModal}
+                onRequestClose={() => {
+                    setMostrarModal(false);
+                }}
+            >
+                <View style={styles.modalContainer}>
+                    <View style={styles.modalContent}>
+                        <ActivityIndicator size="large" color="#0984E3" />
+                        <Text>Espere por favor. Estamos procesando su solicitud...</Text>
+                    </View>
+                </View>
+            </Modal>
         </SafeAreaView>
     );
 }

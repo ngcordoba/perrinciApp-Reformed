@@ -12,26 +12,26 @@ const About = () => {
     return (
         <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight }} >
             <ImgBackground />
-            <View style={styles.container}>
-                <Text style={styles.textHeader}>
+            <View style={styles.titleContainer}>
+                <Text style={styles.title}>
                     Petlink
                 </Text>
             </View>
 
-            <View style={styles.walkerListContainer}>
+            <View style={styles.textContainer}>
                 <View style={styles.containerList}>
-                    <Text>Petlink fue desarrollado por un grupo de estudiantes de la carrera de Analista de Sistemas.</Text>
-                    <Text>Nuestro principal objetivo es dar solucion a la problematica que se genera cuando queremos
+                    <Text style={styles.text}>Petlink fue desarrollado por un grupo de estudiantes de la carrera de Analista de Sistemas.</Text>
+                    <Text style={styles.text}>Nuestro principal objetivo es dar solucion a la problematica que se genera cuando queremos
                         pasear a nuestra mascota y se complejiza la tarea de conseguir a un paseador de confianza.
                         Hemos desarrollado esta aplicacion con el objetivo de poder unir a mas paseadores con usuarios, manteniendo
                         la seguridad, comunicacion e inclusión.
-                        Lo mas importante para nosotros es que nuestro usuarios se sienta protegidos como tambien sus mascotas. Por eso,
+                        Lo mas importante para nosotros es que nuestros usuarios se sientan protegidos como tambien sus mascotas. Por eso,
                         hemos implementado la funcionalidad de ubicacion en tiempo real, para que sepas donde está tu mascota en todo momento.
                         Además, tanto los usuarios como los paseadores podran conocerse a través de sus perfiles y se podrá evaluar
                         la comunicación entre ellos al finalizar los paseos.
 
-                        Esperemos que tu paso por Petlink sea muy placentero.
                     </Text>
+                    <Text style={styles.text}>Esperamos que tu paso por Petlink sea muy placentero.</Text>
                 </View>
             </View>
 
@@ -43,18 +43,18 @@ const About = () => {
 export default About;
 
 const styles = StyleSheet.create({
-    container: {
+    titleContainer: {
         alignItems: 'center'
     },
 
-    textHeader: {
+    title: {
         color: colors.brand.primary,
         fontWeight: "bold",
         fontSize: fontSizes.title,
         margin: 40,
     },
 
-    walkerListContainer: {
+    textContainer: {
         alignItems: 'center',
 
     },
@@ -65,6 +65,12 @@ const styles = StyleSheet.create({
         width: '80%',
         borderRadius: 20,
     },
+
+    text: {
+        margin: "3%",
+        textAlign: 'auto',
+        fontSize: 16,
+    },  
 
     buttonContainer: {
         backgroundColor: "red",

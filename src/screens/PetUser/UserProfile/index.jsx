@@ -1,7 +1,6 @@
 import { Text, SafeAreaView, StatusBar, View, TextInput } from 'react-native';
 import React from 'react';
 import styles from './style';
-import { Ionicons } from '@expo/vector-icons'
 
 import ImgBackground from '../../../components/ImageBackground';
 import Button from '../../../components/ButtonRegular';
@@ -12,7 +11,6 @@ import { useUser } from '../../../context/UserContext';
 const Profile = () => {
 
     const { user } = useUser();
-
     const navigation = useNavigation();
 
     return (
@@ -29,8 +27,6 @@ const Profile = () => {
                 <TextInput
                     style={styles.input}
                     value={user.nombre}>
-
-                    <Ionicons name="person" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
 
@@ -38,21 +34,18 @@ const Profile = () => {
                 <TextInput
                     style={styles.input}
                 >
-                    <Ionicons name="location-sharp" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
                 <Text>Nro. de celular</Text>
                 <TextInput
                     style={styles.input}
                     value={user.celular}>
-                    <Ionicons name="call" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
                 <Text>Correo electronico</Text>
                 <TextInput
                     style={styles.input}
                     value={user.email}>
-                    <Ionicons name="mail" size={22} color="gray" style={{ position: 'absolute', top: 10, left: 10 }} />
                 </TextInput>
 
                 <View style={styles.buttonContainer}>

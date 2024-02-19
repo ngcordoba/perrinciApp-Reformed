@@ -2,7 +2,6 @@ import { SafeAreaView, StyleSheet, Button, View } from 'react-native';
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import MapScreen from '../../../components/User_LocationMap';
-import ButtonPr from '../../../components/ButtonRegular';
 import Walker_Modal from '../../../components/Walker_Modal';
 
 const MapViewWalker = () => {
