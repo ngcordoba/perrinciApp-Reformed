@@ -17,6 +17,7 @@ const mockDataUserDog = [
         imgUser: "https://tntsports.com.ar/__export/1696264222933/sites/tntsports/img/2023/09/25/marcelo_gallardo_crop1695666718963.jpg_1180740533.jpg",
         imgDog: "https://www.losandes.com.ar/resizer/4G1YHAlpq83ayyHDAyH62acrDTc=/1023x1012/smart/cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/HBSTEZJTME2DMY3DGQ3DMYLGMQ.jpg",
         raza: "Salchicha",
+        dogWeight: "2kg",
         qualification: "4 ★"
     },
 ]

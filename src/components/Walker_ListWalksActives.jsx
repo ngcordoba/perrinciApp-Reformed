@@ -2,8 +2,11 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { fontSizes } from "../theme/fonts"
 import { Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const ListWalksActives = ({ item }) => {
+
+    const navigation = useNavigation();
     return (
         <View>
             <TouchableOpacity
@@ -23,10 +26,14 @@ const ListWalksActives = ({ item }) => {
                     </View>
                 </View>
             </TouchableOpacity>
+            
             <View style={styles.buttonContainer}>
-                <Button key="button1" title='Ya llegué' />
-                <Button key="button2" title='Volviendo' />
-                <Button key="button3" title='Ya volví' />
+                <Button key="imhere" title='Ya llegué' />
+                <Button key="backto" title='Volviendo' />
+                <Button key="imback" title='Ya volví' />
+                <Button onPress={() => navigation.replace("PaseoFinalizadoWalker")} 
+                key="finished" 
+                title='Finalizar'/>
             </View>
 
         </View>

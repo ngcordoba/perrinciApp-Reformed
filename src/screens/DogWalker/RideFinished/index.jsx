@@ -18,7 +18,7 @@ const RideFinished = () => {
             </View>
 
             <Button
-                onPress={() => navigation.navigate("MapView_DogWalker")}
+                onPress={() => navigation.navigate("EmpezarAPasear")}
                 text={"Volver al mapa"}>
             </Button>
 

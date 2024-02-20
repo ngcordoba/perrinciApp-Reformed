@@ -26,13 +26,15 @@ const Profile = () => {
                 <Text>Nombre y apellido</Text>
                 <TextInput
                     style={styles.input}
-                    value={user.nombre}>
+                    value={user.nombre}
+                    editable={false}>
                 </TextInput>
 
 
                 <Text>Direccion</Text>
                 <TextInput
                     style={styles.input}
+                    value={user.direccion + user.altura}
                 >
                 </TextInput>
 

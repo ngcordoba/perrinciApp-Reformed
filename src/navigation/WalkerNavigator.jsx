@@ -84,7 +84,7 @@ export default WalkerNavigator = () => {
             />
 
             <Stack.Screen
-                name="PaseoFinalizado"
+                name="PaseoFinalizadoWalker"
                 component={RideFinished}
                 options={{
                     headerBackTitleVisible: false,
@@ -104,7 +104,7 @@ export default WalkerNavigator = () => {
                 name="AcercaDePetLinkSoporte"
                 component={SupportAbout}
                 options={{
-                    title: "Acerca de PetLink",
+                    title: "Acerca de Perrinci",
                     headerBackTitleVisible: false,
                 }}
             />

@@ -33,6 +33,7 @@ const Walker_ViewProfileDogAndWalker = ({ item }) => {
                     <Text style={styles.nameText}>Nombre: {item.dogName} </Text>
                     <Text style={styles.scoreText}>Edad: {item.age}</Text>
                     <Text style={styles.scoreText}>Raza: {item.raza}</Text>
+                    <Text style={styles.scoreText}>Peso: {item.dogWeight}</Text>
                 </View>
             </View>
 

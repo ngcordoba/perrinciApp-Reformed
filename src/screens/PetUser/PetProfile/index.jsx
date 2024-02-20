@@ -26,7 +26,9 @@ const PetProfile = () => {
                 <Text>Nombre</Text>
                 <TextInput
                     style={styles.input}
-                    value={user.Dog.dogName}>
+                    value={user.Dog.dogName}
+                    editable={false}>
+                    
                 </TextInput>
 
                 <View style={styles.razapeContainer}>
@@ -52,21 +54,24 @@ const PetProfile = () => {
                         <Text>Raza</Text>
                         <TextInput
                             style={styles.inputWeightAge}
-                            value={user.Dog.dogRaza}>
+                            value={user.Dog.dogRaza}
+                            editable={false}>
                         </TextInput>
                     </View>
 
                     <View style={styles.razapeTextInputContainer}>
                         <Text>Calificacion prom.</Text>
                         <TextInput
-                            style={styles.inputWeightAge}>
+                            style={styles.inputWeightAge}
+                            editable={false}>
                         </TextInput>
                     </View>
                 </View>
 
                 <Text>Paseos completados</Text>
                 <TextInput
-                    style={styles.input}>
+                    style={styles.input}
+                    editable={false}>
                 </TextInput>
 
 

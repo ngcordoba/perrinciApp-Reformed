@@ -101,7 +101,7 @@ const WalksActives = ({ navigation }) => {
                 <View style={styles.buttonContainer}>
 
                     <PerrinciButton
-                        onPress={() => navigation.navigate("HomeScreen")}
+                        onPress={() => navigation.replace("InicioPaseador")}
                         text={"Finalizar actividad"}>
                     </PerrinciButton>
 

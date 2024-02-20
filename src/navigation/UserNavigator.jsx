@@ -6,7 +6,6 @@ import HomeScreen from "../screens/PetUser/HomeScreen";
 import PetProfile from "../screens/PetUser/PetProfile";
 import TakeAWalk from "../screens/PetUser/TakeAWalk";
 import SelectDogWalker from "../screens/PetUser/SelectDogWalker";
-import Pago_MercadoPago from "../screens/PetUser/Pago_MercadoPago";
 import MapViewUser from "../screens/PetUser/MapView_User";
 import WalkerQualify from "../screens/PetUser/QualifyWalker";
 import FinishWalk from "../screens/PetUser/FinishRide";
@@ -51,7 +50,7 @@ export default UserStack = () => {
                 component={TakeAWalk}
                 options={{
                     title: "Solicitar paseo",
-                    headerBackTitleVisible: false,
+                    headerShown: false,
                 }}
             />
             <Stack.Screen
@@ -59,7 +58,7 @@ export default UserStack = () => {
                 component={SelectDogWalker}
                 options={{
                     title: null,
-                    headerBackTitleVisible: false,
+                    headerShown: false,
                 }}
             />
 
@@ -72,23 +71,16 @@ export default UserStack = () => {
             />
 
             <Stack.Screen
-                name="PagoPaseo"
-                component={Pago_MercadoPago}
-                options={({ route }) => ({
-                    title: "Realizá tu pago",
-                    headerBackTitleVisible: false,
-                })}
-            />
-            <Stack.Screen
                 // casita para volver al home.
                 name="PaseoEnCurso"
                 component={MapViewUser}
                 options={({ route }) => ({
                     title: "Paseo en curso",
+                    headerLeft: () => false,
                     headerBackTitleVisible: false,
                     headerRight: () => (
                         <Button
-                            onPress={() => navigation.navigate("TabUserNav")}
+                            onPress={() => navigation.goBack("TabUserNav")}
                             title="Inicio"
                         >
                         </Button>
@@ -100,6 +92,7 @@ export default UserStack = () => {
                 component={WalkerQualify}
                 options={({ route }) => ({
                     title: "Calificá al paseador",
+                    headerLeft: () => false,
                     headerBackTitleVisible: false,
 
                 })}
@@ -109,6 +102,7 @@ export default UserStack = () => {
                 component={FinishWalk}
                 options={({ route }) => ({
                     title: "Paseo finalizado",
+                    headerLeft: () => false,
                     headerBackTitleVisible: false,
                 })}
             />
@@ -124,7 +118,7 @@ export default UserStack = () => {
                 name="AcercaDePetLinkSoporte"
                 component={SupportAbout}
                 options={{
-                    title: "Acerca de PetLink",
+                    title: "Acerca de Perrinci",
                     headerBackTitleVisible: false,
                 }}
             />

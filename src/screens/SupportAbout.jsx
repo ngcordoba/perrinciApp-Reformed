@@ -14,13 +14,13 @@ const About = () => {
             <ImgBackground />
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>
-                    Petlink
+                    Perrinci
                 </Text>
             </View>
 
             <View style={styles.textContainer}>
                 <View style={styles.containerList}>
-                    <Text style={styles.text}>Petlink fue desarrollado por un grupo de estudiantes de la carrera de Analista de Sistemas.</Text>
+                    <Text style={styles.text}>Perrinci fue desarrollado por un grupo de estudiantes de la carrera de Analista de Sistemas.</Text>
                     <Text style={styles.text}>Nuestro principal objetivo es dar solucion a la problematica que se genera cuando queremos
                         pasear a nuestra mascota y se complejiza la tarea de conseguir a un paseador de confianza.
                         Hemos desarrollado esta aplicacion con el objetivo de poder unir a mas paseadores con usuarios, manteniendo
@@ -31,7 +31,7 @@ const About = () => {
                         la comunicación entre ellos al finalizar los paseos.
 
                     </Text>
-                    <Text style={styles.text}>Esperamos que tu paso por Petlink sea muy placentero.</Text>
+                    <Text style={styles.text}>Esperamos que tu paso por Perrinci sea muy placentero.</Text>
                 </View>
             </View>
 

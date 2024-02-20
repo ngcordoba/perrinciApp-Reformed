@@ -5,7 +5,7 @@ import ImgBackground from '../../../components/ImageBackground';
 import ButtonPr from '../../../components/ButtonRegular';
 import { useNavigation } from '@react-navigation/native';
 
-// Importa los contextos necesarios
+// Contextos
 import { useUser } from '../../../context/UserContext';
 import { useWalker } from '../../../context/WalkerContext';
 
@@ -29,6 +29,8 @@ const SignIn = () => {
       const userData = {
         nombre: 'eze',
         apellido: 'Cordoba',
+        direccion: 'Mario Bravo',
+        altura: '942',
         celular: "1123942295",
         email: 'prueba@example.com',
         tipo: "usuario",
@@ -42,10 +44,10 @@ const SignIn = () => {
 
       if (email === 'usuario') {
         setUser(userData);
-        navigation.navigate('User');
+        navigation.replace('User');
       } else if (email === 'paseador') {
         setWalker(userData);
-        navigation.navigate('DogWalker');
+        navigation.replace('DogWalker');
       }
     } catch (error) {
       console.error('Error al realizar el inicio de sesión:', error);
