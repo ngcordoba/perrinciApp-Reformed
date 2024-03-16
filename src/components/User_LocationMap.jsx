@@ -58,6 +58,7 @@ const MapScreen = () => {
                     }}
                 >
                     <Marker coordinate={location} />
+                    
                 </MapView>
             )}
         </View>

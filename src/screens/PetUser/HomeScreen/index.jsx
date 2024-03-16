@@ -17,7 +17,7 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <ImgBackground />
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{`Hola ${user ? user.nombre : 'Usuario'}`}</Text>
+        <Text style={styles.text}>{`Hola ${user ? user.firstName : 'Usuario'}`}</Text>
       </View>
 
       <Button onPress={() => navigation.navigate('SolicitarPaseo')} text={'Quiero un paseo'} />

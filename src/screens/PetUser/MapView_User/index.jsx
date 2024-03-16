@@ -1,32 +1,47 @@
 import { SafeAreaView, StyleSheet } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import MapScreen from '../../../components/User_LocationMap';
 import Button from '../../../components/ButtonRegular';
 
 const MapViewUser = () => {
 
-    const [walkStatus, setWalkStatus] = useState(true)
+    const [walkerLocation, setWalkerLocation] = useState(null);
+    const [walkStatus, setWalkStatus] = useState(true);
     const navigation = useNavigation();
 
-    /* la responde del backend, actualizada el walkstatus para poder
-    entrar en el IF:
-    ** logica/peticion del back **
-    setWalkerStatus = "estado del paseo actualizado"
-    */
-    
-    if(walkStatus === "finished") {
-        navigation.navigate("CalificarPaseador")
+    /* Componente padre
+    Voy a recibir a partir de una peticion al back, la ubicacion del paseador y estado del paseo (entre 
+    otros datos)
+    Esos datos los voy a mandar por props al MapScreen, para generar un Marker del paseador actualizandose
+    cada 5 segudos. De esta forma el usuario vera la ubicacion en tiempo real del paseador.
+
+    Cuando el paseador finaliza el paseo, se actualiza el estado del paseo para el dogOwner, para poder entrar
+    en el IF y avanzar a la siguiente pantalla.
+    */ 
+
+    useEffect(() => {
+        const interval = setInterval (() => {
+            // Peticion al back para obtener la ubicacion del paseador
+            const updatedLocation = ""
+            setWalkerLocation(updatedLocation);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleFinishWalk = () => {
+        setWalkStatus("")
     }
+    
+    useEffect(() => {
+        if (walkStatus === "finished") {
+            navigation.navigate("CalificarPaseador");
+        }
+    }, [walkStatus]);
 
     return (
-        /* En esta screen se mostrará desde que la persona entrega
-         A la mascota hasta la finalización del paseo
-         Es una misma screen que se va a actualizando (Se actualiza la ubicación del
-         paseador) */
-
-         // Tenemos que tener el estado del paseo, para que cuando este en FINALIZADO,
-         // se redirija automaticamente a la pantalla de calificacion. 
+        
         <SafeAreaView style={styles.container}>
             <MapScreen />
             <Button
@@ -35,9 +50,6 @@ const MapViewUser = () => {
             </Button>
 
         </SafeAreaView>
-
-        /* Pasa a la siguiente screen una vez que el usuario paseador
-        haya finalizado el paseo. */
     );
 };
 

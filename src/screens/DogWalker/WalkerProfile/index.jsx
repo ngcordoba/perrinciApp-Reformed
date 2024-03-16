@@ -14,12 +14,15 @@ import { Ionicons, Entypo } from '@expo/vector-icons';
 import ImgBackground from '../../../components/ImageBackground';
 import WalkerQualifications from '../../../components/Walker_Qualification';
 import styles from './style';
+import { useWalker } from '../../../context/WalkerContext';
 
 const WalkerProfile = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [editedPhoneNumber, setEditedPhoneNumber] = useState('');
     const [editedPrice, setEditedPrice] = useState('');
     const [editedWalkTime, setEditedWalkTime] = useState('');
+
+    const { walker } = useWalker();
 
     // Estados para mantener los datos originales
     const [originalPhoneNumber, setOriginalPhoneNumber] = useState('Número original');
@@ -62,6 +65,10 @@ const WalkerProfile = () => {
         }, []);
 */
 
+    useEffect(() => {
+        setOriginalPhoneNumber(walker.phone);
+    }, [walker])
+
     const renderWalkerQualifications = ({ item }) => (
         <View style={styles.listOfQualifications}>
             <WalkerQualifications item={item} />
@@ -73,6 +80,9 @@ const WalkerProfile = () => {
     };
 
     const handleSaveChanges = () => {
+        if (editedPhoneNumber !== originalPhoneNumber || 
+            editedPrice !== originalPrice ||
+            editedWalkTime !== originalWalkTime) {
         Alert.alert(
             'Confirmar cambios',
             '¿Está seguro de que desea guardar los cambios?',
@@ -92,6 +102,9 @@ const WalkerProfile = () => {
             ],
             { cancelable: true }
         );
+            } else {
+                setIsEditing(false);
+            }
     };
 
     return (
@@ -117,7 +130,7 @@ const WalkerProfile = () => {
                         style={styles.input}
                         editable={false}
                         selectTextOnFocus={false}
-                        value="Gabriel Cordoba"
+                        value={walker.firstName +' '+ walker.lastName}
                     />
                 </View>
 
@@ -127,7 +140,7 @@ const WalkerProfile = () => {
                     <TextInput
                         style={styles.input}
                         defaultValue={originalPhoneNumber}
-                        onChange={(e) => handlePhoneNumberChange(e.nativeEvent.text)}
+                        onChange={text => setEditedPhoneNumber(text)}
                         editable={isEditing}
                         keyboardType="numeric"
                         placeholder=""

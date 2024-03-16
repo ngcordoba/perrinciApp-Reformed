@@ -6,6 +6,7 @@ import ImgBackground from '../../../components/ImageBackground';
 import ButtonRegular from '../../../components/ButtonRegular';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { useWalker } from '../../../context/WalkerContext';
 
 
 const WalkerCBU = () => {
@@ -13,6 +14,7 @@ const WalkerCBU = () => {
     const [cbu, setCBU] = useState("")
     const [alias, setAlias] = useState("")
     const navigation = useNavigation();
+    const { walker } = useWalker();
 
 
     return (
@@ -25,14 +27,14 @@ const WalkerCBU = () => {
             <View style={styles.inputContainer}>
                 <Text style={styles.titleinput}>CBU/CVU</Text>
                 <TextInput
-                    value={cbu}
+                    value={walker.walker.cbu}
                     onChangeText={setCBU}
                     style={styles.input}>
                 </TextInput>
 
                 <Text style={styles.titleinput}>Alias</Text>
                 <TextInput
-                    value={alias}
+                    value={walker.walker.alias}
                     onChangeText={setAlias}
                     style={styles.input}>
                 </TextInput>

@@ -26,7 +26,7 @@ const Profile = () => {
                 <Text>Nombre y apellido</Text>
                 <TextInput
                     style={styles.input}
-                    value={user.nombre}
+                    value={user.firstName +' '+ user.lastName}
                     editable={false}>
                 </TextInput>
 
@@ -34,14 +34,14 @@ const Profile = () => {
                 <Text>Direccion</Text>
                 <TextInput
                     style={styles.input}
-                    value={user.direccion + user.altura}
+                    value={user.direccion + ' ' + user.altura}
                 >
                 </TextInput>
 
                 <Text>Nro. de celular</Text>
                 <TextInput
                     style={styles.input}
-                    value={user.celular}>
+                    value={user.phone}>
                 </TextInput>
 
                 <Text>Correo electronico</Text>

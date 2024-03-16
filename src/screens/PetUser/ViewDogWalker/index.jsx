@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, SafeAreaView, Image, ActivityIndicator, Modal, Alert } from 'react-native';
-
 import Button from '../../../components/ButtonRegular';
 import ImgBackground from '../../../components/ImageBackground';
-import styles from "./style"
-import { handleIntegrationMP } from '../../../utils/MP_integration';
-import { openBrowserAsync } from "expo-web-browser";
-
-import { useNavigation } from '@react-navigation/native'
+import styles from "./style";
+// import { handleIntegrationMP } from '../../../utils/MP_integration';
+// import { openBrowserAsync } from "expo-web-browser";
+import { useNavigation } from '@react-navigation/native';
+import SelectDropdown from 'react-native-select-dropdown';
+import { colors } from '../../../theme/colors';
+import { useUser } from '../../../context/UserContext';
 
 
 const ViewDogWalker = ({ route }) => {
@@ -15,8 +16,11 @@ const ViewDogWalker = ({ route }) => {
     const navigation = useNavigation();
     const [solicitudEnProgreso, setSolicitudEnProgreso] = useState(false);
     const [mostrarModal, setMostrarModal] = useState(false);
+    const { user } = useUser();
+    const [selectedPaymentMethod, setselectedPaymentMethod] = useState('')
+    const payMethods = ["Efectivo", "Acordar con el paseador"];
 
-    const realizarPagoDePaseo = async () => {
+    const solicitarPaseo = async () => {
         setSolicitudEnProgreso(true);
         setMostrarModal(true);
 
@@ -29,18 +33,15 @@ const ViewDogWalker = ({ route }) => {
                     setMostrarModal(false);
                     return;
                 }
-    
-                // chequear con el back la respuesta del paseador.
-                // logica para determinar si la solicitud de paseo fue aceptada o no. 
-                const solicitudAceptada = true;
+
+                solicitudEnProgreso = true; // Aprobada OR Desaprobada
                 setSolicitudEnProgreso(false);
                 setMostrarModal(false);
-    
-                console.log("Valor de solicitudAceptada:", solicitudAceptada);
-    
-                if (solicitudAceptada === true) {
-                    openBrowserAsync(data)
-                    console.log("Se ha aceptado el paseo y la integracion esta funcionando")
+
+                console.log("Valor de solicitudAceptada:", solicitudEnProgreso);
+
+                if (solicitudEnProgreso) {
+                    console.log("Se ha aceptado el paseo")
                 } else {
                     console.log("Solicitud rechazada por el paseador");
                     Alert.alert("El paseador ha rechazado su solicitud, por favor seleccione otro")
@@ -51,14 +52,14 @@ const ViewDogWalker = ({ route }) => {
                 setSolicitudEnProgreso(false);
                 setMostrarModal(false);
             }
-        }, 30000);
+        }, 10000);
     }
-
 
     /*
 
     Solicitud de paseo:
     UserName - UserLastName
+    PayMethod
     UserLocation
     DogName
     DogRaza
@@ -80,9 +81,16 @@ const ViewDogWalker = ({ route }) => {
             },
             body: JSON.stringify({
                 userId: 123, // ID del usuario que solicita el paseo.
+                user.userName:
+                user.userLastName:
+                user.dogName:
                 userLocation: Mario Bravo 947 // dirección del usuario.
                 walkerId: actives.id, // ID del paseador al que se le solicita el paseo.
                 walkerLocation: ubicación del paseador.
+                walkerName:
+                WalkerPrice:
+                WalkerTiempoDePaseo:
+                selectedPaymentMethod:
 
                  
             }),
@@ -97,36 +105,50 @@ const ViewDogWalker = ({ route }) => {
 
     */
 
+
     return (
         <SafeAreaView style={styles.container}>
             <ImgBackground />
             <View style={styles.contentContainer}>
                 <View style={styles.photoContainer}>
-                <Image
-                    style={styles.image}
-                    source={{ uri: walkerInfo.img }}
-
-                />
+                    <Image
+                        style={styles.image}
+                        source={{ uri: walkerInfo.img }}
+                    />
                 </View>
-
             </View>
 
             <View style={styles.detailsContainer}>
-
                 <Text style={styles.label}>Calificacion: {walkerInfo.score}</Text>
                 <Text style={styles.label}>Paseos completados: {walkerInfo.walksCompleted}</Text>
-                <Text style={styles.label}>Precio por paseo: {walkerInfo.price}</Text>
                 <Text style={styles.label}>Tiempo de paseo: {walkerInfo.timeWalk} minutos.</Text>
+                <Text style={styles.label}>Precio por paseo: ${walkerInfo.price}</Text>
+                
+                <View style={{alignSelf: 'center'}}>
+                    <SelectDropdown
+                        
+                        data={payMethods}
+                        onSelect={(selectedItem, index) => {
+                            setselectedPaymentMethod(selectedItem)
+                            console.log(selectedItem)
+                        }}
+                        defaultButtonText="Seleccioná tu metodo de pago"
+                        buttonTextStyle={{ color: 'white', fontSize: 12 }}
+                        buttonStyle={{ backgroundColor: colors.brand.primary ,margin: 10, borderRadius: 10, borderColor: 'black', padding: 10, width: "65%", height: 40 }}
+                        rowStyle={{ borderBottomWidth: 1, padding: 10 }}
+                    />
+                    
+                </View>
+
+                
+                
 
                 <View style={styles.buttonContainer}>
                     <Button
-                        onPress={realizarPagoDePaseo}
+                        onPress={solicitarPaseo}
                         text={"Solicitar Paseo"}>
                             // Enviar request al paseador para aceptar el paseo
                     </Button>
-
-
-
                 </View>
             </View>
 
@@ -150,5 +172,3 @@ const ViewDogWalker = ({ route }) => {
 }
 
 export default ViewDogWalker;
-
-

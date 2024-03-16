@@ -2,8 +2,6 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { theme } from './src/theme'
-import { Provider } from "react-redux";
-import store from "./src/store";
 
 import AuthNavigator from "./src/navigation/AuthNavigator";
 import UserNavigator from "./src/navigation/UserNavigator";
@@ -16,7 +14,6 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <Provider store={store}>
       <UserProvider>
         <WalkerProvider>
           <NavigationContainer theme={theme}>
@@ -28,7 +25,6 @@ export default function App() {
           </NavigationContainer>
         </WalkerProvider>
       </UserProvider>
-    </Provider>
   );
 }
 

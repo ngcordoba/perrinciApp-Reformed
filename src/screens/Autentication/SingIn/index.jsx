@@ -27,12 +27,13 @@ const SignIn = () => {
     try {
       // Simulación de inicio de sesión exitoso con datos simulados
       const userData = {
-        nombre: 'eze',
-        apellido: 'Cordoba',
+        firstName: 'eze',
+        lastName  : 'Cordoba',
         direccion: 'Mario Bravo',
         altura: '942',
-        celular: "1123942295",
+        phone: "1123942295",
         email: 'prueba@example.com',
+        password:'',
         tipo: "usuario",
         Dog: {
           dogName: "Bernarda",
@@ -42,11 +43,42 @@ const SignIn = () => {
         }
       };
 
+      const userWalker = {
+        firstName: "John",
+        lastName: "Doe",
+        userName: "johndoe123",
+        phone: "1234567890",
+        email: "johndo@example.com",
+        password: "mysecretpassword",
+        dni: "123456789",
+        born: "1990-01-01",
+        payMethod: "Mercado_Pago",
+        address: {
+            street: "123 Main St",
+            number: "123",
+            department:"4B",
+            city: "Cityville",
+            state: "State",
+            postalCode: 12345,
+            country: "united states"
+        },
+        location: {
+            "lat": 12.345678,
+            "lon": -98.765432
+            },
+        status: "ACTIVE",
+        type: "WALKER",
+        walker:{
+            cbu: "123456",
+            alias: "123456"
+        }
+      };
+
       if (email === 'usuario') {
         setUser(userData);
         navigation.replace('User');
       } else if (email === 'paseador') {
-        setWalker(userData);
+        setWalker(userWalker);
         navigation.replace('DogWalker');
       }
     } catch (error) {
@@ -56,7 +88,7 @@ const SignIn = () => {
 
   /*
   try {
-    // Realizo la solicitud al backend para validar el inicio de sesión 
+    Realizo la solicitud al backend para validar el inicio de sesión 
     const response = await fetch('URL_DEL_BACKEND', {
       method: 'POST',
       headers: {
@@ -66,14 +98,14 @@ const SignIn = () => {
     });
  
     if (!response.ok) {
-      // Manejo los casos en los que la autenticación falla
+      Manejo los casos en los que la autenticación falla
       Alert.alert('Alguno de los datos no es correcto. Verifica tus credenciales.');
       return;
     }
  
     const userData = await response.json();
  
-    // Almacena los datos del usuario en el contexto correspondiente
+    Almacena los datos del usuario en el contexto correspondiente
     if (userData.tipo === 'usuario') {
       setUser(userData);
       navigation.navigate('User');
