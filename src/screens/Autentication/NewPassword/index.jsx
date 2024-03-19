@@ -12,6 +12,9 @@ const NewPassword = () => {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    // ENDPOINT para validar el cambio de contrasena
+    // se debe mandar tambien el correo electronico
+
 
     const handleSubmit = () => {
         if (!password) {

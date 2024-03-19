@@ -3,7 +3,7 @@ import { Text, Modal, View, StyleSheet, Button } from "react-native";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import PerrinciButton from "./ButtonRegular";
 
-export default function Walker_Modal({ isModalOpen, setIsModalOpen }) {
+export default function WalkRequest ({ isModalOpen, setIsModalOpen }) {
     const navigation = useNavigation();
     const isFocused = useIsFocused();
 

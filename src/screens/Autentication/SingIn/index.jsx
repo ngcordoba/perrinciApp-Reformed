@@ -29,12 +29,27 @@ const SignIn = () => {
       const userData = {
         firstName: 'eze',
         lastName  : 'Cordoba',
-        direccion: 'Mario Bravo',
-        altura: '942',
+        userName: 'EzeCord',
         phone: "1123942295",
         email: 'prueba@example.com',
         password:'',
+        address: {
+          direccion: 'Mario Bravo',
+          altura: '942',
+          department: '4B',
+          city: 'Citiville',
+          state: 'state',
+          postalCode: '12345',
+          country:'United States'
+        },
+        dni: '430354541',
+        born: '1990-01-01',
+        payMethod: 'Efectivo',
         tipo: "usuario",
+        location: {
+          "lat": 12.345678,
+          "lon": -98.765432
+          },
         Dog: {
           dogName: "Bernarda",
           dogAge: "1",
@@ -52,7 +67,7 @@ const SignIn = () => {
         password: "mysecretpassword",
         dni: "123456789",
         born: "1990-01-01",
-        payMethod: "Mercado_Pago",
+        payMethod: "Efectivo",
         address: {
             street: "123 Main St",
             number: "123",
